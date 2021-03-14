@@ -14,5 +14,7 @@ interface Report {
 
 
 const printSummary = (item: Report) => {
-    console.log(`The year of the car is  ${item.summary}`)
+    console.log(`The summary is ${item.summary()}`)
 }
+
+printSummary(Vehicle)

@@ -6,6 +6,7 @@ const Vehicle = {
     }
 };
 const printSummary = (item) => {
-    console.log(`The year of the car is  ${item.summary}`);
+    console.log(`The summary is ${item.summary()}`);
 };
+printSummary(Vehicle);
 //# sourceMappingURL=index.js.map
