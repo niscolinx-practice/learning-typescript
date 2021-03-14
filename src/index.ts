@@ -9,12 +9,14 @@ const Vehicle = {
 
 
 interface Report {
-    summary(): string
+    summary(): string,
+    name: string
 }
 
 
 const printSummary = (item: Report) => {
     console.log(`The summary is ${item.summary()}`)
+    console.log('the name of the car is ', item.name)
 }
 
 printSummary(Vehicle)
