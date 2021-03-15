@@ -9,8 +9,7 @@ class User {
 
     constructor(){
         this.name = faker.name.firstName()
-        this.location.lat = faker.address.latitude()
-        this.location.lng = faker.address.longitude()
+       
     }
 }
 
