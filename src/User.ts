@@ -13,3 +13,6 @@ class User {
         this.location.lng = faker.address.longitude()
     }
 }
+
+const user = new User()
+console.log(user.name, user.location)
