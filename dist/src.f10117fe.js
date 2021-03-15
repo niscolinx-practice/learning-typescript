@@ -123069,8 +123069,8 @@ function () {
   function User() {
     this.name = faker_1.default.name.firstName();
     this.location = {
-      lat: faker_1.default.address.latitude(),
-      lng: faker_1.default.address.longitude()
+      lat: parseFloat(faker_1.default.address.latitude()),
+      lng: parseFloat(faker_1.default.address.longitude())
     };
   }
 
