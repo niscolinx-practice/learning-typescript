@@ -1,13 +1,27 @@
-const Vehicle = {
-    name: 'camry',
-    year: 2019,
-    summary() {
-        return `The year is ${this.year}`;
+class Vehicle {
+    constructor(color) {
+        this.color = color;
     }
-};
-const printSummary = (item) => {
-    console.log(`The summary is ${item.summary()}`);
-    console.log('the name of the car is ', item.name);
-};
-printSummary(Vehicle);
+    drive() {
+        console.log('driving Vehicle wih', this.color, 'color');
+    }
+    move() {
+        console.log('moving');
+    }
+}
+class Car extends Vehicle {
+    constructor(wheels, color) {
+        super(color);
+        this.wheels = wheels;
+        {
+            console.log('wheels', this.wheels);
+        }
+    }
+    showDrive() {
+        this.drive();
+    }
+}
+const car = new Car(4, 'red');
+car.showDrive();
+car.move();
 //# sourceMappingURL=index.js.map

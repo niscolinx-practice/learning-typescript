@@ -23,8 +23,10 @@
 
 
 class Vehicle {
-    drive(){
-        console.log('driving!!')
+
+    constructor(protected color: string){}
+    protected drive(){
+        console.log('driving Vehicle wih', this.color, 'color')
     }
 
     move(){
@@ -33,11 +35,21 @@ class Vehicle {
 }
 
 class Car extends Vehicle{
-    drive(){
-        console.log('driving car')
+    // drive(){
+    //     console.log('driving car')
+    // }
+    constructor(public wheels: number, color:string){
+        super(color);
+        {
+            console.log('wheels', this.wheels)
+        }
+    }
+
+    showDrive(): void{
+        this.drive()
     }
 }
 
-const car = new Car()
-car.drive()
+const car = new Car(4, 'red')
+car.showDrive()
 car.move()
