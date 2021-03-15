@@ -9,9 +9,11 @@ class User {
 
     constructor(){
         this.name = faker.name.firstName()
-       
+        this.location = {
+            lat : faker.address.latitude(),
+            lng : faker.address.longitude()
+
+        }
     }
 }
 
-const user = new User()
-console.log(user.name, user.location)
