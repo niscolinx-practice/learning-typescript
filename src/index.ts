@@ -39,3 +39,5 @@ class Car extends Vehicle{
 }
 
 const car = new Car()
+car.drive()
+car.move()
