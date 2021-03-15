@@ -123123,7 +123123,7 @@ var Company_1 = require("./Company");
 
 var user = new User_1.User();
 var company = new Company_1.Company();
-console.log(user);
+console.table(user);
 console.table(company);
 },{"./User":"src/User.ts","./Company":"src/Company.ts"}],"../../../../../../../usr/local/lib/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
