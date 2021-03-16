@@ -123101,19 +123101,14 @@ function () {
       },
       zoom: 1,
       zoomControl: true
-    });
-    this.googleMarker = new google.maps.Marker({
-      map: this.googleMap,
-      position: {
-        lat: user.location.lat,
-        lng: user.location.lng
-      }
-    });
+    }); // this.googleMarker = new google.maps.Marker({
+    //     map: this.googleMap,
+    //     position: {
+    //         lat: user.location.lat,
+    //         lng: user.location.lng
+    //     }
+    // })        
   }
-
-  CustomMap.prototype.addMaker = function () {
-    return this.googleMarker;
-  };
 
   return CustomMap;
 }();
@@ -123130,7 +123125,6 @@ var CustomMap_1 = require("./CustomMap"); // import {Company} from './Company'
 
 
 var customMap = new CustomMap_1.CustomMap('map');
-customMap.googleMarker;
 },{"./CustomMap":"src/CustomMap.ts"}],"../../../../../../../usr/local/lib/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';

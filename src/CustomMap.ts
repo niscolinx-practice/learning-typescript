@@ -21,16 +21,14 @@ export class CustomMap {
             zoomControl: true
         })
 
-        this.googleMarker = new google.maps.Marker({
-            map: this.googleMap,
-            position: {
-                lat: user.location.lat,
-                lng: user.location.lng
-            }
-        })        
+        // this.googleMarker = new google.maps.Marker({
+        //     map: this.googleMap,
+        //     position: {
+        //         lat: user.location.lat,
+        //         lng: user.location.lng
+        //     }
+        // })        
     }
 
-    addMaker(){
-        return this.googleMarker
-    }
+
 }
