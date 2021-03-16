@@ -1,6 +1,6 @@
-/.cache
-/node_modules
+node_modules
+build
 
-
-/dist
 yarn.lock
+package.json
+tsconfig.json
