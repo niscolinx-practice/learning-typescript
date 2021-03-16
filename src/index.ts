@@ -6,7 +6,6 @@ const user = new User()
 
 const customMap = new CustomMap('map')
 
-customMap.addMaker(user.location.lat, user.location.lng)
-customMap.addMaker(user.location.lat, user.location.lng)
-customMap.addMaker(user.location.lat, user.location.lng)
+customMap.addMaker
+customMap.addMaker
 
