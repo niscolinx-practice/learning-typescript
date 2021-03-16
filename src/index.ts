@@ -4,6 +4,7 @@
 const user = new User()
 
 const mapElement = document.getElementById('map')
+
 new google.maps.Map(mapElement, {
     center: {
         lat: user.location.lat,
