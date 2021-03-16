@@ -123144,6 +123144,12 @@ var Company =
 /** @class */
 function () {
   function Company() {
+    var _this = this;
+
+    this.markerContent = function () {
+      return "Company is " + _this.companyName + " and the phrase is " + _this.catchPhrase;
+    };
+
     this.companyName = faker_1.default.company.companyName();
     this.catchPhrase = faker_1.default.company.catchPhrase();
     this.location = {

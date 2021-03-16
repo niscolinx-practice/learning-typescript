@@ -7,7 +7,7 @@ interface Maker {
         lat: number
     }
 
-    makerContent(): string
+    markerContent(): string
 }
 export class CustomMap {
     private googleMarker: google.maps.Marker
