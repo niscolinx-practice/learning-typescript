@@ -1,6 +1,4 @@
-import { User } from './User'
 
-const user = new User()
 interface Maker {
     location: {
         lng: number
@@ -10,10 +8,8 @@ interface Maker {
     markerContent(): string
 }
 export class CustomMap {
-    private googleMarker: google.maps.Marker
     private googleMap: google.maps.Map
-    private lat: number
-    private lng: number
+ 
 
     constructor(mapElement: string) {
         this.googleMap = new google.maps.Map(
@@ -48,4 +44,6 @@ export class CustomMap {
             infoWindow.open(this.googleMap, mark)
         })
     }
+
+    
 }

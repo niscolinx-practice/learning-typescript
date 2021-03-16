@@ -117,7 +117,51 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   }
 
   return newRequire;
-})({"node_modules/faker/lib/fake.js":[function(require,module,exports) {
+})({"src/CustomMap.ts":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.CustomMap = void 0;
+
+var CustomMap =
+/** @class */
+function () {
+  function CustomMap(mapElement) {
+    this.googleMap = new google.maps.Map(document.getElementById(mapElement), {
+      center: {
+        lat: 0,
+        lng: 0
+      },
+      zoom: 1,
+      zoomControl: true
+    });
+  }
+
+  CustomMap.prototype.addMaker = function (maker) {
+    var _this = this;
+
+    var mark = new google.maps.Marker({
+      map: this.googleMap,
+      position: {
+        lat: maker.location.lat,
+        lng: maker.location.lng
+      }
+    });
+    mark.addListener('click', function () {
+      var infoWindow = new google.maps.InfoWindow({
+        content: maker.markerContent()
+      });
+      infoWindow.open(_this.googleMap, mark);
+    });
+  };
+
+  return CustomMap;
+}();
+
+exports.CustomMap = CustomMap;
+},{}],"node_modules/faker/lib/fake.js":[function(require,module,exports) {
 /*
   fake.js - generator method for combining faker methods based on string input
 
@@ -123084,55 +123128,7 @@ function () {
 }();
 
 exports.User = User;
-},{"faker":"node_modules/faker/index.js"}],"src/CustomMap.ts":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.CustomMap = void 0;
-
-var User_1 = require("./User");
-
-var user = new User_1.User();
-
-var CustomMap =
-/** @class */
-function () {
-  function CustomMap(mapElement) {
-    this.googleMap = new google.maps.Map(document.getElementById(mapElement), {
-      center: {
-        lat: 0,
-        lng: 0
-      },
-      zoom: 1,
-      zoomControl: true
-    });
-  }
-
-  CustomMap.prototype.addMaker = function (maker) {
-    var _this = this;
-
-    var mark = new google.maps.Marker({
-      map: this.googleMap,
-      position: {
-        lat: maker.location.lat,
-        lng: maker.location.lng
-      }
-    });
-    mark.addListener('click', function () {
-      var infoWindow = new google.maps.InfoWindow({
-        content: maker.markerContent()
-      });
-      infoWindow.open(_this.googleMap, mark);
-    });
-  };
-
-  return CustomMap;
-}();
-
-exports.CustomMap = CustomMap;
-},{"./User":"src/User.ts"}],"src/Company.ts":[function(require,module,exports) {
+},{"faker":"node_modules/faker/index.js"}],"src/Company.ts":[function(require,module,exports) {
 "use strict";
 
 var __importDefault = this && this.__importDefault || function (mod) {
