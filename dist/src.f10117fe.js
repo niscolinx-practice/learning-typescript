@@ -123090,10 +123090,13 @@ var User_1 = require("./User"); // import {Company} from './Company'
 
 var user = new User_1.User();
 var mapElement = document.getElementById('map');
+console.log({
+  user: user
+}, mapElement);
 new google.maps.Map(mapElement, {
   center: {
-    lat: user.location.lat,
-    lng: user.location.lng
+    lat: 0,
+    lng: 0
   },
   zoom: 1,
   zoomControl: true
