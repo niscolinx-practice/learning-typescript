@@ -37,6 +37,8 @@ export class CustomMap {
         this.lat = lat,
         this.lng = lng
 
+        console.log(this.lng, this.lat)
+
         return this.googleMarker
     }
 }
