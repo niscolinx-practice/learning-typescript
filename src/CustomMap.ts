@@ -8,11 +8,11 @@ interface AddMaker{
     }
 }
 export class CustomMap {
+    private googleMarker: google.maps.Marker
     private googleMap: google.maps.Map
     private lat: number
     private lng: number
 
-    public googleMarker: google.maps.Marker
 
     constructor(mapElement: string){
         this.googleMap = new google.maps.Map(document.getElementById(mapElement), {
@@ -34,6 +34,9 @@ export class CustomMap {
     }
 
     addMaker(lat:number, lng:number){
+        this.lat = lat,
+        this.lng = lng
 
+        return this.googleMarker
     }
 }

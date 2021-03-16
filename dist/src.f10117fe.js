@@ -123111,7 +123111,10 @@ function () {
     });
   }
 
-  CustomMap.prototype.addMaker = function (lat, lng) {};
+  CustomMap.prototype.addMaker = function (lat, lng) {
+    this.lat = lat, this.lng = lng;
+    return this.googleMarker;
+  };
 
   return CustomMap;
 }();
