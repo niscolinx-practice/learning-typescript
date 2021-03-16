@@ -9,6 +9,9 @@ interface AddMaker{
 }
 export class CustomMap {
     private googleMap: google.maps.Map
+    private lat: number
+    private lng: number
+
     public googleMarker: google.maps.Marker
 
     constructor(mapElement: string){
@@ -21,14 +24,16 @@ export class CustomMap {
             zoomControl: true
         })
 
-        // this.googleMarker = new google.maps.Marker({
-        //     map: this.googleMap,
-        //     position: {
-        //         lat: user.location.lat,
-        //         lng: user.location.lng
-        //     }
-        // })        
+        this.googleMarker = new google.maps.Marker({
+            map: this.googleMap,
+            position: {
+                lat: this.lat,
+                lng: this.lng
+            }
+        })        
     }
 
+    addMaker(lat:number, lng:number){
 
+    }
 }

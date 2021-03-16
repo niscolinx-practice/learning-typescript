@@ -123101,14 +123101,17 @@ function () {
       },
       zoom: 1,
       zoomControl: true
-    }); // this.googleMarker = new google.maps.Marker({
-    //     map: this.googleMap,
-    //     position: {
-    //         lat: user.location.lat,
-    //         lng: user.location.lng
-    //     }
-    // })        
+    });
+    this.googleMarker = new google.maps.Marker({
+      map: this.googleMap,
+      position: {
+        lat: this.lat,
+        lng: this.lng
+      }
+    });
   }
+
+  CustomMap.prototype.addMaker = function (lat, lng) {};
 
   return CustomMap;
 }();
