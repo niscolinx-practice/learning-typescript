@@ -123101,6 +123101,9 @@ new google.maps.Map(mapElement, {
   zoom: 1,
   zoomControl: true
 });
+new google.maps.Marker({
+  title: 'here'
+});
 },{"./User":"src/User.ts"}],"../../../../../../../usr/local/lib/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';

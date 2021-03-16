@@ -15,3 +15,7 @@ new google.maps.Map(mapElement, {
     zoom: 1,
     zoomControl: true
 })
+
+new google.maps.Marker({
+    title: 'here'
+})
