@@ -7,6 +7,11 @@
   resolved "https://registry.yarnpkg.com/@types/faker/-/faker-5.1.7.tgz#1c3f0655f6e912f5578ce40baa941ab8705fc0ef"
   integrity sha512-ByseCEyhb+64fapaFR/yASUfAU+Ia4LpCnHhoNMQJFSIBvbtFoEZQB0elwrSF/idpKL5OZvmZhCCukGV8Zi22w==
 
+"@types/googlemaps@^3.43.3":
+  version "3.43.3"
+  resolved "https://registry.yarnpkg.com/@types/googlemaps/-/googlemaps-3.43.3.tgz#70cf962154a160fe78bcd69d6ccc296dd9175b1f"
+  integrity sha512-ZWNoz/O8MPEpiajvj7QiqCY8tTLFNqNZ/a+s+zTV58wFVNAvvqV4bdGfnsjTb5Cs4V6wEsLrX8XRhmnyYJ2Tdg==
+
 faker@^5.4.0:
   version "5.4.0"
   resolved "https://registry.yarnpkg.com/faker/-/faker-5.4.0.tgz#f18e55993c6887918182b003d163df14daeb3011"

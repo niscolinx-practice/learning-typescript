@@ -18,5 +18,5 @@ export class Company {
             lat: parseFloat(faker.address.latitude()),
             lng: parseFloat(faker.address.longitude())
         }
-    }
+}
 }
