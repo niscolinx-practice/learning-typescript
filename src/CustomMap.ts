@@ -36,6 +36,7 @@ export class CustomMap {
         })
 
 
+
         mark.addListener('click', () => {
            const infoWindow =  new google.maps.InfoWindow({
                 content: maker.markerContent()
