@@ -6,6 +6,6 @@ const user = new User()
 
 const customMap = new CustomMap('map')
 
-customMap.addMaker
-customMap.addMaker
+customMap.addMaker(user)
+customMap.addMaker(user)
 
