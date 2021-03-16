@@ -139,6 +139,8 @@ function () {
     });
   }
 
+  CustomMap.prototype.addMaker = function () {};
+
   return CustomMap;
 }();
 

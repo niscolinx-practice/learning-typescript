@@ -1,6 +1,7 @@
 
 export class CustomMap {
-    googleMap: google.maps.Map
+    private googleMap: google.maps.Map
+    public googleMarker: google.maps.Marker
 
     constructor(mapElement: string){
         this.googleMap = new google.maps.Map(document.getElementById(mapElement), {
@@ -11,5 +12,11 @@ export class CustomMap {
             zoom: 1,
             zoomControl: true
         })
+
+        
+    }
+
+    addMaker(){
+        
     }
 }
