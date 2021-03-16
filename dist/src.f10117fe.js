@@ -123111,12 +123111,20 @@ function () {
   }
 
   CustomMap.prototype.addMaker = function (maker) {
-    new google.maps.Marker({
+    var _this = this;
+
+    var mark = new google.maps.Marker({
       map: this.googleMap,
       position: {
         lat: maker.location.lat,
         lng: maker.location.lng
       }
+    });
+    mark.addListener('click', function () {
+      var infoWindow = new google.maps.InfoWindow({
+        content: maker.markerContent()
+      });
+      infoWindow.open(_this.googleMap, mark);
     });
   };
 
