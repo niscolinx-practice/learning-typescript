@@ -7,6 +7,7 @@ const company = new Company()
 
 const customMap = new CustomMap('map')
 
+
 customMap.addMaker(user)
 customMap.addMaker(company)
 
