@@ -123108,8 +123108,8 @@ function () {
     new google.maps.Marker({
       map: this.googleMap,
       position: {
-        lat: user.location.lat,
-        lng: user.location.lng
+        lat: maker.location.lat,
+        lng: maker.location.lng
       }
     });
   };

@@ -1,8 +1,8 @@
 import { User } from './User'
 
 const user = new User()
-interface AddMaker {
-    position: {
+interface Maker {
+    location: {
         lng: number
         lat: number
     }
@@ -27,13 +27,13 @@ export class CustomMap {
         )
     }
 
-    addMaker(maker: User): void {
+    addMaker(maker: Maker): void {
 
         new google.maps.Marker({
             map: this.googleMap,
             position: {
-                lat: user.location.lat,
-                lng: user.location.lng,
+                lat: maker.location.lat,
+                lng: maker.location.lng,
             },
         })
     }
