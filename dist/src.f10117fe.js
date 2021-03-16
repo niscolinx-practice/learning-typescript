@@ -123130,7 +123130,6 @@ var CustomMap_1 = require("./CustomMap"); // import {Company} from './Company'
 
 
 var customMap = new CustomMap_1.CustomMap('map');
-customMap.addMaker();
 customMap.googleMarker;
 },{"./CustomMap":"src/CustomMap.ts"}],"../../../../../../../usr/local/lib/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
