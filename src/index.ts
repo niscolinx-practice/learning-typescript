@@ -7,5 +7,5 @@ const customMap = new CustomMap('map')
 
 
 customMap.addMaker()
-customMap.addMaker()
+customMap.googleMarker
 
