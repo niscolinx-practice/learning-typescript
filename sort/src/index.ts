@@ -6,7 +6,7 @@ const arr = [5, 4, -2, 1, 0,6,3]
 
 const bubbleSort = (arr: number[]) => {
 
-    let toSort = arr.length
+    const toSort = arr.length
     for(let i = 0; i < toSort; i++){
 
 
