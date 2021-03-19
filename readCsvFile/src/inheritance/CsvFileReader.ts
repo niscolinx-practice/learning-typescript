@@ -1,19 +1,39 @@
 import fs from 'fs'
+import { stringToDate } from '../util/stringToDate'
 
+enum MatchResult {
+    HomeWin = 'H',
+    AwayWin = 'A',
+    Draw = 'D',
+}
+
+type MatchTuple = [Date, string, string, number, number, MatchResult, string]
 export abstract class CsvFileReader {
     data: string[][] = []
-    
 
     constructor(public csvFile: string) {}
 
-    readFile(): string[][] {
-        return (this.data = fs
+    readFile(): void {
+        this.data = fs
             .readFileSync(this.csvFile, {
                 encoding: 'utf-8',
             })
             .split('\n')
-            .map((item) => {
+            .map((item: string): string[] => {
                 return item.split(',')
-            }))
+            })
+            .map(this.matchRow)
+    }
+
+    matchRow(row: string[]):MatchTuple {
+        return [
+            stringToDate(row[0]),
+            row[1],
+            row[2],
+            parseInt(row[3]),
+            parseInt(row[4]),
+            row[5] as MatchResult,
+            row[6],
+        ]
     }
 }
