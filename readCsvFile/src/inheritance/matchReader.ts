@@ -35,6 +35,6 @@ export class MatchReader extends CsvFileReader {
     }
 
     load(){
-        
+        console.log(this.data)
     }
 }
