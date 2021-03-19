@@ -1,6 +1,12 @@
 import { stringToDate } from './../util/stringToDate';
 import { CsvFileReader } from './CsvFileReader'
 
+enum MatchResult {
+    HomeWin = 'H',
+    AwayWin = 'W',
+    Draw = 'D'
+}
+
 export class MatchReader extends CsvFileReader {
     constructor() {
         super('football.csv')
@@ -10,7 +16,7 @@ export class MatchReader extends CsvFileReader {
     readMatch(){
         
         for(let match of this.data){
-            stringToDate(match[0])
+            console.log(match)
         }
     }
 }
