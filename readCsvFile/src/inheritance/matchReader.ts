@@ -36,5 +36,10 @@ export class MatchReader extends CsvFileReader {
 
     load(){
         console.log(this.data)
+       const loader = this.data.map(row => {
+            return row
+        })
+
+        return loader
     }
 }
