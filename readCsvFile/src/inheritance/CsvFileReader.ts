@@ -1,13 +1,11 @@
 import fs from 'fs'
 
-
-
-export abstract class CsvFileReader {
-    data: MatchTuple[] = []
+export abstract class CsvFileReader<T> {
+    data: T[] = []
 
     constructor(public csvFile: string) {}
 
-    abstract matchRow(row: string[]): MatchTuple
+    abstract matchRow(row: string[]): T
 
     readFile(): void {
         this.data = fs
@@ -20,7 +18,4 @@ export abstract class CsvFileReader {
             })
             .map(this.matchRow)
     }
-
 }
-
-

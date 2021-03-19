@@ -9,7 +9,7 @@ enum MatchResult {
 
 type MatchTuple = [Date, string, string, number, number, MatchResult, string]
 
-export class MatchReader extends CsvFileReader {
+export class MatchReader extends CsvFileReader<MatchTuple> {
     matchRow(row: string[]): MatchTuple {
         return [
             stringToDate(row[0]),
@@ -22,20 +22,20 @@ export class MatchReader extends CsvFileReader {
         ]
     }
 
-    readMatch() {
-        let totalWins = 0
-        this.data.map((match) => {
-            if (match[1] === 'Man United' && match[5] === MatchResult.HomeWin) {
-                totalWins++
-            } else if (
-                match[2] === 'Man United' &&
-                match[5] === MatchResult.AwayWin
-            ) {
-                totalWins++
-            }
-        })
-        return totalWins
-    }
+    // readMatch() {
+    //     let totalWins = 0
+    //     this.data.map((match) => {
+    //         if (match[1] === 'Man United' && match[5] === MatchResult.HomeWin) {
+    //             totalWins++
+    //         } else if (
+    //             match[2] === 'Man United' &&
+    //             match[5] === MatchResult.AwayWin
+    //         ) {
+    //             totalWins++
+    //         }
+    //     })
+    //     return totalWins
+    // }
 
    
 }
