@@ -1,12 +1,14 @@
 import { CsvFileReader } from './CsvFileReader';
 
-const csvFileReader = new CsvFileReader('football.csv')
-csvFileReader.readFile()
 
-console.log(csvFileReader.data)
-export class MatchReader {
+export class MatchReader extends CsvFileReader {
 
     constructor(){
-
+        super('football.csv')
+        
+        this.readFile()
+        console.log(this.data)
     }
+
+    
 }
