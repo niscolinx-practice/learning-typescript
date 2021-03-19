@@ -4,10 +4,14 @@ export class Reader {
     data: string[] = []
 
     readFile() {
-        fs.readFileSync('football.csv', {
+       return fs.readFileSync('football.csv', {
             encoding: 'utf-8',
-        }).split('')
+        }).split('/n')
+        .map((item) => {
+            
+        })
     }
 }
 
-const reader 
+const reader = new Reader()
+console.log('the read file', reader.readFile())
