@@ -1,11 +1,6 @@
 import fs from 'fs'
-import { stringToDate } from '../util/stringToDate'
 
-enum MatchResult {
-    HomeWin = 'H',
-    AwayWin = 'A',
-    Draw = 'D',
-}
+
 
 type MatchTuple = [Date, string, string, number, number, MatchResult, string]
 export abstract class CsvFileReader {
@@ -13,8 +8,8 @@ export abstract class CsvFileReader {
 
     constructor(public csvFile: string) {}
 
-    abstract matchRow(row: string[]): MatchTuple {}
-    
+    abstract matchRow(row: string[]): MatchTuple
+
     readFile(): void {
         this.data = fs
             .readFileSync(this.csvFile, {
@@ -28,3 +23,5 @@ export abstract class CsvFileReader {
     }
 
 }
+
+
