@@ -7,6 +7,7 @@ enum MatchResult {
     Draw = 'D'
 }
 
+let matchTuple : [string, string]
 export class MatchReader extends CsvFileReader {
     constructor() {
         super('football.csv')
