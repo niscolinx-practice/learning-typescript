@@ -1,5 +1,6 @@
 import { MatchReader } from './inheritance/matchReader';
 
-const matchReader = new MatchReader()
+const matchReader = new MatchReader('football.csv')
 
-console.log('the match reader', matchReader.loadData())
+matchReader.readFile()
+console.log(matchReader.data)

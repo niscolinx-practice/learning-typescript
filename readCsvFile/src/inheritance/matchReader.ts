@@ -22,20 +22,5 @@ export class MatchReader extends CsvFileReader<MatchTuple> {
         ]
     }
 
-    // readMatch() {
-    //     let totalWins = 0
-    //     this.data.map((match) => {
-    //         if (match[1] === 'Man United' && match[5] === MatchResult.HomeWin) {
-    //             totalWins++
-    //         } else if (
-    //             match[2] === 'Man United' &&
-    //             match[5] === MatchResult.AwayWin
-    //         ) {
-    //             totalWins++
-    //         }
-    //     })
-    //     return totalWins
-    // }
-
    
 }
