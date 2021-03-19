@@ -20,19 +20,18 @@ export class MatchReader extends CsvFileReader {
         //     console.log(item)
         // }
 
-        const transFormedCsv = this.data.map(match => {
-            let totalWins = 0
-           if(match[1] === 'Everton' && match[5] === MatchResult.HomeWin){
+        let totalWins = 0
+        this.data.map(match => {
+           if(match[1] === 'Man United' && match[5] === MatchResult.HomeWin){
                 totalWins++
            }
-           else if(match[2] === 'Everton' && match[5] === MatchResult.AwayWin) {
+           else if(match[2] === 'Man United' && match[5] === MatchResult.AwayWin) {
                 totalWins++
            }
 
-           return totalWins
         })
+        return totalWins
 
-       // return transFormedCsv
 
        // console.log('the data', this.data)
     }
