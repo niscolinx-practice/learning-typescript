@@ -3,7 +3,7 @@ import { CsvFileReader } from './CsvFileReader'
 
 enum MatchResult {
     HomeWin = 'H',
-    AwayWin = 'W',
+    AwayWin = 'A',
     Draw = 'D'
 }
 
