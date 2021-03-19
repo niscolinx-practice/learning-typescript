@@ -32,7 +32,9 @@ export class MatchReader extends CsvFileReader {
         })
         return totalWins
 
+    }
 
-       // console.log('the data', this.data)
+    load(){
+        
     }
 }
