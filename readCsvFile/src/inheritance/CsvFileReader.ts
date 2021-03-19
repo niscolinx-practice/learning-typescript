@@ -2,7 +2,6 @@ import fs from 'fs'
 
 
 
-type MatchTuple = [Date, string, string, number, number, MatchResult, string]
 export abstract class CsvFileReader {
     data: MatchTuple[] = []
 

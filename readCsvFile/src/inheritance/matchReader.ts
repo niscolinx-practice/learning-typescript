@@ -7,6 +7,8 @@ enum MatchResult {
     Draw = 'D'
 }
 
+type MatchTuple = [Date, string, string, number, number, MatchResult, string]
+
 export class MatchReader extends CsvFileReader {
     matchRow(row: string[]): MatchTuple {
         return [
@@ -35,7 +37,5 @@ export class MatchReader extends CsvFileReader {
         return totalWins
     }
 
-    loadData() {
-        return this.readFile()
-    }
+   
 }
