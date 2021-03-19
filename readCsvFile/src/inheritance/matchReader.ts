@@ -16,7 +16,9 @@ export class MatchReader extends CsvFileReader {
     readMatch(){
         
         for(let match of this.data){
-            console.log(match)
+            console.log('match', match)
         }
+
+       // console.log('the data', this.data)
     }
 }
