@@ -7,7 +7,7 @@ enum MatchResult {
     Draw = 'D'
 }
 
-let matchTuple : [string, string]
+let matchTuple : [Date, string, string, number, number, string, string]
 export class MatchReader extends CsvFileReader {
     constructor() {
         super('football.csv')
@@ -16,9 +16,11 @@ export class MatchReader extends CsvFileReader {
 
     readMatch(){
         
-        for(let match of this.data){
-            console.log('match', match)
-        }
+        const transFormedCsv = this.data.map(match => {
+           return match
+        })
+
+        return transFormedCsv
 
        // console.log('the data', this.data)
     }
