@@ -6,11 +6,8 @@ export class Reader {
     readFile() {
        return fs.readFileSync('football.csv', {
             encoding: 'utf-8',
-        }).split('/n')
-        .map((item) => {
-            
-        })
-    }
+        }).split('\n').length
+     }
 }
 
 const reader = new Reader()
