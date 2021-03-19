@@ -1,14 +1,16 @@
-import { CsvFileReader } from './CsvFileReader';
-
+import { stringToDate } from './../util/stringToDate';
+import { CsvFileReader } from './CsvFileReader'
 
 export class MatchReader extends CsvFileReader {
-
-    constructor(){
+    constructor() {
         super('football.csv')
-        
         this.readFile()
-        console.log(this.data)
     }
 
-    
+    readMatch(){
+        
+        for(let match of this.data){
+            stringToDate(match[0])
+        }
+    }
 }
