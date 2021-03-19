@@ -13,8 +13,8 @@ export abstract class CsvFileReader {
 
     constructor(public csvFile: string) {}
 
-    readFile(): void {
-        this.data = fs
+    readFile(): MatchTuple[] {
+        return this.data = fs
             .readFileSync(this.csvFile, {
                 encoding: 'utf-8',
             })
@@ -22,7 +22,7 @@ export abstract class CsvFileReader {
             .map((item: string): string[] => {
                 return item.split(',')
             })
-            .map((row: string[]):MatchTuple {
+            .map((row: string[]):MatchTuple => {
         return [
             stringToDate(row[0]),
             row[1],
