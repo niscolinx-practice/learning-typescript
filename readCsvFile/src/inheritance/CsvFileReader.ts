@@ -18,4 +18,5 @@ export abstract class CsvFileReader<T> {
             })
             .map(this.matchRow)
     }
+
 }
