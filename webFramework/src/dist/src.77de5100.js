@@ -177,6 +177,7 @@ user.set({
   name: 'Hello',
   age: 12
 });
+console.log(user.get('name'));
 console.log(user.get('age'));
 },{"./User":"User.ts"}],"../../../../../../../../../usr/local/lib/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
