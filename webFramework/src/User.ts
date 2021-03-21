@@ -3,6 +3,8 @@ interface UserProps {
     age: number
 }
 
+type Callback = () => void
+
 export class User {
     constructor(private data: UserProps) {
         this.data = {
