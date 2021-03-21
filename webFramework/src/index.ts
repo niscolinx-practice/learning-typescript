@@ -3,3 +3,9 @@ interface UserProps {
     age: number
 }
 
+class User {
+
+    constructor(public propName: UserProps){
+        
+    }
+}
