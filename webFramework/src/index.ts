@@ -4,8 +4,9 @@ interface UserProps {
 }
 
 class User {
+    constructor(public propName: UserProps) {}
 
-    constructor(public propName: UserProps){
-        
+    getUser(prop: number | string): UserProps {
+        return this.propName[prop]
     }
 }
