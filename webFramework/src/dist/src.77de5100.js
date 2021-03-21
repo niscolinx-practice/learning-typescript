@@ -155,6 +155,9 @@ function () {
     value: function on(eventName, callback) {
       var handlers = this.events[eventName];
       handlers.push(callback);
+      this.events = {
+        eventName: handlers
+      };
     }
   }]);
 
