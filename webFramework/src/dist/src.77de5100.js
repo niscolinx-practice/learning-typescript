@@ -138,10 +138,6 @@ function () {
     _classCallCheck(this, User);
 
     this.data = data;
-    this.data = {
-      name: 'Clinton',
-      age: 21
-    };
   }
 
   _createClass(User, [{
