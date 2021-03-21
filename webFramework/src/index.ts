@@ -1,12 +1,3 @@
-interface UserProps {
-    name: string
-    age: number
-}
+import { User } from "./User";
 
-export class User {
-    constructor(private data: UserProps) {}
-
-    get(propName:string): number | string {
-        return this.data[propName]
-    }
-}
+const user = new User({name: 'Collins', age: 52})
