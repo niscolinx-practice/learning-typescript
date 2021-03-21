@@ -154,6 +154,12 @@ function () {
     value: function set(updateUserProp) {
       Object.assign(this.data, updateUserProp);
     }
+  }, {
+    key: "on",
+    value: function on(eventName, callback) {
+      var handlers = this.events[eventName];
+      handlers.push(callback);
+    }
   }]);
 
   return User;

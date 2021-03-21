@@ -25,4 +25,9 @@ export class User {
     set(updateUserProp: UserProps): void {
         Object.assign(this.data, updateUserProp)
     }
+
+    on(eventName: string, callback: Callback){
+        const handlers = this.events[eventName]
+        handlers.push(callback)
+    }
 }
