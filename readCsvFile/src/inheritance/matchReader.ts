@@ -1,5 +1,5 @@
 import { stringToDate } from './../util/stringToDate';
-import { CsvFileReader } from './CsvFileReader'
+import { CsvFileReader } from './CsvFileReader.ts'
 
 enum MatchResult {
     HomeWin = 'H',
