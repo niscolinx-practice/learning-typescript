@@ -6,6 +6,8 @@ user.set({name: 'Hello', age: 12})
 console.log(user.get('name'))
 
 
-console.log(user.on('click', () => {}))
-console.log(user.on('click', () => {}))
-console.log(user.on('mouseOver', () => {}))
+user.on('click', () => {})
+user.on('click', () => {})
+user.on('mouseOver', () => {})
+
+console.log(user.events)
