@@ -6,7 +6,7 @@ interface UserProps {
 export class User {
     constructor(private data: UserProps) {
         this.data = {
-            name: 'Clinton', 
+            name: 'Clinton',
             age: 21,
         }
     }
@@ -15,10 +15,7 @@ export class User {
         return this.data[propName as keyof UserProps]
     }
 
-    set(updateUserProp: UserProps): void{
-     
-   Object.assign(this.data, updateUserProp)
-
-       console.log(this.data)
+    set(updateUserProp: UserProps): void {
+        Object.assign(this.data, updateUserProp)
     }
 }
