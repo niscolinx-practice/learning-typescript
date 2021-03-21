@@ -138,6 +138,7 @@ function () {
     _classCallCheck(this, User);
 
     this.data = data;
+    this.events = {};
   }
 
   _createClass(User, [{
@@ -153,11 +154,9 @@ function () {
   }, {
     key: "on",
     value: function on(eventName, callback) {
-      var handlers = this.events[eventName];
+      var handlers = this.events[eventName] || [];
       handlers.push(callback);
-      this.events = {
-        eventName: handlers
-      };
+      this.events[eventName] = handlers;
     }
   }]);
 
@@ -174,15 +173,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var User_1 = require("./User");
 
-var user = new User_1.User({
-  name: 'Collins',
-  age: 52
-});
-user.set({
-  name: 'Hello',
-  age: 12
-});
-console.log(user.get('name'));
+var user = new User_1.User({});
 user.on('click', function () {});
 user.on('click', function () {});
 user.on('mouseOver', function () {});
@@ -215,7 +206,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "41199" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "45261" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
