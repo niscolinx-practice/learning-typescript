@@ -4,7 +4,7 @@ interface HasId {
     id?: number
 }
 export class Sync<T extends HasId> {
-    data: T = void;
+    data: T = {};
 
     constructor(private rootUrl: string) {}
     save(): Promise<AxiosResponse> {
