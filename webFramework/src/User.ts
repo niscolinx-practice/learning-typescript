@@ -1,6 +1,7 @@
 interface UserProps {
     name?: string
     age?: number
+    id?: number
 }
 
 type Callback = () => void
@@ -26,7 +27,7 @@ export class User {
         this.events[eventName] = handlers
     }
 
-    save(){
+    save(user: UserProps){
         const handlers = this.data
     }
 }
