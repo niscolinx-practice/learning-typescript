@@ -1,3 +1,4 @@
+import { UserProps } from './User';
 
 export class Attributes<T> {
     constructor(private data: T) {}
@@ -10,3 +11,11 @@ export class Attributes<T> {
         Object.assign(this.data, updateUserProp)
     }
 }
+
+const attrs = new Attributes<UserProps>({
+    name: 'hello', 
+    age: 523,
+    id: 5
+})
+
+
