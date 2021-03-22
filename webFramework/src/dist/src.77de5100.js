@@ -1982,7 +1982,10 @@ function () {
   }, {
     key: "save",
     value: function save() {
-      axios_1.default.post('http://localhost:3000/users');
+      var userData = this.data;
+      axios_1.default.post('http://localhost:3000/users', {
+        userData: userData
+      });
     }
   }]);
 

@@ -42,6 +42,10 @@ export class User {
     }
 
     save(){
-        axios.post('http://localhost:3000/users')
+        const userData = this.data
+
+        axios.post('http://localhost:3000/users', {
+            userData
+        })
     }
 }
