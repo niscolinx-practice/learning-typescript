@@ -2019,8 +2019,8 @@ var User_1 = require("./models/User");
 var user = new User_1.User({
   name: 'Nelon',
   age: 23
-}); //console.log(user)
-//user.save()
+});
+console.log(user); //user.save()
 },{"./models/User":"models/User.ts"}],"../../../../../../../../../usr/local/lib/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
