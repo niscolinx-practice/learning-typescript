@@ -2029,7 +2029,8 @@ var User_1 = require("./models/User");
 
 var user = new User_1.User({
   name: 'Nelson',
-  age: 23
+  age: 23,
+  id: 2
 });
 console.log(user);
 user.save();
