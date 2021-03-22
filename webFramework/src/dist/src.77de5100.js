@@ -1990,7 +1990,7 @@ var axios_1 = __importDefault(require("axios"));
 
 var Events_1 = require("./Events");
 
-var URL = 'http://localhost:3000/users/';
+var URL = 'http://localhost:3000/users';
 
 var User =
 /*#__PURE__*/

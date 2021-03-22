@@ -8,7 +8,7 @@ interface UserProps {
 }
 
 
-const URL = 'http://localhost:3000/users/'
+const URL = 'http://localhost:3000/users'
 
 export class User {
     events: Events = new Events()
