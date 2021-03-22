@@ -25,4 +25,8 @@ export class User {
         handlers.push(callback)
         this.events[eventName] = handlers
     }
+
+    save(){
+        
+    }
 }

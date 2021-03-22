@@ -158,6 +158,9 @@ function () {
       handlers.push(callback);
       this.events[eventName] = handlers;
     }
+  }, {
+    key: "save",
+    value: function save() {}
   }]);
 
   return User;
