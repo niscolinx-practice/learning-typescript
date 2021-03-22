@@ -43,24 +43,30 @@ export class User {
         })
     }
 
-    save():void {
+    save(): void {
+        const id = this.get('id')
 
-        if(this.get('id')){
-            axios.put(URL + this.get('id'), this.set(this.data))
+        if (id) {
+            console.log(URL + id)
+            axios
+                .put(URL + id, this.set(this.data))
+                .then((res) => console.log(res))
+                .catch((err) => console.log(err))
+        } else {
+            axios
+                .post(URL, this.data)
+                .then((res) => console.log(res))
+                .catch((err) => console.log(err))
         }
-        else{
-            axios.post(URL, this.data)
-
-        }
-    
     }
-    
-    fetch():void {
+
+    fetch(): void {
         axios
-        .get(URL + this.get('id'))
-        .then((res: AxiosResponse) => {
+            .get(URL + this.get('id'))
+            .then((res: AxiosResponse) => {
                 this.set(res.data)
-            }).catch(err => {
+            })
+            .catch((err) => {
                 throw new Error(err)
             })
     }
