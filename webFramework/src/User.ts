@@ -41,20 +41,19 @@ export class User {
         })
     }
 
-    save() {
+    save():void {
 
         axios.post('http://localhost:3000/users/', this.data).then((res: AxiosResponse) => {
-           this.set(res.data)
         }).catch(err => {
             throw new Error(err)
         })
     }
-
-    fetch() {
+    
+    fetch():void {
         axios
-            .get('http://localhost:3000/users/' + this.get('id'))
-            .then((res: AxiosResponse) => {
-                console.log(res.data)
+        .get('http://localhost:3000/users/' + this.get('id'))
+        .then((res: AxiosResponse) => {
+                this.set(res.data)
             }).catch(err => {
                 throw new Error(err)
             })
