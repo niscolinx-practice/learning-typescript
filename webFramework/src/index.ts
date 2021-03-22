@@ -1,12 +1,12 @@
 import { User } from './User'
 
-const user = new User({})
+// const user = new User({})
 
-user.set({
-    name: 'Collins', 
-    age: 23
-})
+// user.set({
+//     name: 'Collins', 
+//     age: 23
+// })
 
-console.log(user)
+//console.log(user)
 
 
