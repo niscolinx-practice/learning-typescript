@@ -1,9 +1,13 @@
 import axios from 'axios'
 
-export class Sync<T> {
-    constructor(private rootUrl: string, data: T){}
+
+interface HasId {
+    id?: number
+}
+export class Sync<T extends HasId> {
+    constructor(private rootUrl: string, private data: T){}
     save(): void {
-        const id = this.get('id')
+        const {id} = this.data
 
         if (id) {
             axios.put(this.rootUrl + id, this.data)
