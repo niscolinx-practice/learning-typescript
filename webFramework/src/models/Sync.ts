@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 class Sync {
-    constructor(private rootUrl: string)
+    constructor(private rootUrl: string){}
     save(): void {
         const id = this.get('id')
 
