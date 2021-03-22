@@ -51,7 +51,7 @@ export class User {
         })
     }
 
-    fetch() {
+    static fetch() {
         axios
             .get('http://localhost:3000/users/' + localStorage.getItem('id'))
             .then((res: AxiosResponse) => {
