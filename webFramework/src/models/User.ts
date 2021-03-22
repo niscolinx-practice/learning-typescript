@@ -1,5 +1,5 @@
 import axios, { AxiosResponse } from 'axios'
-import { Events } from '../Events/Events'
+import { Events } from './Events'
 
 interface UserProps {
     name?: string
