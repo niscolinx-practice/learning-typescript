@@ -1999,7 +1999,7 @@ function () {
     _classCallCheck(this, User);
 
     this.data = data;
-    this.event = new Events_1.Events();
+    this.events = new Events_1.Events();
   }
 
   _createClass(User, [{
@@ -2063,8 +2063,11 @@ var user = new User_1.User({
   age: 524,
   id: 3
 });
-console.log(user);
-user.save();
+console.log(user); //user.save()
+
+user.events.on('change', function () {
+  console.log('Triggered event of change');
+});
 },{"./models/User":"models/User.ts"}],"../../../../../../../../../usr/local/lib/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';

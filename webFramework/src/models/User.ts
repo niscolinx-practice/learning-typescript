@@ -11,7 +11,7 @@ interface UserProps {
 const URL = 'http://localhost:3000/users/'
 
 export class User {
-    event: Events = new Events()
+    events: Events = new Events()
 
     constructor(private data: UserProps) {}
 
