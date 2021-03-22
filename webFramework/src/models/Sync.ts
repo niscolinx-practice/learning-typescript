@@ -1,4 +1,4 @@
-import axios from 'axios'
+import axios, { AxiosResponse } from 'axios'
 
 interface HasId {
     id?: number
@@ -15,7 +15,7 @@ export class Sync<T extends HasId> {
         }
     }
 
-    fetch(): void {
-        axios.get(this.rootUrl + this.data)
+    fetch(): Promise<AxiosResponse<any>>d {
+        return axios.get(this.rootUrl + this.data)
     }
 }
