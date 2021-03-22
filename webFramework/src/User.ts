@@ -45,7 +45,6 @@ export class User {
 
         axios.post('http://localhost:3000/users/', this.data).then((res: AxiosResponse) => {
            this.set(res.data)
-           localStorage.setItem('id', res.data.id)
         }).catch(err => {
             throw new Error(err)
         })
@@ -53,9 +52,9 @@ export class User {
 
     static fetch() {
         axios
-            .get('http://localhost:3000/users/' + localStorage.getItem('id'))
+            .get('http://localhost:3000/users/' + this.get('id'))
             .then((res: AxiosResponse) => {
-                console.log(res)
+                console.log(res.data)
             }).catch(err => {
                 throw new Error(err)
             })
