@@ -6,14 +6,11 @@ interface UserProps {
     id?: number
 }
 
-type Callback = () => void
 
 const URL = 'http://localhost:3000/users/'
 
 export class User {
-    events: {
-        [key: string]: Callback[]
-    } = {}
+   
 
     constructor(private data: UserProps) {}
 
@@ -26,7 +23,7 @@ export class User {
     }
 
    
-    }
+    
 
     save(): void {
         const id = this.get('id')

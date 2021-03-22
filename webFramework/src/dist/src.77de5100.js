@@ -1948,7 +1948,6 @@ function () {
     _classCallCheck(this, User);
 
     this.data = data;
-    this.events = {};
   }
 
   _createClass(User, [{
@@ -1960,26 +1959,6 @@ function () {
     key: "set",
     value: function set(updateUserProp) {
       Object.assign(this.data, updateUserProp);
-    }
-  }, {
-    key: "on",
-    value: function on(eventName, callback) {
-      var handlers = this.events[eventName] || [];
-      handlers.push(callback);
-      this.events[eventName] = handlers;
-    }
-  }, {
-    key: "trigger",
-    value: function trigger(eventName) {
-      var handler = this.events[eventName];
-
-      if (!handler || handler.length === 0) {
-        return;
-      }
-
-      handler.forEach(function (event) {
-        event();
-      });
     }
   }, {
     key: "save",
