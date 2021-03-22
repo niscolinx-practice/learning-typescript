@@ -1985,7 +1985,7 @@ function () {
       var _this = this;
 
       axios_1.default.post('http://localhost:3000/users', this.data).then(function (res) {
-        _this.data = res.data;
+        return _this.data = res.data;
       }).catch(function (err) {
         throw new Error(err);
       });
