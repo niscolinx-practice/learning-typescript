@@ -45,10 +45,14 @@ export class User {
 
     save():void {
 
-        axios.post(URL, this.data).then((res: AxiosResponse) => {
-        }).catch(err => {
-            throw new Error(err)
-        })
+        if(this.get('id')){
+            axios.put(URL + this.get('id'), Object.assign(this.data, ))
+        }
+        else{
+            axios.post(URL, this.data).then((res: AxiosResponse) => {
+
+        }
+    
     }
     
     fetch():void {
