@@ -159,9 +159,17 @@ function () {
       this.events[eventName] = handlers;
     }
   }, {
-    key: "save",
-    value: function save(user) {
-      var handlers = this.data;
+    key: "trigger",
+    value: function trigger(eventName) {
+      var handler = this.events[eventName];
+
+      if (!handler || handler.length === 0) {
+        return;
+      }
+
+      handler.forEach(function (event) {
+        event();
+      });
     }
   }]);
 
@@ -179,9 +187,16 @@ Object.defineProperty(exports, "__esModule", {
 var User_1 = require("./User");
 
 var user = new User_1.User({});
-user.on('click', function () {});
-user.on('click', function () {});
-user.on('mouseOver', function () {});
+user.on('click', function () {
+  console.log('click 1');
+});
+user.on('click', function () {
+  console.log('click 2');
+});
+user.on('mouseOver', function () {
+  console.log('mouse over fired');
+});
+user.trigger('click');
 console.log(user.events);
 },{"./User":"User.ts"}],"../../../../../../../../../usr/local/lib/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];

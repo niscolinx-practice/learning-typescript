@@ -27,7 +27,15 @@ export class User {
         this.events[eventName] = handlers
     }
 
-    save(user: UserProps){
-        const handlers = this.data
+    trigger(eventName: string):void{
+        const handler = this.events[eventName]
+
+        if(!handler || handler.length === 0){
+            return
+        }
+
+        handler.forEach((event) => {
+            event()
+        })
     }
 }
