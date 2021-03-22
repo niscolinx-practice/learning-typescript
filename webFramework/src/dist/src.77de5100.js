@@ -160,7 +160,9 @@ function () {
     }
   }, {
     key: "save",
-    value: function save() {}
+    value: function save() {
+      var handlers = this.data;
+    }
   }]);
 
   return User;

@@ -27,6 +27,6 @@ export class User {
     }
 
     save(){
-        
+        const handlers = this.data
     }
 }
