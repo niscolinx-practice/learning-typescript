@@ -8,6 +8,8 @@ interface UserProps {
 
 type Callback = () => void
 
+const URL = 'http://localhost:3000/users/'
+
 export class User {
     events: {
         [key: string]: Callback[]
@@ -43,7 +45,7 @@ export class User {
 
     save():void {
 
-        axios.post('http://localhost:3000/users/', this.data).then((res: AxiosResponse) => {
+        axios.post(URL, this.data).then((res: AxiosResponse) => {
         }).catch(err => {
             throw new Error(err)
         })
@@ -51,7 +53,7 @@ export class User {
     
     fetch():void {
         axios
-        .get('http://localhost:3000/users/' + this.get('id'))
+        .get(URL + this.get('id'))
         .then((res: AxiosResponse) => {
                 this.set(res.data)
             }).catch(err => {
