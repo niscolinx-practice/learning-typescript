@@ -1985,6 +1985,15 @@ function () {
       var userData = this.data;
       axios_1.default.post('http://localhost:3000/users', userData);
     }
+  }, {
+    key: "fetch",
+    value: function fetch() {
+      axios_1.default.get('http://localhost:3000/users' + this.get('id')).then(function (res) {
+        console.log(res);
+      }).catch(function (err) {
+        throw new Error(err);
+      });
+    }
   }]);
 
   return User;
@@ -2005,7 +2014,7 @@ user.set({
   name: 'collins',
   age: 24
 });
-user.save();
+user.fetch();
 },{"./User":"User.ts"}],"../../../../../../../../../usr/local/lib/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';

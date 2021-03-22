@@ -7,5 +7,5 @@ user.set({
     age: 24
 })
 
-user.save()
+user.fetch()
 

@@ -1,4 +1,4 @@
-import axios from 'axios'
+import axios, { AxiosResponse } from 'axios'
 
 interface UserProps {
     name?: string
@@ -45,5 +45,15 @@ export class User {
         const userData = this.data
 
         axios.post('http://localhost:3000/users', userData)
+    }
+
+    fetch() {
+        axios
+            .get('http://localhost:3000/users' + this.get('id'))
+            .then((res: AxiosResponse) => {
+                console.log(res)
+            }).catch(err => {
+                throw new Error(err)
+            })
     }
 }
