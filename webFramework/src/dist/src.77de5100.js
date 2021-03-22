@@ -1983,9 +1983,7 @@ function () {
     key: "save",
     value: function save() {
       var userData = this.data;
-      axios_1.default.post('http://localhost:3000/users', {
-        userData: userData
-      });
+      axios_1.default.post('http://localhost:3000/users', userData);
     }
   }]);
 
@@ -2003,16 +2001,11 @@ Object.defineProperty(exports, "__esModule", {
 var User_1 = require("./User");
 
 var user = new User_1.User({});
-user.on('click', function () {
-  console.log('click 1');
+user.set({
+  name: 'collins',
+  age: 24
 });
-user.on('click', function () {
-  console.log('click 2');
-});
-user.on('mouseOver', function () {
-  console.log('mouse over fired');
-});
-user.trigger('mouseOver');
+user.save();
 },{"./User":"User.ts"}],"../../../../../../../../../usr/local/lib/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';

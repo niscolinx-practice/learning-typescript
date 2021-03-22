@@ -2,15 +2,10 @@ import { User } from './User'
 
 const user = new User({})
 
-user.on('click', () => {
-    console.log('click 1')
-})
-user.on('click', () => {
-    console.log('click 2')
-})
-user.on('mouseOver', () => {
-    console.log('mouse over fired')
+user.set({
+    name: 'collins',
+    age: 24
 })
 
-user.trigger('mouseOver')
+user.save()
 

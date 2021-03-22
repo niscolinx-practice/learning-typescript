@@ -1,4 +1,4 @@
-import axios from "axios"
+import axios from 'axios'
 
 interface UserProps {
     name?: string
@@ -29,10 +29,10 @@ export class User {
         this.events[eventName] = handlers
     }
 
-    trigger(eventName: string):void{
+    trigger(eventName: string): void {
         const handler = this.events[eventName]
 
-        if(!handler || handler.length === 0){
+        if (!handler || handler.length === 0) {
             return
         }
 
@@ -41,11 +41,9 @@ export class User {
         })
     }
 
-    save(){
+    save() {
         const userData = this.data
 
-        axios.post('http://localhost:3000/users', {
-            userData
-        })
+        axios.post('http://localhost:3000/users', userData)
     }
 }
