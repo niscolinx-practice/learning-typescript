@@ -1,15 +1,7 @@
 import { User } from './User'
 
-const user = new User({})
+const user = User
 
-user.set({
-    name: 'collins',
-    age: 24
-})
-
-user.save()
-console.log(user)
-console.log(user.get('id'))
 console.log(user)
 
 
