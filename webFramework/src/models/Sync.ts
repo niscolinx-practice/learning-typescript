@@ -4,7 +4,9 @@ interface HasId {
     id?: number
 }
 export class Sync<T extends HasId> {
-    constructor(private rootUrl: string, private data: T) {}
+    data: T = void;
+
+    constructor(private rootUrl: string) {}
     save(): Promise<AxiosResponse> {
         const { id } = this.data
 
