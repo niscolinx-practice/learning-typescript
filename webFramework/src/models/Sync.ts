@@ -1,13 +1,12 @@
 import axios from 'axios'
 
-
 interface HasId {
     id?: number
 }
 export class Sync<T extends HasId> {
-    constructor(private rootUrl: string, private data: T){}
+    constructor(private rootUrl: string, private data: T) {}
     save(): void {
-        const {id} = this.data
+        const { id } = this.data
 
         if (id) {
             axios.put(this.rootUrl + id, this.data)
@@ -17,13 +16,6 @@ export class Sync<T extends HasId> {
     }
 
     fetch(): void {
-        axios
-            .get(this.rootUrl + this.get('id'))
-            .then((res: AxiosResponse) => {
-                this.set(res.data)
-            })
-            .catch((err) => {
-                throw new Error(err)
-            })
+        axios.get(this.rootUrl + this.data)
     }
 }
