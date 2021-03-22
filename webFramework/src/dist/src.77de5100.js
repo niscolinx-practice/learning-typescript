@@ -1982,8 +1982,10 @@ function () {
   }, {
     key: "save",
     value: function save() {
+      var _this = this;
+
       axios_1.default.post('http://localhost:3000/users/', this.data).then(function (res) {
-        threadId;
+        _this.set(res.data);
       }).catch(function (err) {
         throw new Error(err);
       });
