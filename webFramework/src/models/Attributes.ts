@@ -1,13 +1,13 @@
 import { UserProps } from './User'
 
-export class Attributes<T> {
-    constructor(private data: T) {}
+export class Attributes {
+    constructor(private data: UserProps) {}
 
     get(propName: string): number | string | undefined {
-        return this.data[propName as keyof T]
+        return this.data[propName as keyof UserProps]
     }
 
-    set(updateUserProp: T): void {
+    set(updateUserProp: UserProps): void {
         Object.assign(this.data, updateUserProp)
     }
 }
