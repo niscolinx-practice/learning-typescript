@@ -44,7 +44,7 @@ export class User {
     save() {
 
         axios.post('http://localhost:3000/users/', this.data).then((res: AxiosResponse) => {
-           return this.data = res.data
+           threadId
         }).catch(err => {
             throw new Error(err)
         })
