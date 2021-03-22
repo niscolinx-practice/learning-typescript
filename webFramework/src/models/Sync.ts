@@ -6,15 +6,17 @@ interface HasId {
 export class Sync<T extends HasId> {
     constructor(private rootUrl: string) {}
 
-    save(): Promise<AxiosResponse> {
+    save(data: T): Promise<AxiosResponse> {
+        const {id} = data
+
         if (id) {
-            return axios.put(this.rootUrl + id, this.data)
+            return axios.put(this.rootUrl + id, data)
         } else {
-            return axios.post(this.rootUrl, this.data)
+            return axios.post(this.rootUrl, data)
         }
     }
 
-    fetch(): Promise<AxiosResponse> {
-        return axios.get(this.rootUrl + this.data)
+    fetch(id: number): Promise<AxiosResponse> {
+        return axios.get(this.rootUrl + id)
     }
 }
