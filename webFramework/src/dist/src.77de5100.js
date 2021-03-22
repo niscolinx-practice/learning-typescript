@@ -117,7 +117,46 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   }
 
   return newRequire;
-})({"../node_modules/axios/lib/helpers/bind.js":[function(require,module,exports) {
+})({"models/Attributes.ts":[function(require,module,exports) {
+"use strict";
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.Attributes = void 0;
+
+var Attributes =
+/*#__PURE__*/
+function () {
+  function Attributes(data) {
+    _classCallCheck(this, Attributes);
+
+    this.data = data;
+  }
+
+  _createClass(Attributes, [{
+    key: "get",
+    value: function get(propName) {
+      return this.data[propName];
+    }
+  }, {
+    key: "set",
+    value: function set(updateUserProp) {
+      Object.assign(this.data, updateUserProp);
+    }
+  }]);
+
+  return Attributes;
+}();
+
+exports.Attributes = Attributes;
+},{}],"../node_modules/axios/lib/helpers/bind.js":[function(require,module,exports) {
 'use strict';
 
 module.exports = function bind(fn, thisArg) {
@@ -2030,6 +2069,8 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.User = void 0;
 
+var Attributes_1 = require("./Attributes");
+
 var Sync_1 = require("./Sync");
 
 var Events_1 = require("./Events");
@@ -2042,10 +2083,11 @@ var User = function User(data) {
   this.data = data;
   this.events = new Events_1.Events();
   this.sync = new Sync_1.Sync(URL, this.data);
+  this.attibutes = new Attributes_1.Attributes(this.data);
 };
 
 exports.User = User;
-},{"./Sync":"models/Sync.ts","./Events":"models/Events.ts"}],"index.ts":[function(require,module,exports) {
+},{"./Attributes":"models/Attributes.ts","./Sync":"models/Sync.ts","./Events":"models/Events.ts"}],"index.ts":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {

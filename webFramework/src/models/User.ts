@@ -13,7 +13,7 @@ const URL = 'http://localhost:3000/users'
 export class User {
     events: Events = new Events()
     sync: Sync<UserProps> = new Sync<UserProps>(URL, this.data)
-    attibutes: Attributes
+    attibutes: Attributes<UserProps> = new Attributes<UserProps>(this.data)
 
     constructor(private data: UserProps) {}
 
