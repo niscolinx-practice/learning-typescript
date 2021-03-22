@@ -4,12 +4,9 @@ interface HasId {
     id?: number
 }
 export class Sync<T extends HasId> {
-    data: T = {};
-
     constructor(private rootUrl: string) {}
-    save(): Promise<AxiosResponse> {
-        const { id } = this.data
 
+    save(): Promise<AxiosResponse> {
         if (id) {
             return axios.put(this.rootUrl + id, this.data)
         } else {
