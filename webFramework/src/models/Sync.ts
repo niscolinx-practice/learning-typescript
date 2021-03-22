@@ -1,4 +1,6 @@
 class Sync {
+
+    constructor(private rootUrl: string)
     save(): void {
         const id = this.get('id')
 
