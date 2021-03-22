@@ -1,4 +1,5 @@
 import axios, { AxiosResponse } from 'axios'
+import { Events } from '../Events/Events'
 
 interface UserProps {
     name?: string
@@ -10,7 +11,7 @@ interface UserProps {
 const URL = 'http://localhost:3000/users/'
 
 export class User {
-   
+    event: Events = new Events()
 
     constructor(private data: UserProps) {}
 
