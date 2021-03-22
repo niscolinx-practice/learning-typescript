@@ -2025,10 +2025,6 @@ exports.Events = Events;
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
-
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
@@ -2040,31 +2036,13 @@ var Events_1 = require("./Events");
 
 var URL = 'http://localhost:3000/users';
 
-var User =
-/*#__PURE__*/
-function () {
-  function User(data) {
-    _classCallCheck(this, User);
+var User = function User(data) {
+  _classCallCheck(this, User);
 
-    this.data = data;
-    this.events = new Events_1.Events();
-    this.sync = new Sync_1.Sync(URL, this.data);
-  }
-
-  _createClass(User, [{
-    key: "get",
-    value: function get(propName) {
-      return this.data[propName];
-    }
-  }, {
-    key: "set",
-    value: function set(updateUserProp) {
-      Object.assign(this.data, updateUserProp);
-    }
-  }]);
-
-  return User;
-}();
+  this.data = data;
+  this.events = new Events_1.Events();
+  this.sync = new Sync_1.Sync(URL, this.data);
+};
 
 exports.User = User;
 },{"./Sync":"models/Sync.ts","./Events":"models/Events.ts"}],"index.ts":[function(require,module,exports) {

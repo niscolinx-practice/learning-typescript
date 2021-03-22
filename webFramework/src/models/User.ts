@@ -2,7 +2,7 @@ import { Sync } from './Sync'
 import axios, { AxiosResponse } from 'axios'
 import { Events } from './Events'
 
-interface UserProps {
+export interface UserProps {
     name?: string
     age?: number
     id?: number
@@ -16,12 +16,6 @@ export class User {
 
     constructor(private data: UserProps) {}
 
-    get(propName: string): number | string | undefined {
-        return this.data[propName as keyof UserProps]
-    }
 
-    set(updateUserProp: UserProps): void {
-        Object.assign(this.data, updateUserProp)
-    }
     
 }
