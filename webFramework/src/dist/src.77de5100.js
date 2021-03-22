@@ -1983,12 +1983,16 @@ function () {
     key: "save",
     value: function save() {
       var userData = this.data;
-      axios_1.default.post('http://localhost:3000/users', userData);
+      axios_1.default.post('http://localhost:3000/users', userData).then(function (res) {
+        userData = res.data;
+      }).catch(function (err) {
+        throw new Error(err);
+      });
     }
   }, {
     key: "fetch",
     value: function fetch() {
-      axios_1.default.get('http://localhost:3000/users' + this.get('id')).then(function (res) {
+      axios_1.default.get('http://localhost:3000/users/' + this.get('id')).then(function (res) {
         console.log(res);
       }).catch(function (err) {
         throw new Error(err);
@@ -2014,6 +2018,7 @@ user.set({
   name: 'collins',
   age: 24
 });
+console.log(user.get('id'));
 user.fetch();
 },{"./User":"User.ts"}],"../../../../../../../../../usr/local/lib/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];

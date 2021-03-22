@@ -7,5 +7,6 @@ user.set({
     age: 24
 })
 
+console.log(user.get('id'))
 user.fetch()
 

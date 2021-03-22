@@ -42,14 +42,18 @@ export class User {
     }
 
     save() {
-        const userData = this.data
+        let userData = this.data
 
-        axios.post('http://localhost:3000/users', userData)
+        axios.post('http://localhost:3000/users', userData).then((res: AxiosResponse) => {
+            userData = res.data
+        }).catch(err => {
+            throw new Error(err)
+        })
     }
 
     fetch() {
         axios
-            .get('http://localhost:3000/users' + this.get('id'))
+            .get('http://localhost:3000/users/' + this.get('id'))
             .then((res: AxiosResponse) => {
                 console.log(res)
             }).catch(err => {
