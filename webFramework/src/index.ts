@@ -1,6 +1,8 @@
 import { User } from './User'
 
-const user = User
+const user = new User({})
+
+
 
 console.log(user)
 
