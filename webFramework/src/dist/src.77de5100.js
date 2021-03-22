@@ -2018,8 +2018,8 @@ var user = new User_1.User({});
 user.set({
   name: 'collins',
   age: 24
-});
-user.save();
+}); //user.save()
+
 console.log(user);
 console.log(user.get('id'));
 user.fetch();

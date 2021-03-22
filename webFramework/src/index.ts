@@ -7,7 +7,7 @@ user.set({
     age: 24
 })
 
-user.save()
+//user.save()
 console.log(user)
 console.log(user.get('id'))
 user.fetch()
