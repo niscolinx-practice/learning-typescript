@@ -46,10 +46,10 @@ export class User {
     save():void {
 
         if(this.get('id')){
-            axios.put(URL + this.get('id'), Object.assign(this.data, ))
+            axios.put(URL + this.get('id'), this.set(this.data))
         }
         else{
-            axios.post(URL, this.data).then((res: AxiosResponse) => {
+            axios.post(URL, this.data)
 
         }
     
