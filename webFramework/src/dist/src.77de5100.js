@@ -2028,7 +2028,7 @@ Object.defineProperty(exports, "__esModule", {
 var User_1 = require("./models/User");
 
 var user = new User_1.User({
-  name: 'Nelson',
+  name: 'Nel',
   age: 23,
   id: 2
 });
