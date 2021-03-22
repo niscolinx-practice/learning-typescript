@@ -49,7 +49,7 @@ export class User {
         if (id) {
             console.log(URL + id)
             axios
-                .put(URL + id, this.set(this.data))
+                .put(URL + id, this.data)
                 .then((res) => console.log(res))
                 .catch((err) => console.log(err))
         } else {
