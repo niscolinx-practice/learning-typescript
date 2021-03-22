@@ -50,7 +50,7 @@ export class User {
         })
     }
 
-    static fetch() {
+    fetch() {
         axios
             .get('http://localhost:3000/users/' + this.get('id'))
             .then((res: AxiosResponse) => {
