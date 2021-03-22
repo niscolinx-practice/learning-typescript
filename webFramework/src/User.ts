@@ -1,3 +1,5 @@
+import axios from "axios"
+
 interface UserProps {
     name?: string
     age?: number
@@ -37,5 +39,9 @@ export class User {
         handler.forEach((event) => {
             event()
         })
+    }
+
+    save(){
+        axios.post('http://localhost:3000/users')
     }
 }
