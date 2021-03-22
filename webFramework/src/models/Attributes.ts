@@ -12,10 +12,5 @@ export class Attributes<T> {
     }
 }
 
-const attrs = new Attributes<UserProps>({
-    name: 'hello', 
-    age: 523,
-    id: 5
-})
 
 
