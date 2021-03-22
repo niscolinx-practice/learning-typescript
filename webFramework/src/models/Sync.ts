@@ -1,26 +1,21 @@
-class Sync {
+import axios from 'axios'
 
+class Sync {
     constructor(private rootUrl: string)
     save(): void {
         const id = this.get('id')
 
         if (id) {
-            console.log(URL + id)
-            axios
-                .put(URL + id, this.data)
-                .then((res) => console.log(res))
-                .catch((err) => console.log(err))
+            console.log(this.rootUrl + id)
+            axios.put(this.rootUrl + id, this.data)
         } else {
-            axios
-                .post(URL, this.data)
-                .then((res) => console.log(res))
-                .catch((err) => console.log(err))
+            axios.post(this.rootUrl, this.data)
         }
     }
 
     fetch(): void {
         axios
-            .get(URL + this.get('id'))
+            .get(this.rootUrl + this.get('id'))
             .then((res: AxiosResponse) => {
                 this.set(res.data)
             })
