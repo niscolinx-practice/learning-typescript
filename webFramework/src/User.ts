@@ -44,8 +44,7 @@ export class User {
     save() {
 
         axios.post('http://localhost:3000/users/', this.data).then((res: AxiosResponse) => {
-            console.log(res.data)
-           Object.assign(this.data, res.data)
+           return this.data = res.data
         }).catch(err => {
             throw new Error(err)
         })

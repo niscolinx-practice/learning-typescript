@@ -10,5 +10,6 @@ user.set({
 user.save()
 console.log(user)
 console.log(user.get('id'))
+console.log(user)
 
 

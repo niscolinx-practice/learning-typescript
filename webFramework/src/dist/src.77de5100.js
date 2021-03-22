@@ -1985,8 +1985,7 @@ function () {
       var _this = this;
 
       axios_1.default.post('http://localhost:3000/users/', this.data).then(function (res) {
-        console.log(res.data);
-        Object.assign(_this.data, res.data);
+        return _this.data = res.data;
       }).catch(function (err) {
         throw new Error(err);
       });
@@ -2023,6 +2022,7 @@ user.set({
 user.save();
 console.log(user);
 console.log(user.get('id'));
+console.log(user);
 },{"./User":"User.ts"}],"../../../../../../../../../usr/local/lib/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
