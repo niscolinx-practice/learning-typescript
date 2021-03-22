@@ -6,7 +6,6 @@ class Sync {
         const id = this.get('id')
 
         if (id) {
-            console.log(this.rootUrl + id)
             axios.put(this.rootUrl + id, this.data)
         } else {
             axios.post(this.rootUrl, this.data)
