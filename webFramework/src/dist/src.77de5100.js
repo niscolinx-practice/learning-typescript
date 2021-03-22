@@ -196,8 +196,7 @@ user.on('click', function () {
 user.on('mouseOver', function () {
   console.log('mouse over fired');
 });
-user.trigger('click');
-console.log(user.events);
+user.trigger('mouseOver');
 },{"./User":"User.ts"}],"../../../../../../../../../usr/local/lib/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';

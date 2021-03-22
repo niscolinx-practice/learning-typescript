@@ -12,6 +12,5 @@ user.on('mouseOver', () => {
     console.log('mouse over fired')
 })
 
-user.trigger('click')
+user.trigger('mouseOver')
 
-console.log(user.events)
