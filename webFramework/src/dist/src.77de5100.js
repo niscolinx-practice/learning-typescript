@@ -1984,8 +1984,9 @@ function () {
     value: function save() {
       var _this = this;
 
-      axios_1.default.post('http://localhost:3000/users', this.data).then(function (res) {
-        return _this.data = res.data;
+      axios_1.default.post('http://localhost:3000/users/', this.data).then(function (res) {
+        console.log(res.data);
+        Object.assign(_this.data, res.data);
       }).catch(function (err) {
         throw new Error(err);
       });
@@ -2018,11 +2019,10 @@ var user = new User_1.User({});
 user.set({
   name: 'collins',
   age: 24
-}); //user.save()
-
+});
+user.save();
 console.log(user);
 console.log(user.get('id'));
-user.fetch();
 },{"./User":"User.ts"}],"../../../../../../../../../usr/local/lib/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
