@@ -1988,11 +1988,10 @@ var Sync = function Sync(rootUrl) {
   this.rootUrl = rootUrl;
 
   this.save = function (data) {
-    console.log(data);
     var id = data.id;
 
     if (id) {
-      return axios_1.default.put(_this.rootUrl + id, data);
+      return axios_1.default.put("".concat(_this.rootUrl, "/").concat(id), data);
     } else {
       return axios_1.default.post(_this.rootUrl, data);
     }
@@ -2093,6 +2092,7 @@ function () {
   }, {
     key: "set",
     value: function set(update) {
+      console.log(update);
       this.attibutes.set(update);
       this.events.trigger('change');
     }
@@ -2115,9 +2115,10 @@ function () {
   }, {
     key: "save",
     value: function save() {
+      var _this2 = this;
+
       this.sync.save(this.attibutes.getAll()).then(function (res) {
-        //this.set(res.data)
-        console.log(res.data);
+        _this2.set(res.data);
       });
     }
   }]);
@@ -2139,13 +2140,14 @@ var user = new User_1.User({}); //user.save({name: 'Roller', age: 532}))
 
 user.on('change', function () {
   console.log(user);
-}); // user.set({
-//     age: 246,
-//     name: 'helo'
-// })
-// user.save()
-//user.fetch()
+});
+user.set({
+  age: 246,
+  name: 'hlo',
+  id: 1
+}); //user.save()
 
+user.fetch();
 console.log(user.attibutes);
 },{"./models/User":"models/User.ts"}],"../../../../../../../../../usr/local/lib/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
