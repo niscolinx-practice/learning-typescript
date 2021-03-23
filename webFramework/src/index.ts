@@ -15,13 +15,12 @@ user.on('saved', () => {
     console.log('saved a new user')
 })
 
-user.set({
-    age: 246,
-    name: 'hlo',
-    id: 1
-})
+// user.set({
+//     age: 246,
+//     name: 'name',
+// })
 
-//user.save()
+// user.save()
 user.fetch()
 
 console.log(user.attibutes)

@@ -2147,12 +2147,11 @@ user.on('fetched', function () {
 });
 user.on('saved', function () {
   console.log('saved a new user');
-});
-user.set({
-  age: 246,
-  name: 'hlo',
-  id: 1
-}); //user.save()
+}); // user.set({
+//     age: 246,
+//     name: 'name',
+// })
+// user.save()
 
 user.fetch();
 console.log(user.attibutes);
