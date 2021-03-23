@@ -8,7 +8,7 @@ user.on('change', () => {
 })
 
 user.set({
-    name: 'Niscolinx',
+    name: 'collino',
     age: 24
 })
 

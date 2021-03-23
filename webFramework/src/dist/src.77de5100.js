@@ -2120,7 +2120,7 @@ user.on('change', function () {
   console.log('User was changed, you should do something in html');
 });
 user.set({
-  name: 'Niscolinx',
+  name: 'collino',
   age: 24
 });
 },{"./models/User":"models/User.ts"}],"../../../../../../../../../usr/local/lib/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
