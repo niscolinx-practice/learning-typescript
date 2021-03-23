@@ -2107,7 +2107,7 @@ function () {
         this.sync.fetch(id).then(function (res) {
           _this.set(res.data);
 
-          _this.events.trigger('fetched');
+          _this.events.trigger('fetch');
         });
       }
     }
@@ -2119,7 +2119,7 @@ function () {
       this.sync.save(this.attibutes.getAll()).then(function (res) {
         _this2.set(res.data);
 
-        _this2.events.trigger('saved');
+        _this2.events.trigger('save');
       });
     }
   }]);
@@ -2142,10 +2142,10 @@ var user = new User_1.User({}); //user.save({name: 'Roller', age: 532}))
 user.on('change', function () {
   console.log('updated user', user);
 });
-user.on('fetched', function () {
+user.on('fetch', function () {
   console.log('fetched user');
 });
-user.on('saved', function () {
+user.on('save', function () {
   console.log('saved a new user');
 }); // user.set({
 //     age: 246,

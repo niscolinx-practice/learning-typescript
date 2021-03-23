@@ -43,7 +43,7 @@ export class User {
         } else {
             this.sync.fetch(id).then((res: AxiosResponse) => {
                 this.set(res.data)
-                this.events.trigger('fetched')
+                this.events.trigger('fetch')
             })
         }
     }
@@ -51,7 +51,7 @@ export class User {
     save(): void {
         this.sync.save(this.attibutes.getAll()).then((res: AxiosResponse) => {
             this.set(res.data)
-            this.events.trigger('saved')
+            this.events.trigger('save')
         })
     }
 }

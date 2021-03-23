@@ -7,11 +7,11 @@ user.on('change', () => {
     console.log('updated user', user)
 })
 
-user.on('fetched', () => {
+user.on('fetch', () => {
     console.log('fetched user')
 })
 
-user.on('saved', () => {
+user.on('save', () => {
     console.log('saved a new user')
 })
 
