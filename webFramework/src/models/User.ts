@@ -19,7 +19,7 @@ export class User {
         this.attibutes = new Attributes<UserProps>(this.attrs)
     }
 
-    get(name: UserProps){
+    get(name: string){
         return this.attibutes.get(name as keyof UserProps)
     }
 
