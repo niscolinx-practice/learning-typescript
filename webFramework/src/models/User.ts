@@ -36,11 +36,8 @@ export class User {
         this.events.trigger('change')
     }
 
-    fetch():void {
+    fetch(): void {
         const id = this.get('id')
-
-        console.log('the id from fetch method', id)
-
         if (!id) {
             throw new Error('id is undefined')
         } else {
@@ -52,10 +49,9 @@ export class User {
     }
 
     save(): void {
-       this.sync.save(this.attibutes.getAll()).then((res: AxiosResponse) => {
-           this.set(res.data)
-           this.events.trigger('saved')
-       })
-       
+        this.sync.save(this.attibutes.getAll()).then((res: AxiosResponse) => {
+            this.set(res.data)
+            this.events.trigger('saved')
+        })
     }
 }
