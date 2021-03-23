@@ -27,7 +27,7 @@ import { Collection } from './models/Collection';
 // //user.save()
 // user.fetch()
 
-const collection = new Collection<User>('http://localhost:3000/users')
+const collection = new Collection<User, UserProps>('http://localhost:3000/users')
 collection.fetch()
 
 

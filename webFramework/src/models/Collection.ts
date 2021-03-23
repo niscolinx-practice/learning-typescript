@@ -1,11 +1,13 @@
-import axios from 'axios'
+import axios, { AxiosResponse } from 'axios'
 
-export class Collection {
+export class Collection<T, K> {
 
     constructor(public rootUrl: string) {}
 
-    async fetch(): Promise<void> {
-        const allUsers = await axios.get(this.rootUrl)
-        console.log(allUsers.data)
+    fetch(): Promise<void> {
+     return axios.get(this.rootUrl).then((res: AxiosResponse): void => {
+         console.log(res.data)
+
+     })
     }
 }
