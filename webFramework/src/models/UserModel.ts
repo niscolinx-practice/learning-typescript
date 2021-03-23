@@ -16,7 +16,15 @@ interface Events {
     trigger(eventName: string): void
 }
 
-export class UserModel<T> {
+export class Model<T> {
+    events: Events = new Events()
+    sync: Sync<UserProps> = new Sync<UserProps>(URL)
+    attibutes: Attributes<UserProps>
+
+    constructor(private attrs: UserProps) {
+        this.attibutes = new Attributes<UserProps>(this.attrs)
+    }
+
     get get() {
         return this.attibutes.get
     }

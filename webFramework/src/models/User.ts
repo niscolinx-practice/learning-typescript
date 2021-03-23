@@ -1,7 +1,4 @@
-import { Attributes } from './Attributes'
-import { Sync } from './ApiSync'
-import { Events } from './Events'
-import { AxiosResponse } from 'axios'
+
 
 export interface UserProps {
     name?: string
@@ -11,7 +8,7 @@ export interface UserProps {
 
 const URL = 'http://localhost:3000/users'
 
-export class User {
+export class User extends {
     events: Events = new Events()
     sync: Sync<UserProps> = new Sync<UserProps>(URL)
     attibutes: Attributes<UserProps>
