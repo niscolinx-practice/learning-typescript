@@ -1950,7 +1950,6 @@ function () {
     _classCallCheck(this, Collection);
 
     this.rootUrl = rootUrl;
-    this.models = [];
   }
 
   _createClass(Collection, [{
@@ -1970,9 +1969,8 @@ function () {
               case 2:
                 allUsers = _context.sent;
                 console.log(allUsers.data);
-                return _context.abrupt("return", this.models = allUsers.data);
 
-              case 5:
+              case 4:
               case "end":
                 return _context.stop();
             }

@@ -1,14 +1,11 @@
-import { User, UserProps } from './User'
 import axios from 'axios'
 
-export class Collection<User> {
-    models: UserProps[] = []
+export class Collection {
 
-    constructor(private rootUrl: string) {}
+    constructor(public rootUrl: string) {}
 
-    async fetch(): Promise<User> {
+    async fetch(): Promise<void> {
         const allUsers = await axios.get(this.rootUrl)
         console.log(allUsers.data)
-        return this.models = allUsers.data
     }
 }
