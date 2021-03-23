@@ -2064,6 +2064,7 @@ function () {
   }, {
     key: "set",
     get: function get() {
+      this.trigger('change');
       return this.attibutes.set;
     }
   }, {

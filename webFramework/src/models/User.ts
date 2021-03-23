@@ -24,6 +24,7 @@ export class User {
     }
 
     get set(){
+        this.trigger('change')
         return this.attibutes.set
     }
 
