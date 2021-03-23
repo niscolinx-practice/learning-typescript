@@ -1,4 +1,4 @@
-import { Attributes } from './Attributes';
+import { Attributes } from './Attributes'
 import { Sync } from './Sync'
 import { Events } from './Events'
 
@@ -19,12 +19,11 @@ export class User {
         this.attibutes = new Attributes<UserProps>(this.attrs)
     }
 
-    get(name: string){
-        return this.attibutes.get(name as keyof UserProps)
+    get get() {
+        return this.attibutes.get
     }
 
-    get on(){
+    get on() {
         return this.events.on
     }
-    
 }

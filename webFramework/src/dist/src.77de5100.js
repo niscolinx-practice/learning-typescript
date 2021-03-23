@@ -2094,8 +2094,8 @@ function () {
 
   _createClass(User, [{
     key: "get",
-    value: function get(name) {
-      return this.attibutes.get(name);
+    get: function get() {
+      return this.attibutes.get;
     }
   }, {
     key: "on",
@@ -2124,7 +2124,7 @@ var user = new User_1.User({
 });
 console.log(user); //user.save()
 
-console.log(user.get('age'));
+user.get('name');
 user.on();
 },{"./models/User":"models/User.ts"}],"../../../../../../../../../usr/local/lib/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];

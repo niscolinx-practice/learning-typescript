@@ -5,6 +5,6 @@ const user = new User({ name: 'Collins', age: 524, id: 3})
 console.log(user)
 //user.save()
 
-console.log(user.get('age'))
+user.get('name')
 
 user.on()
