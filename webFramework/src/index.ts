@@ -4,13 +4,13 @@ const user = new User({})
 
 //user.save()
 user.on('change', () => {
-    console.log('User was changed, you should do something in html')
+    console.log(user)
 })
 
-user.set({
-    name: 'collino',
-    age: 24
-})
+// user.save({
+//     name: 'collino',
+//     age: 24
+// })
 
 user.fetch()
 
