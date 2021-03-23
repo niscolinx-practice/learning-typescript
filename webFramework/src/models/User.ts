@@ -23,9 +23,9 @@ export class User {
         return this.attibutes.get
     }
 
-    get set(){
-        this.trigger('change')
-        return this.attibutes.set
+    set(update: UserProps) {
+        this.attibutes.set(update)
+         this.events.trigger('change')
     }
 
     get on() {
@@ -36,11 +36,20 @@ export class User {
         return this.events.trigger
     }
 
-    get fetch(){
-        return this.sync.fetch
+    fetch(id: number) {
+        
+        if(!id){
+            throw new Error('id is undefined')
+        }
+        else{
+            this.sync.fetch(id).then(res: AxiosResponse => {
+                this.set(res.data)
+            })
+
+        }
     }
 
-    get save(){
+    get save() {
         return this.sync.save
     }
 }

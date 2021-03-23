@@ -2063,9 +2063,9 @@ function () {
     }
   }, {
     key: "set",
-    get: function get() {
-      this.trigger('change');
-      return this.attibutes.set;
+    value: function set(update) {
+      this.attibutes.set(update);
+      this.events.trigger('change');
     }
   }, {
     key: "on",
@@ -2079,8 +2079,16 @@ function () {
     }
   }, {
     key: "fetch",
-    get: function get() {
-      return this.sync.fetch;
+    value: function fetch(id) {
+      var _this = this;
+
+      if (!id) {
+        throw new Error('id is undefined');
+      } else {
+        this.sync.fetch(id).then(res, function (AxiosResponse) {
+          _this.set(res.data);
+        });
+      }
     }
   }, {
     key: "save",
