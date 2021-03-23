@@ -2101,17 +2101,13 @@ Object.defineProperty(exports, "__esModule", {
 
 var User_1 = require("./models/User");
 
-var user = new User_1.User({
-  name: 'Collins',
-  age: 524,
-  id: 3
-}); //user.save()
+var user = new User_1.User({}); //user.save()
 
 user.set({
   name: 'Niscolinx',
   age: 24
 });
-user.fetch(2);
+user.fetch(6);
 setTimeout(function () {
   console.log(user.get('name'));
 }, 3000);
