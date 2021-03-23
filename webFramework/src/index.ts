@@ -7,10 +7,12 @@ user.on('change', () => {
     console.log('User was changed, you should do something in html')
 })
 
-user.set({
-    name: 'collino',
-    age: 24
-})
+// user.set({
+//     name: 'collino',
+//     age: 24
+// })
+
+console.log(user.attibutes)
 
 
 
