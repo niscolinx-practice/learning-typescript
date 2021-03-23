@@ -142,8 +142,8 @@ function () {
 
   _createClass(Attributes, [{
     key: "get",
-    value: function get(propName) {
-      return this.data[propName];
+    value: function get(key) {
+      return this.data[key];
     }
   }, {
     key: "set",
@@ -1981,28 +1981,27 @@ var axios_1 = __importDefault(require("axios"));
 var Sync =
 /*#__PURE__*/
 function () {
-  function Sync(rootUrl, data) {
+  function Sync(rootUrl) {
     _classCallCheck(this, Sync);
 
     this.rootUrl = rootUrl;
-    this.data = data;
   }
 
   _createClass(Sync, [{
     key: "save",
-    value: function save() {
-      var id = this.data.id;
+    value: function save(data) {
+      var id = data.id;
 
       if (id) {
-        return axios_1.default.put(this.rootUrl + id, this.data);
+        return axios_1.default.put(this.rootUrl + id, data);
       } else {
-        return axios_1.default.post(this.rootUrl, this.data);
+        return axios_1.default.post(this.rootUrl, data);
       }
     }
   }, {
     key: "fetch",
-    value: function fetch() {
-      return axios_1.default.get(this.rootUrl + this.data);
+    value: function fetch(id) {
+      return axios_1.default.get("".concat(this.rootUrl, "/").concat(id));
     }
   }]);
 
@@ -2077,13 +2076,13 @@ var Events_1 = require("./Events");
 
 var URL = 'http://localhost:3000/users';
 
-var User = function User(data) {
+var User = function User(attrs) {
   _classCallCheck(this, User);
 
-  this.data = data;
+  this.attrs = attrs;
   this.events = new Events_1.Events();
-  this.sync = new Sync_1.Sync(URL, this.data);
-  this.attibutes = new Attributes_1.Attributes(this.data);
+  this.sync = new Sync_1.Sync(URL);
+  this.attibutes = new Attributes_1.Attributes(this.attrs);
 };
 
 exports.User = User;
@@ -2103,10 +2102,7 @@ var user = new User_1.User({
 });
 console.log(user); //user.save()
 
-user.events.on('change', function () {
-  console.log('Triggered event of change');
-});
-user.events.trigger('change');
+console.log(user.attibutes.get('name'));
 },{"./models/User":"models/User.ts"}],"../../../../../../../../../usr/local/lib/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
@@ -2135,7 +2131,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "37379" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "35671" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
