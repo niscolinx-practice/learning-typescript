@@ -2102,6 +2102,11 @@ function () {
     get: function get() {
       return this.events.on;
     }
+  }, {
+    key: "trigger",
+    get: function get() {
+      return this.events.trigger;
+    }
   }]);
 
   return User;
