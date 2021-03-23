@@ -2082,7 +2082,8 @@ function () {
     value: function fetch() {
       var _this = this;
 
-      var id = this.get('id');
+      var id = this.get('name');
+      console.log('the id from fetch method', id);
 
       if (!id) {
         throw new Error('id is undefined');

@@ -37,7 +37,9 @@ export class User {
     }
 
     fetch():void {
-        const id = this.get('id')
+        const id = this.get('name')
+
+        console.log('the id from fetch method', id)
 
         if (!id) {
             throw new Error('id is undefined')
