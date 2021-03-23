@@ -4,7 +4,10 @@ const user = new User({ name: 'Collins', age: 524, id: 3})
 
 //user.save()
 
-
+user.set({
+    name: 'Niscolinx',
+    age: 24
+})
 
  console.log(user.get('id'))
 

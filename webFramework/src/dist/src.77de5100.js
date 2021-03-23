@@ -2107,6 +2107,10 @@ var user = new User_1.User({
   id: 3
 }); //user.save()
 
+user.set({
+  name: 'Niscolinx',
+  age: 24
+});
 console.log(user.get('id'));
 user.on('click', function () {
   console.log('clicked');
