@@ -5,7 +5,11 @@ interface Sync<T> {
     fetch(id: number): AxiosPromise
 }
 
+interface Attrs<T> {
+    get<K extends keyof T>(key: K): T[K]
 
+    set(update: T): void
+}
 
 export class UserModel {
 
