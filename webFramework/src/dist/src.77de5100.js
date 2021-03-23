@@ -2092,8 +2092,8 @@ function () {
     }
   }, {
     key: "save",
-    get: function get() {
-      return this.sync.save;
+    value: function save(userData) {
+      this.sync.save(userData);
     }
   }]);
 

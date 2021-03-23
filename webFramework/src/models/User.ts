@@ -46,7 +46,7 @@ export class User {
         }
     }
 
-    get save() {
-        return this.sync.save
+    save(userData: UserProps) {
+         this.sync.save(userData)
     }
 }
