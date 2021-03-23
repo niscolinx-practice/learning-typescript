@@ -1,5 +1,5 @@
 import { Attributes } from './Attributes'
-import { Sync } from './Sync'
+import { Sync } from './ApiSync'
 import { Events } from './Events'
 import { AxiosResponse } from 'axios'
 

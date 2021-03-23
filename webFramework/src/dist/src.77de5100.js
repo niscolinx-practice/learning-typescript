@@ -1961,7 +1961,7 @@ module.exports.default = axios;
 
 },{"./utils":"../node_modules/axios/lib/utils.js","./helpers/bind":"../node_modules/axios/lib/helpers/bind.js","./core/Axios":"../node_modules/axios/lib/core/Axios.js","./core/mergeConfig":"../node_modules/axios/lib/core/mergeConfig.js","./defaults":"../node_modules/axios/lib/defaults.js","./cancel/Cancel":"../node_modules/axios/lib/cancel/Cancel.js","./cancel/CancelToken":"../node_modules/axios/lib/cancel/CancelToken.js","./cancel/isCancel":"../node_modules/axios/lib/cancel/isCancel.js","./helpers/spread":"../node_modules/axios/lib/helpers/spread.js","./helpers/isAxiosError":"../node_modules/axios/lib/helpers/isAxiosError.js"}],"../node_modules/axios/index.js":[function(require,module,exports) {
 module.exports = require('./lib/axios');
-},{"./lib/axios":"../node_modules/axios/lib/axios.js"}],"models/Sync.ts":[function(require,module,exports) {
+},{"./lib/axios":"../node_modules/axios/lib/axios.js"}],"models/ApiSync.ts":[function(require,module,exports) {
 "use strict";
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -1975,14 +1975,14 @@ var __importDefault = this && this.__importDefault || function (mod) {
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.Sync = void 0;
+exports.ApiSync = void 0;
 
 var axios_1 = __importDefault(require("axios"));
 
-var Sync = function Sync(rootUrl) {
+var ApiSync = function ApiSync(rootUrl) {
   var _this = this;
 
-  _classCallCheck(this, Sync);
+  _classCallCheck(this, ApiSync);
 
   this.rootUrl = rootUrl;
 
@@ -2001,7 +2001,7 @@ var Sync = function Sync(rootUrl) {
   };
 };
 
-exports.Sync = Sync;
+exports.ApiSync = ApiSync;
 },{"axios":"../node_modules/axios/index.js"}],"models/Events.ts":[function(require,module,exports) {
 "use strict";
 
@@ -2055,7 +2055,7 @@ exports.User = void 0;
 
 var Attributes_1 = require("./Attributes");
 
-var Sync_1 = require("./Sync");
+var ApiSync_1 = require("./ApiSync");
 
 var Events_1 = require("./Events");
 
@@ -2069,7 +2069,7 @@ function () {
 
     this.attrs = attrs;
     this.events = new Events_1.Events();
-    this.sync = new Sync_1.Sync(URL);
+    this.sync = new ApiSync_1.Sync(URL);
     this.attibutes = new Attributes_1.Attributes(this.attrs);
   }
 
@@ -2128,7 +2128,7 @@ function () {
 }();
 
 exports.User = User;
-},{"./Attributes":"models/Attributes.ts","./Sync":"models/Sync.ts","./Events":"models/Events.ts"}],"index.ts":[function(require,module,exports) {
+},{"./Attributes":"models/Attributes.ts","./ApiSync":"models/ApiSync.ts","./Events":"models/Events.ts"}],"index.ts":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
