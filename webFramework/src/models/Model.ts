@@ -2,7 +2,7 @@ import { AxiosPromise, AxiosResponse } from 'axios'
 interface Sync<T> {
     save(data: T): AxiosPromise
 
-    fetch(id: number | undefined): AxiosPromise
+    fetch(id: number): AxiosPromise
 }
 interface Attrs<T> {
     get<K extends keyof T>(key: K): T[K]
@@ -47,7 +47,7 @@ export class Model<T extends HasId> {
 
     fetch(): void {
         const id = this.get('id')
-        if (!id) {
+        if (typeof id !== 'number') {
             throw new Error('id is undefined')
         } else {
             this.sync.fetch(id).then((res: AxiosResponse) => {

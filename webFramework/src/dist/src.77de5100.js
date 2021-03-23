@@ -2092,7 +2092,7 @@ function () {
 
       var id = this.get('id');
 
-      if (!id) {
+      if (typeof id !== 'number') {
         throw new Error('id is undefined');
       } else {
         this.sync.fetch(id).then(function (res) {
