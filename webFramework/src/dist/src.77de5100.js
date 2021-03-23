@@ -2123,10 +2123,9 @@ user.on('change', function () {
   console.log(user);
 });
 user.set({
-  name: 'collino',
-  age: 24
-});
-user.fetch();
+  age: 246
+}); //user.fetch()
+
 console.log(user.attibutes);
 },{"./models/User":"models/User.ts"}],"../../../../../../../../../usr/local/lib/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];

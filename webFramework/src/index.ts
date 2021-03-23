@@ -8,11 +8,10 @@ user.on('change', () => {
 })
 
 user.set({
-    name: 'collino',
-    age: 24
+    age: 246
 })
 
-user.fetch()
+//user.fetch()
 
 console.log(user.attibutes)
 
