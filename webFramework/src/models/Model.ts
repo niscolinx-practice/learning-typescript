@@ -2,12 +2,14 @@ import { AxiosPromise, AxiosResponse } from 'axios'
 interface Sync<T> {
     save(data: T): AxiosPromise
 
-    fetch(id: number): AxiosPromise
+    fetch(id: number | undefined): AxiosPromise
 }
 interface Attrs<T> {
     get<K extends keyof T>(key: K): T[K]
 
     set(update: T): void
+
+    getAll(): T
 }
 
 interface Events {
