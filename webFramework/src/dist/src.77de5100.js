@@ -2123,9 +2123,11 @@ var user = new User_1.User({
   id: 3
 });
 console.log(user); //user.save()
+// console.log(user.get('name'))
 
-user.get('name');
-user.on();
+user.on('click', function () {
+  console.log('clicked');
+});
 },{"./models/User":"models/User.ts"}],"../../../../../../../../../usr/local/lib/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
