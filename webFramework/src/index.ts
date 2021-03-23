@@ -4,7 +4,15 @@ const user = new User({})
 
 //user.save({name: 'Roller', age: 532}))
 user.on('change', () => {
-    console.log(user)
+    console.log('updated user', user)
+})
+
+user.on('fetched', () => {
+    console.log('fetched user')
+})
+
+user.on('saved', () => {
+    console.log('saved a new user')
 })
 
 user.set({

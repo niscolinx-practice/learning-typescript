@@ -32,7 +32,6 @@ export class User {
         return this.events.trigger
     }
     set(update: UserProps): void {
-        console.log(update)
         this.attibutes.set(update)
         this.events.trigger('change')
     }
@@ -47,6 +46,7 @@ export class User {
         } else {
             this.sync.fetch(id).then((res: AxiosResponse) => {
                 this.set(res.data)
+                this.events.trigger('fetched')
             })
         }
     }
@@ -54,6 +54,7 @@ export class User {
     save(): void {
        this.sync.save(this.attibutes.getAll()).then((res: AxiosResponse) => {
            this.set(res.data)
+           this.events.trigger('saved')
        })
        
     }

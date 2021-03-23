@@ -153,7 +153,6 @@ function () {
   _createClass(Attributes, [{
     key: "getAll",
     value: function getAll() {
-      console.log(this.data);
       return this.data;
     }
   }]);
@@ -2092,7 +2091,6 @@ function () {
   }, {
     key: "set",
     value: function set(update) {
-      console.log(update);
       this.attibutes.set(update);
       this.events.trigger('change');
     }
@@ -2109,6 +2107,8 @@ function () {
       } else {
         this.sync.fetch(id).then(function (res) {
           _this.set(res.data);
+
+          _this.events.trigger('fetched');
         });
       }
     }
@@ -2119,6 +2119,8 @@ function () {
 
       this.sync.save(this.attibutes.getAll()).then(function (res) {
         _this2.set(res.data);
+
+        _this2.events.trigger('saved');
       });
     }
   }]);
@@ -2139,7 +2141,13 @@ var User_1 = require("./models/User");
 var user = new User_1.User({}); //user.save({name: 'Roller', age: 532}))
 
 user.on('change', function () {
-  console.log(user);
+  console.log('updated user', user);
+});
+user.on('fetched', function () {
+  console.log('fetched user');
+});
+user.on('saved', function () {
+  console.log('saved a new user');
 });
 user.set({
   age: 246,

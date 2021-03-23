@@ -11,7 +11,6 @@ export class Attributes<T> {
     }
 
     getAll(): T{
-        console.log(this.data)
         return this.data
     }
 }
