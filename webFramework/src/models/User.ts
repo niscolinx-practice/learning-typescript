@@ -23,5 +23,8 @@ export class User {
         return this.attibutes.get(name as keyof UserProps)
     }
 
+    get on(){
+        return this.events()
+    }
     
 }

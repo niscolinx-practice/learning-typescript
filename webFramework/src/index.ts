@@ -6,3 +6,5 @@ console.log(user)
 //user.save()
 
 console.log(user.get('age'))
+
+user.on()

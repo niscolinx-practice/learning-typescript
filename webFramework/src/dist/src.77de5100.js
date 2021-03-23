@@ -2097,6 +2097,11 @@ function () {
     value: function get(name) {
       return this.attibutes.get(name);
     }
+  }, {
+    key: "on",
+    get: function get() {
+      return this.events();
+    }
   }]);
 
   return User;
@@ -2120,6 +2125,7 @@ var user = new User_1.User({
 console.log(user); //user.save()
 
 console.log(user.get('age'));
+user.on();
 },{"./models/User":"models/User.ts"}],"../../../../../../../../../usr/local/lib/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
