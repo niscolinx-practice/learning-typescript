@@ -2064,7 +2064,7 @@ function () {
   }, {
     key: "set",
     get: function get() {
-      this.trigger('change');
+      this.events.trigger('change');
       return this.attibutes.set;
     }
   }, {
@@ -2108,14 +2108,9 @@ user.set({
   name: 'Niscolinx',
   age: 24
 });
-user.fetch(6);
-setTimeout(function () {
-  console.log(user.get('name'));
-}, 3000);
-user.on('click', function () {
-  console.log('clicked');
+user.on('change', function () {
+  console.log('changed!!');
 });
-user.trigger('click');
 },{"./models/User":"models/User.ts"}],"../../../../../../../../../usr/local/lib/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';

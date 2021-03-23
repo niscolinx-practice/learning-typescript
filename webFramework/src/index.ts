@@ -10,15 +10,6 @@ user.set({
 })
 
 
-user.fetch(6)
-
-setTimeout(() => {
-    console.log(user.get('name'))
-    
-}, 3000);
-
-user.on('click', () => {
-    console.log('clicked')
+user.on('change', () => {
+    console.log('changed!!')
 })
-
-user.trigger('click')
