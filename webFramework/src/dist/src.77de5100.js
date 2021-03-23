@@ -2113,10 +2113,9 @@ function () {
   }, {
     key: "save",
     value: function save() {
-      var _this2 = this;
-
       this.sync.save(this.attibutes.getAll()).then(function (res) {
-        _this2.set(res.data);
+        //this.set(res.data)
+        console.log(res.data);
       });
     }
   }]);
@@ -2138,11 +2137,11 @@ var user = new User_1.User({}); //user.save({name: 'Roller', age: 532}))
 
 user.on('change', function () {
   console.log(user);
-}); // user.set({
-//     age: 246,
-//     name: 'helo'
-// })
-//user.save()
+});
+user.set({
+  age: 246,
+  name: 'helo'
+}); //user.save()
 
 user.fetch();
 console.log(user.attibutes);
