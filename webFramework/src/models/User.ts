@@ -23,6 +23,10 @@ export class User {
         return this.attibutes.get
     }
 
+    get set(){
+        return this.attibutes.set
+    }
+
     get on() {
         return this.events.on
     }

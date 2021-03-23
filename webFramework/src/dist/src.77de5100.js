@@ -2062,6 +2062,11 @@ function () {
       return this.attibutes.get;
     }
   }, {
+    key: "set",
+    get: function get() {
+      return this.attibutes.set;
+    }
+  }, {
     key: "on",
     get: function get() {
       return this.events.on;
