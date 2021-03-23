@@ -2056,20 +2056,18 @@ exports.Model = void 0;
 var Model =
 /*#__PURE__*/
 function () {
-  function Model(attrs, events, sync) {
+  function Model(attributes, events, sync) {
     _classCallCheck(this, Model);
 
-    this.attrs = attrs;
+    this.attributes = attributes;
     this.events = events;
     this.sync = sync;
-    this.events = new Events();
-    this.sync = new Sync(URL);
   }
 
   _createClass(Model, [{
     key: "get",
     get: function get() {
-      return this.attibutes.get;
+      return this.attributes.get;
     }
   }, {
     key: "on",
@@ -2084,7 +2082,7 @@ function () {
   }, {
     key: "set",
     value: function set(update) {
-      this.attibutes.set(update);
+      this.attributes.set(update);
       this.events.trigger('change');
     }
   }, {
@@ -2109,7 +2107,7 @@ function () {
     value: function save() {
       var _this2 = this;
 
-      this.sync.save(this.attibutes.getAll()).then(function (res) {
+      this.sync.save(this.attributes.getAll()).then(function (res) {
         _this2.set(res.data);
 
         _this2.events.trigger('save');

@@ -16,17 +16,19 @@ interface Events {
     trigger(eventName: string): void
 }
 
-export class Model<T> {
-    events: Events = new Events()
-    sync: Sync<UserProps> = new Sync<UserProps>(URL)
-    attibutes: Attributes<UserProps>
 
-    constructor(private attrs: Attrs, private events: Events, private sync: Sync){
+interface HasId{
+    id?: number
+}
+export class Model<T extends HasId> {
+
+
+    constructor(private attributes: Attrs<T>, private events: Events, private sync: Sync<T>){
 
     }
 
     get get() {
-        return this.attibutes.get
+        return this.attributes.get
     }
 
     get on() {
@@ -37,7 +39,7 @@ export class Model<T> {
         return this.events.trigger
     }
     set(update: T): void {
-        this.attibutes.set(update)
+        this.attributes.set(update)
         this.events.trigger('change')
     }
 
@@ -54,7 +56,7 @@ export class Model<T> {
     }
 
     save(): void {
-        this.sync.save(this.attibutes.getAll()).then((res: AxiosResponse) => {
+        this.sync.save(this.attributes.getAll()).then((res: AxiosResponse) => {
             this.set(res.data)
             this.events.trigger('save')
         })
