@@ -2061,8 +2061,6 @@ exports.Events = Events;
 },{}],"models/User.ts":[function(require,module,exports) {
 "use strict";
 
-var _this = this;
-
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
@@ -2096,28 +2094,25 @@ function () {
 
   _createClass(User, [{
     key: "get",
-    get: function get() {}
+    get: function get() {
+      return this.attibutes.get;
+    }
+  }, {
+    key: "on",
+    get: function get() {
+      return this.events.on;
+    }
+  }, {
+    key: "trigger",
+    get: function get() {
+      return this.events.trigger;
+    }
   }]);
 
   return User;
 }();
 
 exports.User = User;
-
-(function () {
-  return _this.attibutes.get;
-});
-
-get;
-on();
-{
-  return this.events.on;
-}
-get;
-trigger();
-{
-  return this.events.trigger;
-}
 },{"./Attributes":"models/Attributes.ts","./Sync":"models/Sync.ts","./Events":"models/Events.ts"}],"index.ts":[function(require,module,exports) {
 "use strict";
 
