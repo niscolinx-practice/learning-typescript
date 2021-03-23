@@ -1949,10 +1949,6 @@ module.exports = require('./lib/axios');
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
-
 var __importDefault = this && this.__importDefault || function (mod) {
   return mod && mod.__esModule ? mod : {
     "default": mod
@@ -1966,35 +1962,27 @@ exports.Sync = void 0;
 
 var axios_1 = __importDefault(require("axios"));
 
-var Sync =
-/*#__PURE__*/
-function () {
-  function Sync(rootUrl) {
-    _classCallCheck(this, Sync);
+var Sync = function Sync(rootUrl) {
+  var _this = this;
 
-    this.rootUrl = rootUrl;
-  }
+  _classCallCheck(this, Sync);
 
-  _createClass(Sync, [{
-    key: "save",
-    value: function save(data) {
-      var id = data.id;
+  this.rootUrl = rootUrl;
 
-      if (id) {
-        return axios_1.default.put(this.rootUrl + id, data);
-      } else {
-        return axios_1.default.post(this.rootUrl, data);
-      }
+  this.save = function (data) {
+    var id = data.id;
+
+    if (id) {
+      return axios_1.default.put(_this.rootUrl + id, data);
+    } else {
+      return axios_1.default.post(_this.rootUrl, data);
     }
-  }, {
-    key: "fetch",
-    value: function fetch(id) {
-      return axios_1.default.get("".concat(this.rootUrl, "/").concat(id));
-    }
-  }]);
+  };
 
-  return Sync;
-}();
+  this.fetch = function (id) {
+    return axios_1.default.get("".concat(_this.rootUrl, "/").concat(id));
+  };
+};
 
 exports.Sync = Sync;
 },{"axios":"../node_modules/axios/index.js"}],"models/Events.ts":[function(require,module,exports) {
@@ -2002,48 +1990,36 @@ exports.Sync = Sync;
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
-
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.Events = void 0;
 
-var Events =
-/*#__PURE__*/
-function () {
-  function Events() {
-    _classCallCheck(this, Events);
+var Events = function Events() {
+  var _this = this;
 
-    this.events = {};
-  }
+  _classCallCheck(this, Events);
 
-  _createClass(Events, [{
-    key: "on",
-    value: function on(eventName, callback) {
-      var handlers = this.events[eventName] || [];
-      handlers.push(callback);
-      this.events[eventName] = handlers;
+  this.events = {};
+
+  this.on = function (eventName, callback) {
+    var handlers = _this.events[eventName] || [];
+    handlers.push(callback);
+    _this.events[eventName] = handlers;
+  };
+
+  this.trigger = function (eventName) {
+    var handler = _this.events[eventName];
+
+    if (!handler || handler.length === 0) {
+      return;
     }
-  }, {
-    key: "trigger",
-    value: function trigger(eventName) {
-      var handler = this.events[eventName];
 
-      if (!handler || handler.length === 0) {
-        return;
-      }
-
-      handler.forEach(function (event) {
-        event();
-      });
-    }
-  }]);
-
-  return Events;
-}();
+    handler.forEach(function (event) {
+      event();
+    });
+  };
+};
 
 exports.Events = Events;
 },{}],"models/User.ts":[function(require,module,exports) {

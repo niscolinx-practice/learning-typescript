@@ -5,13 +5,13 @@ export class Events {
         [key: string]: Callback[]
     } = {}
     
-    on(eventName: string, callback: Callback) {
+    on = (eventName: string, callback: Callback) => {
         const handlers = this.events[eventName] || []
         handlers.push(callback)
         this.events[eventName] = handlers
     }
 
-    trigger(eventName: string): void {
+    trigger = (eventName: string): void => {
         const handler = this.events[eventName]
 
         if (!handler || handler.length === 0) {
