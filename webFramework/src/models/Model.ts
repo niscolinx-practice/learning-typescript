@@ -22,7 +22,9 @@ interface Events {
 interface HasId{
     id?: number
 }
-export class Model<T extends HasId> {
+
+//Making it an abstact class is optional
+export abstract class Model<T extends HasId> {
 
 
     constructor(private attributes: Attrs<T>, private events: Events, private sync: Sync<T>){

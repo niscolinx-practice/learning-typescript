@@ -2051,7 +2051,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.Model = void 0;
+exports.Model = void 0; //Making it an abstact class is optional
 
 var Model =
 /*#__PURE__*/
