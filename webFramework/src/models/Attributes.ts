@@ -10,6 +10,10 @@ export class Attributes<T> {
     set = (updateUserProp: T): void => {
         Object.assign(this.data, updateUserProp)
     }
+
+    getAll(): T{
+        return this.data
+    }
 }
 
 

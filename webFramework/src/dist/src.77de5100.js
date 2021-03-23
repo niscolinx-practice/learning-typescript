@@ -122,26 +122,43 @@ parcelRequire = (function (modules, cache, entry, globalName) {
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.Attributes = void 0;
 
-var Attributes = function Attributes(data) {
-  var _this = this;
+var Attributes =
+/*#__PURE__*/
+function () {
+  function Attributes(data) {
+    var _this = this;
 
-  _classCallCheck(this, Attributes);
+    _classCallCheck(this, Attributes);
 
-  this.data = data;
+    this.data = data;
 
-  this.get = function (key) {
-    return _this.data[key];
-  };
+    this.get = function (key) {
+      return _this.data[key];
+    };
 
-  this.set = function (updateUserProp) {
-    Object.assign(_this.data, updateUserProp);
-  };
-};
+    this.set = function (updateUserProp) {
+      Object.assign(_this.data, updateUserProp);
+    };
+  }
+
+  _createClass(Attributes, [{
+    key: "getAll",
+    value: function getAll() {
+      return this.data;
+    }
+  }]);
+
+  return Attributes;
+}();
 
 exports.Attributes = Attributes;
 },{}],"../node_modules/axios/lib/helpers/bind.js":[function(require,module,exports) {
@@ -2123,9 +2140,10 @@ user.on('change', function () {
   console.log(user);
 });
 user.set({
-  age: 246
-});
-user.fetch();
+  age: 246,
+  name: 'helo'
+}); //user.fetch()
+
 console.log(user.attibutes);
 },{"./models/User":"models/User.ts"}],"../../../../../../../../../usr/local/lib/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
