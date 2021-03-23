@@ -10,3 +10,5 @@ console.log(user)
 user.on('click', () => {
     console.log('clicked')
 })
+
+user.trigger('click')

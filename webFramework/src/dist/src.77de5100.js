@@ -2133,6 +2133,7 @@ console.log(user); //user.save()
 user.on('click', function () {
   console.log('clicked');
 });
+user.trigger('click');
 },{"./models/User":"models/User.ts"}],"../../../../../../../../../usr/local/lib/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
