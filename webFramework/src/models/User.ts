@@ -19,6 +19,9 @@ export class User {
         this.attibutes = new Attributes<UserProps>(this.attrs)
     }
 
+    get(){
+        return this.attibutes.get
+    }
 
     
 }
