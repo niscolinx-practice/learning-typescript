@@ -2094,8 +2094,8 @@ function () {
 
   _createClass(User, [{
     key: "get",
-    value: function get() {
-      return this.attibutes.get;
+    value: function get(name) {
+      return this.attibutes.get();
     }
   }]);
 
@@ -2118,6 +2118,8 @@ var user = new User_1.User({
   id: 3
 });
 console.log(user); //user.save()
+
+user.get('name');
 },{"./models/User":"models/User.ts"}],"../../../../../../../../../usr/local/lib/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
