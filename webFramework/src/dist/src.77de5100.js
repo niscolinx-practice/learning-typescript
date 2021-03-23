@@ -2064,7 +2064,7 @@ function () {
   }, {
     key: "set",
     get: function get() {
-      this.events.trigger('change');
+      this.trigger('change');
       return this.attibutes.set;
     }
   }, {
@@ -2104,12 +2104,12 @@ var User_1 = require("./models/User");
 
 var user = new User_1.User({}); //user.save()
 
+user.on('change', function () {
+  console.log('changed!!');
+});
 user.set({
   name: 'Niscolinx',
   age: 24
-});
-user.on('change', function () {
-  console.log('changed!!');
 });
 },{"./models/User":"models/User.ts"}],"../../../../../../../../../usr/local/lib/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
