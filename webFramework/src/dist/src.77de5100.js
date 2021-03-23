@@ -2105,7 +2105,7 @@ var User_1 = require("./models/User");
 var user = new User_1.User({}); //user.save()
 
 user.on('change', function () {
-  console.log('changed!!');
+  console.log('User was changed, you should do something in html');
 });
 user.set({
   name: 'Niscolinx',

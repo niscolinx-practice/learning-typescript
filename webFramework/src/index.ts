@@ -4,7 +4,7 @@ const user = new User({})
 
 //user.save()
 user.on('change', () => {
-    console.log('changed!!')
+    console.log('User was changed, you should do something in html')
 })
 
 user.set({
