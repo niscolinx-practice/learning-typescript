@@ -2111,7 +2111,7 @@ user.set({
   name: 'Niscolinx',
   age: 24
 });
-console.log(user.get('id'));
+console.log(user.get('name'));
 user.on('click', function () {
   console.log('clicked');
 });

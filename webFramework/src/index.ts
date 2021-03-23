@@ -9,7 +9,7 @@ user.set({
     age: 24
 })
 
- console.log(user.get('id'))
+ console.log(user.get('name'))
 
 user.on('click', () => {
     console.log('clicked')
