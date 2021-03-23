@@ -1,7 +1,7 @@
 import { User } from './models/User'
 
 const user = User.buildUser({
-    id: 4
+    id: 1
 })
 
 

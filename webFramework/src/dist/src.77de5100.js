@@ -2193,7 +2193,7 @@ Object.defineProperty(exports, "__esModule", {
 var User_1 = require("./models/User");
 
 var user = User_1.User.buildUser({
-  id: 4
+  id: 1
 }); //user.save({name: 'Roller', age: 532}))
 
 user.on('change', function () {
