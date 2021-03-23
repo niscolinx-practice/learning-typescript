@@ -24,7 +24,7 @@ export class User {
     }
 
     get on(){
-        return this.events()
+        return this.events.on
     }
     
 }

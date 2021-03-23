@@ -2100,7 +2100,7 @@ function () {
   }, {
     key: "on",
     get: function get() {
-      return this.events();
+      return this.events.on;
     }
   }]);
 
