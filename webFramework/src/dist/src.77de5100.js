@@ -2175,7 +2175,7 @@ function (_Model_1$Model) {
   _createClass(User, null, [{
     key: "buildUser",
     value: function buildUser(attrs) {
-      return new User(new ApiSync_1.ApiSync(URL), new Events_1.Events(), new Attributes_1.Attributes(attrs));
+      return new User(new Attributes_1.Attributes(attrs), new Events_1.Events(), new ApiSync_1.ApiSync(URL));
     }
   }]);
 

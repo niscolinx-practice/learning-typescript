@@ -16,9 +16,9 @@ export class User extends Model<UserProps> {
     static buildUser(attrs: UserProps): User{
 
         return new User(
-            new ApiSync<UserProps>(URL),
+            new Attributes<UserProps>(attrs),
             new Events(),
-            new Attributes<UserProps>(attrs)
+            new ApiSync<UserProps>(URL)
         )
     }
 }
