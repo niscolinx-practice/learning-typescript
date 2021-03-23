@@ -2111,7 +2111,14 @@ user.set({
   name: 'Niscolinx',
   age: 24
 });
-console.log(user.get('name'));
+user.save({
+  name: 'Nelson',
+  age: 42
+});
+user.fetch(2);
+setTimeout(function () {
+  console.log(user.get('name'));
+}, 3000);
 user.on('click', function () {
   console.log('clicked');
 });
