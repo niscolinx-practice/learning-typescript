@@ -1,6 +1,9 @@
 import { User } from './models/User'
 
-const user = new User({})
+const user = User.buildUser({
+    id: 2
+})
+
 
 //user.save({name: 'Roller', age: 532}))
 user.on('change', () => {
@@ -20,10 +23,9 @@ user.on('save', () => {
 //     name: 'name',
 // })
 
-// user.save()
+//user.save()
 user.fetch()
 
-console.log(user.attibutes)
 
 
 

@@ -2192,7 +2192,9 @@ Object.defineProperty(exports, "__esModule", {
 
 var User_1 = require("./models/User");
 
-var user = new User_1.User({}); //user.save({name: 'Roller', age: 532}))
+var user = User_1.User.buildUser({
+  id: 2
+}); //user.save({name: 'Roller', age: 532}))
 
 user.on('change', function () {
   console.log('updated user', user);
@@ -2206,10 +2208,9 @@ user.on('save', function () {
 //     age: 246,
 //     name: 'name',
 // })
-// user.save()
+//user.save()
 
 user.fetch();
-console.log(user.attibutes);
 },{"./models/User":"models/User.ts"}],"../../../../../../../../../usr/local/lib/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
