@@ -11,6 +11,6 @@ export class Collection<User, UserProps> {
 
     async fetch(){
        const allUsers =  await axios.get(this.rootUrl)
-       
+       this.models = allUsers.data
     }
 }
