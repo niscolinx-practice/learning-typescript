@@ -51,6 +51,9 @@ export class User {
     }
 
     save(): void {
-       this.sync.save(this.attibutes.getAll())
+       this.sync.save(this.attibutes.getAll()).then((res: AxiosResponse) => {
+           this.set(res.data)
+       })
+       
     }
 }

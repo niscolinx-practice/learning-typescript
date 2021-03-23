@@ -2113,7 +2113,11 @@ function () {
   }, {
     key: "save",
     value: function save() {
-      this.sync.save(this.attibutes.getAll());
+      var _this2 = this;
+
+      this.sync.save(this.attibutes.getAll()).then(function (res) {
+        _this2.set(res.data);
+      });
     }
   }]);
 
@@ -2134,12 +2138,13 @@ var user = new User_1.User({}); //user.save({name: 'Roller', age: 532}))
 
 user.on('change', function () {
   console.log(user);
-});
-user.set({
-  age: 246,
-  name: 'helo'
-}); //user.fetch()
+}); // user.set({
+//     age: 246,
+//     name: 'helo'
+// })
+//user.save()
 
+user.fetch();
 console.log(user.attibutes);
 },{"./models/User":"models/User.ts"}],"../../../../../../../../../usr/local/lib/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];

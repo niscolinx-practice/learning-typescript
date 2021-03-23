@@ -1,19 +1,5 @@
 {
   "users": [
-    {
-      "name": "Nelon",
-      "age": 23,
-      "id": 1
-    },
-    {
-      "name": "Victor",
-      "age": 19,
-      "id": 2
-    },
-    {
-      "name": "collino",
-      "age": 24,
-      "id": 3
-    }
+  
   ]
 }
