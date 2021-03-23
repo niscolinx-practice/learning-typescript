@@ -1,4 +1,3 @@
-import { UserProps } from './User';
 
 export class Attributes<T> {
     constructor(private data: T) {}
@@ -12,6 +11,7 @@ export class Attributes<T> {
     }
 
     getAll(): T{
+        console.log(this.data)
         return this.data
     }
 }

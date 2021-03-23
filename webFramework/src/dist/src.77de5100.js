@@ -153,6 +153,7 @@ function () {
   _createClass(Attributes, [{
     key: "getAll",
     value: function getAll() {
+      console.log(this.data);
       return this.data;
     }
   }]);
@@ -1987,6 +1988,7 @@ var Sync = function Sync(rootUrl) {
   this.rootUrl = rootUrl;
 
   this.save = function (data) {
+    console.log(data);
     var id = data.id;
 
     if (id) {
@@ -2137,13 +2139,13 @@ var user = new User_1.User({}); //user.save({name: 'Roller', age: 532}))
 
 user.on('change', function () {
   console.log(user);
-});
-user.set({
-  age: 246,
-  name: 'helo'
-}); //user.save()
+}); // user.set({
+//     age: 246,
+//     name: 'helo'
+// })
+// user.save()
+//user.fetch()
 
-user.fetch();
 console.log(user.attibutes);
 },{"./models/User":"models/User.ts"}],"../../../../../../../../../usr/local/lib/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
@@ -2173,7 +2175,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "43011" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "33339" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

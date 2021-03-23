@@ -7,13 +7,13 @@ user.on('change', () => {
     console.log(user)
 })
 
-user.set({
-    age: 246,
-    name: 'helo'
-})
+// user.set({
+//     age: 246,
+//     name: 'helo'
+// })
 
-//user.save()
-user.fetch()
+// user.save()
+//user.fetch()
 
 console.log(user.attibutes)
 
