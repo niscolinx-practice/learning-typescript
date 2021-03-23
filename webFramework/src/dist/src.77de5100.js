@@ -2085,7 +2085,7 @@ function () {
       if (!id) {
         throw new Error('id is undefined');
       } else {
-        this.sync.fetch(id).then(res, function (AxiosResponse) {
+        this.sync.fetch(id).then(function (res) {
           _this.set(res.data);
         });
       }

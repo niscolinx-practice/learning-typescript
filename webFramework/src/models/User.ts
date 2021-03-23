@@ -1,6 +1,7 @@
 import { Attributes } from './Attributes'
 import { Sync } from './Sync'
 import { Events } from './Events'
+import { AxiosResponse } from 'axios'
 
 export interface UserProps {
     name?: string
@@ -23,7 +24,7 @@ export class User {
         return this.attibutes.get
     }
 
-    set(update: UserProps) {
+    set(update: UserProps):void {
         this.attibutes.set(update)
          this.events.trigger('change')
     }
@@ -42,7 +43,7 @@ export class User {
             throw new Error('id is undefined')
         }
         else{
-            this.sync.fetch(id).then(res: AxiosResponse => {
+            this.sync.fetch(id).then((res: AxiosResponse) => {
                 this.set(res.data)
             })
 
