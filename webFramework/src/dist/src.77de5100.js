@@ -2093,7 +2093,11 @@ function () {
   }, {
     key: "save",
     value: function save(userData) {
-      this.sync.save(userData);
+      var _this2 = this;
+
+      this.sync.save(userData).then(function (res) {
+        _this2.set(res.data);
+      });
     }
   }]);
 

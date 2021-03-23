@@ -47,6 +47,8 @@ export class User {
     }
 
     save(userData: UserProps) {
-         this.sync.save(userData)
+         this.sync.save(userData).then((res: AxiosResponse) => {
+             this.set(res.data)
+         })
     }
 }
