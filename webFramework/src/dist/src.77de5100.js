@@ -2071,6 +2071,16 @@ function () {
     get: function get() {
       return this.events.trigger;
     }
+  }, {
+    key: "fetch",
+    get: function get() {
+      return this.sync.fetch;
+    }
+  }, {
+    key: "save",
+    get: function get() {
+      return this.sync.save;
+    }
   }]);
 
   return User;
@@ -2092,7 +2102,7 @@ var user = new User_1.User({
   id: 3
 }); //user.save()
 
-console.log(user.get('name'));
+console.log(user.get('id'));
 user.on('click', function () {
   console.log('clicked');
 });

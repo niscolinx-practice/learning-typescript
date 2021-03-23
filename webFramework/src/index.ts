@@ -4,7 +4,7 @@ const user = new User({ name: 'Collins', age: 524, id: 3})
 
 //user.save()
 
- console.log(user.get('name'))
+ console.log(user.get('id'))
 
 user.on('click', () => {
     console.log('clicked')

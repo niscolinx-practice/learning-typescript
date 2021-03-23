@@ -30,4 +30,12 @@ export class User {
     get trigger() {
         return this.events.trigger
     }
+
+    get fetch(){
+        return this.sync.fetch
+    }
+
+    get save(){
+        return this.sync.save
+    }
 }
