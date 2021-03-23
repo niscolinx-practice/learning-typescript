@@ -8,7 +8,7 @@ export class Collection<User, UserProps> {
 
     async fetch(): Promise<UserProps> {
         const allUsers = await axios.get(this.rootUrl)
-        
+        console.log(allUsers.data)
         return this.models = allUsers.data
     }
 }
