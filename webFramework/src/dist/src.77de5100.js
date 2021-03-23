@@ -2095,7 +2095,7 @@ function () {
   _createClass(User, [{
     key: "get",
     value: function get(name) {
-      return this.attibutes.get();
+      return this.attibutes.get(name);
     }
   }]);
 
