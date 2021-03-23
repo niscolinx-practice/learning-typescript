@@ -1,4 +1,4 @@
-import { AxiosPromise } from 'axios'
+import { AxiosPromise, AxiosResponse } from 'axios'
 interface Sync<T> {
     save(data: T): AxiosPromise
 
@@ -21,8 +21,8 @@ export class Model<T> {
     sync: Sync<UserProps> = new Sync<UserProps>(URL)
     attibutes: Attributes<UserProps>
 
-    constructor(private attrs: UserProps) {
-        this.attibutes = new Attributes<UserProps>(this.attrs)
+    constructor(private attrs: Attrs, private events: Events, private sync: Sync){
+
     }
 
     get get() {
@@ -36,7 +36,7 @@ export class Model<T> {
     get trigger() {
         return this.events.trigger
     }
-    set(update: UserProps): void {
+    set(update: T): void {
         this.attibutes.set(update)
         this.events.trigger('change')
     }

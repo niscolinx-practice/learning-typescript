@@ -1,4 +1,7 @@
-
+import { Attributes } from './Attributes';
+import { Events } from './Events';
+import { ApiSync } from './ApiSync';
+import { Model } from './Model'
 
 export interface UserProps {
     name?: string
@@ -8,14 +11,14 @@ export interface UserProps {
 
 const URL = 'http://localhost:3000/users'
 
-export class User extends {
-    events: Events = new Events()
-    sync: Sync<UserProps> = new Sync<UserProps>(URL)
-    attibutes: Attributes<UserProps>
+export class User extends Model<UserProps> {
 
-    constructor(private attrs: UserProps) {
-        this.attibutes = new Attributes<UserProps>(this.attrs)
+    static buildUser(attrs: UserProps): User{
+
+        return new User(
+            new ApiSync<UserProps>(URL),
+            new Events(),
+            new Attributes<UserProps>(attrs)
+        )
     }
-
-  
 }
