@@ -12,6 +12,8 @@ user.on('change', () => {
 //     age: 24
 // })
 
+user.fetch(1)
+
 console.log(user.attibutes)
 
 

@@ -2123,6 +2123,7 @@ user.on('change', function () {
 //     age: 24
 // })
 
+user.fetch(1);
 console.log(user.attibutes);
 },{"./models/User":"models/User.ts"}],"../../../../../../../../../usr/local/lib/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
