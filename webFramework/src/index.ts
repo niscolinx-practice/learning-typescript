@@ -9,10 +9,6 @@ user.set({
     age: 24
 })
 
-user.save({
-    name: 'Nelson', 
-    age: 42
-})
 
 user.fetch(2)
 

@@ -2111,10 +2111,6 @@ user.set({
   name: 'Niscolinx',
   age: 24
 });
-user.save({
-  name: 'Nelson',
-  age: 42
-});
 user.fetch(2);
 setTimeout(function () {
   console.log(user.get('name'));
