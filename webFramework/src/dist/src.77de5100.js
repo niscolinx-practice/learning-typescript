@@ -2079,8 +2079,10 @@ function () {
     }
   }, {
     key: "fetch",
-    value: function fetch(id) {
+    value: function fetch() {
       var _this = this;
+
+      var id = this.get('id');
 
       if (!id) {
         throw new Error('id is undefined');
@@ -2118,12 +2120,12 @@ var user = new User_1.User({}); //user.save()
 
 user.on('change', function () {
   console.log('User was changed, you should do something in html');
-}); // user.set({
-//     name: 'collino',
-//     age: 24
-// })
-
-user.fetch(1);
+});
+user.set({
+  name: 'collino',
+  age: 24
+});
+user.fetch();
 console.log(user.attibutes);
 },{"./models/User":"models/User.ts"}],"../../../../../../../../../usr/local/lib/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];

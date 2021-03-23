@@ -36,7 +36,9 @@ export class User {
         this.events.trigger('change')
     }
 
-    fetch(id: number):void {
+    fetch():void {
+        const id = this.get('id')
+
         if (!id) {
             throw new Error('id is undefined')
         } else {
