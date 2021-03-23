@@ -6,8 +6,9 @@ export class Collection<User, UserProps> {
 
     constructor(private rootUrl: string) {}
 
-    async fetch(): void {
+    async fetch(): Promise<UserProps> {
         const allUsers = await axios.get(this.rootUrl)
-        this.models = allUsers.data
+        
+        return this.models = allUsers.data
     }
 }
