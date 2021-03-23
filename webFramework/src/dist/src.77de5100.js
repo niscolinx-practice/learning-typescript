@@ -2082,7 +2082,7 @@ function () {
     value: function fetch() {
       var _this = this;
 
-      var id = this.get('name');
+      var id = this.get('id');
       console.log('the id from fetch method', id);
 
       if (!id) {
@@ -2121,11 +2121,11 @@ var user = new User_1.User({}); //user.save()
 
 user.on('change', function () {
   console.log(user);
-}); // user.save({
-//     name: 'collino',
-//     age: 24
-// })
-
+});
+user.set({
+  name: 'collino',
+  age: 24
+});
 user.fetch();
 console.log(user.attibutes);
 },{"./models/User":"models/User.ts"}],"../../../../../../../../../usr/local/lib/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {

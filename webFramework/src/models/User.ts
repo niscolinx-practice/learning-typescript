@@ -37,7 +37,7 @@ export class User {
     }
 
     fetch():void {
-        const id = this.get('name')
+        const id = this.get('id')
 
         console.log('the id from fetch method', id)
 
