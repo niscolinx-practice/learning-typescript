@@ -2062,12 +2062,6 @@ function () {
       return this.attibutes.get;
     }
   }, {
-    key: "set",
-    value: function set(update) {
-      this.attibutes.set(update);
-      this.events.trigger('change');
-    }
-  }, {
     key: "on",
     get: function get() {
       return this.events.on;
@@ -2076,6 +2070,12 @@ function () {
     key: "trigger",
     get: function get() {
       return this.events.trigger;
+    }
+  }, {
+    key: "set",
+    value: function set(update) {
+      this.attibutes.set(update);
+      this.events.trigger('change');
     }
   }, {
     key: "fetch",
