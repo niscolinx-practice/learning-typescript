@@ -2044,10 +2044,6 @@ exports.Events = Events;
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
-
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
@@ -2061,71 +2057,14 @@ var Events_1 = require("./Events");
 
 var URL = 'http://localhost:3000/users';
 
-var User =
-/*#__PURE__*/
-function () {
-  function User(attrs) {
-    _classCallCheck(this, User);
+var User = function User(attrs) {
+  _classCallCheck(this, User);
 
-    this.attrs = attrs;
-    this.events = new Events_1.Events();
-    this.sync = new ApiSync_1.Sync(URL);
-    this.attibutes = new Attributes_1.Attributes(this.attrs);
-  }
-
-  _createClass(User, [{
-    key: "get",
-    get: function get() {
-      return this.attibutes.get;
-    }
-  }, {
-    key: "on",
-    get: function get() {
-      return this.events.on;
-    }
-  }, {
-    key: "trigger",
-    get: function get() {
-      return this.events.trigger;
-    }
-  }, {
-    key: "set",
-    value: function set(update) {
-      this.attibutes.set(update);
-      this.events.trigger('change');
-    }
-  }, {
-    key: "fetch",
-    value: function fetch() {
-      var _this = this;
-
-      var id = this.get('id');
-
-      if (!id) {
-        throw new Error('id is undefined');
-      } else {
-        this.sync.fetch(id).then(function (res) {
-          _this.set(res.data);
-
-          _this.events.trigger('fetch');
-        });
-      }
-    }
-  }, {
-    key: "save",
-    value: function save() {
-      var _this2 = this;
-
-      this.sync.save(this.attibutes.getAll()).then(function (res) {
-        _this2.set(res.data);
-
-        _this2.events.trigger('save');
-      });
-    }
-  }]);
-
-  return User;
-}();
+  this.attrs = attrs;
+  this.events = new Events_1.Events();
+  this.sync = new ApiSync_1.Sync(URL);
+  this.attibutes = new Attributes_1.Attributes(this.attrs);
+};
 
 exports.User = User;
 },{"./Attributes":"models/Attributes.ts","./ApiSync":"models/ApiSync.ts","./Events":"models/Events.ts"}],"index.ts":[function(require,module,exports) {
