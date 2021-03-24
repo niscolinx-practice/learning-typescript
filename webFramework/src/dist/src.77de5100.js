@@ -2220,7 +2220,7 @@ function () {
     key: "fetch",
     value: function fetch() {
       return axios_1.default.get(this.rootUrl).then(function (res) {
-        return User_1.User.buildUser(res.data);
+        User_1.User.buildUser(res.data);
       });
     }
   }]);
