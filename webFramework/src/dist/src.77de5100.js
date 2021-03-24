@@ -2214,6 +2214,7 @@ function () {
     _classCallCheck(this, Collection);
 
     this.rootUrl = rootUrl;
+    this.models = [];
   }
 
   _createClass(Collection, [{
