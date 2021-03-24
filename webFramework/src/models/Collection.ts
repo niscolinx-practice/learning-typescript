@@ -9,7 +9,9 @@ export class Collection<T, K> {
     fetch(): Promise<void> {
      return axios.get(this.rootUrl).then((res: AxiosResponse): void => {
 
-         User.buildUser(res.data)
+         res.data.forEach((user: UserProps) => {
+             this.models.push(user)
+         })
 
      })
     }
