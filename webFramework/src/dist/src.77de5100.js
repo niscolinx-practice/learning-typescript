@@ -1995,11 +1995,12 @@ function () {
     value: function fetch() {
       var _this = this;
 
-      return axios_1.default.get(this.rootUrl).then(function (res) {
+      axios_1.default.get(this.rootUrl).then(function (res) {
         res.data.forEach(function (eachUser) {
           _this.models.push(_this.deserialize(eachUser));
         });
       });
+      this.trigger('fetch');
     }
   }, {
     key: "on",
