@@ -6,7 +6,7 @@ export class Collection<T, K> {
     models: T[] = []
     events: Events = new Events() 
 
-    constructor(public rootUrl: string) {}
+    constructor(private rootUrl: string, p) {}
 
     fetch(): Promise<void> {
      return axios.get(this.rootUrl).then((res: AxiosResponse): void => {
