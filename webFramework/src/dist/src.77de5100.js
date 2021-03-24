@@ -2256,14 +2256,19 @@ Object.defineProperty(exports, "__esModule", {
 
 var Collection_1 = require("./models/Collection");
 
-var User_1 = require("./models/User"); // const user = User.buildUser({
+var User_1 = require("./models/User");
+
+var collection = new Collection_1.Collection('http://localhost:3000/users', User_1.User.buildUser); // const user = User.buildUser({
 //     id: 1
 // })
 // //user.save({name: 'Roller', age: 532}))
 // user.on('change', () => {
 //     console.log('updated user', user)
 // })
-// user.on('save', () => {
+
+collection.on('fetch', function () {
+  console.log('fetched users');
+}); // user.on('save', () => {
 //     console.log('saved a new user')
 // })
 // // user.set({
@@ -2273,8 +2278,6 @@ var User_1 = require("./models/User"); // const user = User.buildUser({
 // //user.save()
 // user.fetch()
 
-
-var collection = new Collection_1.Collection('http://localhost:3000/users', User_1.User.buildUser);
 collection.fetch();
 console.log(collection.models);
 },{"./models/Collection":"models/Collection.ts","./models/User":"models/User.ts"}],"../../../../../../../../../usr/local/lib/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
