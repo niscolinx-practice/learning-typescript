@@ -2263,9 +2263,6 @@ var User_1 = require("./models/User"); // const user = User.buildUser({
 // user.on('change', () => {
 //     console.log('updated user', user)
 // })
-// user.on('fetch', () => {
-//     console.log('fetched user')
-// })
 // user.on('save', () => {
 //     console.log('saved a new user')
 // })

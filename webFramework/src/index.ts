@@ -1,3 +1,4 @@
+import { Events } from './models/Events';
 import { Collection } from './models/Collection'
 import { User, UserProps } from './models/User'
 
@@ -10,9 +11,8 @@ import { User, UserProps } from './models/User'
 //     console.log('updated user', user)
 // })
 
-// user.on('fetch', () => {
-//     console.log('fetched user')
-// })
+
+
 
 // user.on('save', () => {
 //     console.log('saved a new user')
