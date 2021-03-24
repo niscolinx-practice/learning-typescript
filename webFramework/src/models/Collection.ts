@@ -1,15 +1,14 @@
 import axios, { AxiosResponse } from 'axios'
-import { User } from './User'
+import { User, UserProps } from './User'
 
 export class Collection<T, K> {
 
     constructor(public rootUrl: string) {}
 
-    fetch(): Promise<void> {
-     return axios.get(this.rootUrl).then((res: AxiosResponse): void => {
-         console.log(res.data)
+    fetch(): Promise<UserProps> {
+     return axios.get(this.rootUrl).then((res: AxiosResponse): User[] => {
 
-         User.buildUser(res.data)
+        return User.buildUser(res.data)
 
      })
     }
