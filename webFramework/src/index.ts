@@ -1,10 +1,9 @@
-import { Collection } from './models/Collection';
- import { User, UserProps } from './models/User'
+import { Collection } from './models/Collection'
+import { User, UserProps } from './models/User'
 
 // const user = User.buildUser({
 //     id: 1
 // })
-
 
 // //user.save({name: 'Roller', age: 532}))
 // user.on('change', () => {
@@ -27,8 +26,8 @@ import { Collection } from './models/Collection';
 // //user.save()
 // user.fetch()
 
- const collection = new Collection<User, UserProps>('http://localhost:3000/users', User.buildUser)
+const collection = new Collection<User, UserProps>(
+    'http://localhost:3000/users',
+    User.buildUser
+)
 collection.fetch()
-
-
-
