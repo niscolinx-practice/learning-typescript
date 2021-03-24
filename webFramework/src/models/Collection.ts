@@ -1,4 +1,5 @@
 import axios, { AxiosResponse } from 'axios'
+import { User } from './User'
 
 export class Collection<T, K> {
 
@@ -7,6 +8,8 @@ export class Collection<T, K> {
     fetch(): Promise<void> {
      return axios.get(this.rootUrl).then((res: AxiosResponse): void => {
          console.log(res.data)
+
+         User.buildUser(res.data)
 
      })
     }
