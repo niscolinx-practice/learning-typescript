@@ -31,3 +31,4 @@ const collection = new Collection<User, UserProps>(
     User.buildUser
 )
 collection.fetch()
+collection.models
