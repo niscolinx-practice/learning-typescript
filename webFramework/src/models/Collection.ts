@@ -3,7 +3,7 @@ import axios, { AxiosResponse } from 'axios'
 import { User, UserProps } from './User'
 
 export class Collection<T, K> {
-    models: User[] = []
+    models: T[] = []
     events: Events = new Events() 
 
     constructor(public rootUrl: string) {}
@@ -11,8 +11,8 @@ export class Collection<T, K> {
     fetch(): Promise<void> {
      return axios.get(this.rootUrl).then((res: AxiosResponse): void => {
 
-         res.data.forEach((eachUser: UserProps) => {
-             this.models.push(User.buildUser(eachUser))
+         res.data.forEach((eachUser: K) => {
+             this.models.push(():.buildUser(eachUser))
          })
 
      })
