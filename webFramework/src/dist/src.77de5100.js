@@ -1981,10 +1981,11 @@ var axios_1 = __importDefault(require("axios"));
 var Collection =
 /*#__PURE__*/
 function () {
-  function Collection(rootUrl) {
+  function Collection(rootUrl, deserialize) {
     _classCallCheck(this, Collection);
 
     this.rootUrl = rootUrl;
+    this.deserialize = deserialize;
     this.models = [];
     this.events = new Events_1.Events();
   }
@@ -1996,7 +1997,7 @@ function () {
 
       return axios_1.default.get(this.rootUrl).then(function (res) {
         res.data.forEach(function (eachUser) {
-          _this.models.push(T.buildUser(eachUser));
+          _this.models.push(_this.deserialize(eachUser));
         });
       });
     }

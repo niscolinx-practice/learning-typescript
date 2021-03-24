@@ -6,13 +6,15 @@ export class Collection<T, K> {
     models: T[] = []
     events: Events = new Events() 
 
-    constructor(private rootUrl: string, p) {}
+    constructor(private rootUrl: string,
+         private deserialize: (json: K) =>  T
+         ) {}
 
     fetch(): Promise<void> {
      return axios.get(this.rootUrl).then((res: AxiosResponse): void => {
 
          res.data.forEach((eachUser: K) => {
-             this.models.push(():.buildUser(eachUser))
+             this.models.push(this.deserialize((eachUser)))
          })
 
      })
