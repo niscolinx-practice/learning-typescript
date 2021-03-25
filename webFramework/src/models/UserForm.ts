@@ -12,7 +12,9 @@ export class UserForm {
     }
 
     render(): void {
-        const htmlTemplate = document.createElement('sds')
+        const htmlTemplate = document.createElement('template')
         htmlTemplate.innerHTML = this.template()
+
+        this.parent.append(htmlTemplate.content)
     }
 }
