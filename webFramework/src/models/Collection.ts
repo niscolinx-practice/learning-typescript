@@ -7,7 +7,7 @@ export class Collection<T, K> {
 
     constructor(private rootUrl: string, private deserialize: (json: K) => T) {}
 
-    fetch(): Promise<void> {
+    fetch(): void {
         axios.get(this.rootUrl).then((res: AxiosResponse) => {
             console.log(res)
             res.data.forEach((eachUser: K) => {
