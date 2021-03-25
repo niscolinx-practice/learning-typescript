@@ -1,3 +1,4 @@
+import { UserProps } from './User';
 import { Attributes } from './Attributes'
 import { Events } from './Events'
 import { ApiSync } from './ApiSync'
@@ -23,8 +24,8 @@ export class User extends Model<UserProps> {
 
     static buildUserCollection(): Collection<User, UserProps> {
         return new Collection<User, UserProps>(
-            'http://localhost:3000/users',
-            this.buildUser
+            URL,
+            (json: UserProps) => this.buildUser(json)
         )
     }
 }
