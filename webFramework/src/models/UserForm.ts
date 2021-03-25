@@ -1,19 +1,17 @@
 export class UserForm {
- parent: string = ''
+    constructor(public parent: Element) {}
 
-
- template(){
-    `
+    template() {
+        ;`
         <div>
             <h2>User Form</h2>
             <input></input>
             <button>click me!</button>
         </div>
     `
- } 
+    }
 
-
- render():void {
-     const htmlTemplate = document.
- }
+    render(): void {
+        const htmlTemplate = document.createElement('fragment')
+    }
 }
