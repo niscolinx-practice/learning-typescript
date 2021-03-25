@@ -33,12 +33,12 @@ collection.on('fetch', () => {
 
 
 setTimeout(() => {
-    console.log(collection.models)
 }, 3000);
 
 
 const main = async() => {
     await collection.fetch()
+    console.log(collection.models)
 
 }
 

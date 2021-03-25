@@ -2272,9 +2272,7 @@ collection.on('fetch', function () {
 // //user.save()
 // user.fetch()
 
-setTimeout(function () {
-  console.log(collection.models);
-}, 3000);
+setTimeout(function () {}, 3000);
 
 var main =
 /*#__PURE__*/
@@ -2290,6 +2288,9 @@ function () {
             return collection.fetch();
 
           case 2:
+            console.log(collection.models);
+
+          case 3:
           case "end":
             return _context.stop();
         }
