@@ -2194,6 +2194,8 @@ var _ApiSync = require("./ApiSync");
 
 var _Model2 = require("./Model");
 
+var _Collection = require("./Collection");
+
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -2236,13 +2238,18 @@ function (_Model) {
     value: function buildUser(attrs) {
       return new User(new _Attributes.Attributes(attrs), new _Events.Events(), new _ApiSync.ApiSync(URL));
     }
+  }, {
+    key: "buildUserCollection",
+    value: function buildUserCollection() {
+      return new _Collection.Collection('http://localhost:3000/users', User.buildUser);
+    }
   }]);
 
   return User;
 }(_Model2.Model);
 
 exports.User = User;
-},{"./Attributes":"models/Attributes.ts","./Events":"models/Events.ts","./ApiSync":"models/ApiSync.ts","./Model":"models/Model.ts"}],"index.ts":[function(require,module,exports) {
+},{"./Attributes":"models/Attributes.ts","./Events":"models/Events.ts","./ApiSync":"models/ApiSync.ts","./Model":"models/Model.ts","./Collection":"models/Collection.ts"}],"index.ts":[function(require,module,exports) {
 "use strict";
 
 var _Collection = require("./models/Collection");
