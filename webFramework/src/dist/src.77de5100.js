@@ -2253,27 +2253,11 @@ exports.User = User;
 
 var _User = require("./models/User");
 
-var collection = _User.User.buildUserCollection(); // const user = User.buildUser({
-//     id: 1
-// })
-// //user.save({name: 'Roller', age: 532}))
-// user.on('change', () => {
-//     console.log('updated user', user)
-// })
-
+var collection = _User.User.buildUserCollection();
 
 collection.on('fetch', function () {
   console.log('fetched users');
-}); // user.on('save', () => {
-//     console.log('saved a new user')
-// })
-// // user.set({
-// //     age: 246,
-// //     name: 'name',
-// // })
-// //user.save()
-// user.fetch()
-
+});
 collection.fetch();
 setTimeout(function () {
   console.log(collection.models);
