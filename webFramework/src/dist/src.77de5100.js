@@ -2241,7 +2241,7 @@ function (_Model) {
   }, {
     key: "buildUserCollection",
     value: function buildUserCollection() {
-      return new _Collection.Collection('http://localhost:3000/users', User.buildUser);
+      return new _Collection.Collection('http://localhost:3000/users', this.buildUser);
     }
   }]);
 

@@ -24,7 +24,7 @@ export class User extends Model<UserProps> {
     static buildUserCollection() {
         return new Collection<User, UserProps>(
             'http://localhost:3000/users',
-            User.buildUser
+            this.buildUser
         )
     }
 }
