@@ -31,8 +31,15 @@ collection.on('fetch', () => {
 // //user.save()
 // user.fetch()
 
-await collection.fetch()
-console.log(collection.models)
+
 setTimeout(() => {
-    
+    console.log(collection.models)
 }, 3000);
+
+
+const main = async() => {
+    await collection.fetch()
+
+}
+
+main()
