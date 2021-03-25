@@ -8,14 +8,14 @@ export class Collection<T, K> {
     constructor(private rootUrl: string, private deserialize: (json: K) => T) {}
 
     fetch(): Promise<void> {
-        this.trigger('fetch')
-       return axios.get(this.rootUrl).then((res: AxiosResponse) => {
-           console.log(res)
-            return res.data.forEach((eachUser: K) => {
+        axios.get(this.rootUrl).then((res: AxiosResponse) => {
+            console.log(res)
+            res.data.forEach((eachUser: K) => {
                 this.models.push(this.deserialize(eachUser))
             })
         })
-
+        
+        this.trigger('fetch')
     }
 
     get on() {

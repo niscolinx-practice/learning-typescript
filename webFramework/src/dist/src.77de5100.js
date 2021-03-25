@@ -1991,13 +1991,14 @@ function () {
     value: function fetch() {
       var _this = this;
 
-      this.trigger('fetch');
-      return _index.default.get(this.rootUrl).then(function (res) {
+      _index.default.get(this.rootUrl).then(function (res) {
         console.log(res);
-        return res.data.forEach(function (eachUser) {
+        res.data.forEach(function (eachUser) {
           _this.models.push(_this.deserialize(eachUser));
         });
       });
+
+      this.trigger('fetch');
     }
   }, {
     key: "on",
