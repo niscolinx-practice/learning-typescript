@@ -32,17 +32,10 @@ collection.on('fetch', () => {
 // //user.save()
 // user.fetch()
 
+collection.fetch()
 
 setTimeout(() => {
+       console.log(collection.models)
 }, 3000);
 
- collection.fetch().then((res: AxiosResponse) => {
-     console.log(res)
- })
 
-// const main = async() => {
-//     console.log(collection.models)
-
-// }
-
-// main()
