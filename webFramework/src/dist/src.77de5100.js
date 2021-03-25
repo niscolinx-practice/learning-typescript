@@ -1991,7 +1991,7 @@ function () {
     value: function fetch() {
       var _this = this;
 
-      return _index.default.get(this.rootUrl).then(function (res) {
+      _index.default.get(this.rootUrl).then(function (res) {
         res.data.forEach(function (eachUser) {
           _this.models.push(_this.deserialize(eachUser));
         });
