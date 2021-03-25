@@ -2279,7 +2279,9 @@ collection.on('fetch', function () {
 // user.fetch()
 
 collection.fetch();
-console.log(collection.models);
+setTimeout(function () {
+  console.log(collection.models);
+}, 3000);
 },{"./models/Collection":"models/Collection.ts","./models/User":"models/User.ts"}],"../../../../../../../../../usr/local/lib/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
