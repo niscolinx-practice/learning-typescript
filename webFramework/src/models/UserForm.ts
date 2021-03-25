@@ -1,8 +1,8 @@
 export class UserForm {
     constructor(public parent: Element) {}
 
-    template() {
-        ;`
+    template(): string {
+        return `
         <div>
             <h2>User Form</h2>
             <input></input>
@@ -12,6 +12,7 @@ export class UserForm {
     }
 
     render(): void {
-        const htmlTemplate = document.createElement('fragment')
+        const htmlTemplate = document.createElement('sds')
+        htmlTemplate.innerHTML = this.template()
     }
 }
