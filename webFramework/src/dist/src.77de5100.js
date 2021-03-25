@@ -1991,12 +1991,12 @@ function () {
     value: function fetch() {
       var _this = this;
 
-      _index.default.get(this.rootUrl).then(function (res) {
-        res.data.forEach(function (eachUser) {
+      this.trigger('fetch');
+      return _index.default.get(this.rootUrl).then(function (res) {
+        console.log(res);
+        return res.data.forEach(function (eachUser) {
           _this.models.push(_this.deserialize(eachUser));
         });
-
-        _this.trigger('fetch');
       });
     }
   }, {
@@ -2248,10 +2248,6 @@ var _Collection = require("./models/Collection");
 
 var _User = require("./models/User");
 
-function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
-
-function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
-
 var collection = new _Collection.Collection('http://localhost:3000/users', _User.User.buildUser); // const user = User.buildUser({
 //     id: 1
 // })
@@ -2273,37 +2269,12 @@ collection.on('fetch', function () {
 // user.fetch()
 
 setTimeout(function () {}, 3000);
-
-var main =
-/*#__PURE__*/
-function () {
-  var _ref = _asyncToGenerator(
-  /*#__PURE__*/
-  regeneratorRuntime.mark(function _callee() {
-    return regeneratorRuntime.wrap(function _callee$(_context) {
-      while (1) {
-        switch (_context.prev = _context.next) {
-          case 0:
-            _context.next = 2;
-            return collection.fetch();
-
-          case 2:
-            console.log(collection.models);
-
-          case 3:
-          case "end":
-            return _context.stop();
-        }
-      }
-    }, _callee);
-  }));
-
-  return function main() {
-    return _ref.apply(this, arguments);
-  };
-}();
-
-main();
+collection.fetch().then(function (res) {
+  console.log(res);
+}); // const main = async() => {
+//     console.log(collection.models)
+// }
+// main()
 },{"./models/Collection":"models/Collection.ts","./models/User":"models/User.ts"}],"../../../../../../../../../usr/local/lib/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';

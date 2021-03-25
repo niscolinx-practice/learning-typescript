@@ -1,3 +1,4 @@
+import { AxiosResponse } from 'axios';
 import { Collection } from './models/Collection'
 import { User, UserProps } from './models/User'
 
@@ -35,11 +36,13 @@ collection.on('fetch', () => {
 setTimeout(() => {
 }, 3000);
 
+ collection.fetch().then((res: AxiosResponse) => {
+     console.log(res)
+ })
 
-const main = async() => {
-    await collection.fetch()
-    console.log(collection.models)
+// const main = async() => {
+//     console.log(collection.models)
 
-}
+// }
 
-main()
+// main()
