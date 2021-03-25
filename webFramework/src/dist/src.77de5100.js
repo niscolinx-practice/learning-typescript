@@ -117,7 +117,88 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   }
 
   return newRequire;
-})({"../node_modules/axios/lib/helpers/bind.js":[function(require,module,exports) {
+})({"models/Attributes.ts":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.Attributes = void 0;
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+var Attributes =
+/*#__PURE__*/
+function () {
+  function Attributes(data) {
+    var _this = this;
+
+    _classCallCheck(this, Attributes);
+
+    this.data = data;
+
+    this.get = function (key) {
+      return _this.data[key];
+    };
+
+    this.set = function (updateUserProp) {
+      Object.assign(_this.data, updateUserProp);
+    };
+  }
+
+  _createClass(Attributes, [{
+    key: "getAll",
+    value: function getAll() {
+      return this.data;
+    }
+  }]);
+
+  return Attributes;
+}();
+
+exports.Attributes = Attributes;
+},{}],"models/Events.ts":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.Events = void 0;
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var Events = function Events() {
+  var _this = this;
+
+  _classCallCheck(this, Events);
+
+  this.events = {};
+
+  this.on = function (eventName, callback) {
+    var handlers = _this.events[eventName] || [];
+    handlers.push(callback);
+    _this.events[eventName] = handlers;
+  };
+
+  this.trigger = function (eventName) {
+    var handler = _this.events[eventName];
+
+    if (!handler || handler.length === 0) {
+      return;
+    }
+
+    handler.forEach(function (event) {
+      event();
+    });
+  };
+};
+
+exports.Events = Events;
+},{}],"../node_modules/axios/lib/helpers/bind.js":[function(require,module,exports) {
 'use strict';
 
 module.exports = function bind(fn, thisArg) {
@@ -1917,150 +1998,7 @@ module.exports.default = axios;
 
 },{"./utils":"../node_modules/axios/lib/utils.js","./helpers/bind":"../node_modules/axios/lib/helpers/bind.js","./core/Axios":"../node_modules/axios/lib/core/Axios.js","./core/mergeConfig":"../node_modules/axios/lib/core/mergeConfig.js","./defaults":"../node_modules/axios/lib/defaults.js","./cancel/Cancel":"../node_modules/axios/lib/cancel/Cancel.js","./cancel/CancelToken":"../node_modules/axios/lib/cancel/CancelToken.js","./cancel/isCancel":"../node_modules/axios/lib/cancel/isCancel.js","./helpers/spread":"../node_modules/axios/lib/helpers/spread.js","./helpers/isAxiosError":"../node_modules/axios/lib/helpers/isAxiosError.js"}],"../node_modules/axios/index.js":[function(require,module,exports) {
 module.exports = require('./lib/axios');
-},{"./lib/axios":"../node_modules/axios/lib/axios.js"}],"models/Events.ts":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.Events = void 0;
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-var Events = function Events() {
-  var _this = this;
-
-  _classCallCheck(this, Events);
-
-  this.events = {};
-
-  this.on = function (eventName, callback) {
-    var handlers = _this.events[eventName] || [];
-    handlers.push(callback);
-    _this.events[eventName] = handlers;
-  };
-
-  this.trigger = function (eventName) {
-    var handler = _this.events[eventName];
-
-    if (!handler || handler.length === 0) {
-      return;
-    }
-
-    handler.forEach(function (event) {
-      event();
-    });
-  };
-};
-
-exports.Events = Events;
-},{}],"models/Collection.ts":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.Collection = void 0;
-
-var _index = _interopRequireDefault(require("../../node_modules/axios/index"));
-
-var _Events = require("./Events");
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
-
-var Collection =
-/*#__PURE__*/
-function () {
-  function Collection(rootUrl, deserialize) {
-    _classCallCheck(this, Collection);
-
-    this.rootUrl = rootUrl;
-    this.deserialize = deserialize;
-    this.models = [];
-    this.events = new _Events.Events();
-  }
-
-  _createClass(Collection, [{
-    key: "fetch",
-    value: function fetch() {
-      var _this = this;
-
-      _index.default.get(this.rootUrl).then(function (res) {
-        console.log(res);
-        res.data.forEach(function (eachUser) {
-          _this.models.push(_this.deserialize(eachUser));
-        });
-      });
-
-      this.trigger('fetch');
-    }
-  }, {
-    key: "on",
-    get: function get() {
-      return this.events.on;
-    }
-  }, {
-    key: "trigger",
-    get: function get() {
-      return this.events.trigger;
-    }
-  }]);
-
-  return Collection;
-}();
-
-exports.Collection = Collection;
-},{"../../node_modules/axios/index":"../node_modules/axios/index.js","./Events":"models/Events.ts"}],"models/Attributes.ts":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.Attributes = void 0;
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
-
-var Attributes =
-/*#__PURE__*/
-function () {
-  function Attributes(data) {
-    var _this = this;
-
-    _classCallCheck(this, Attributes);
-
-    this.data = data;
-
-    this.get = function (key) {
-      return _this.data[key];
-    };
-
-    this.set = function (updateUserProp) {
-      Object.assign(_this.data, updateUserProp);
-    };
-  }
-
-  _createClass(Attributes, [{
-    key: "getAll",
-    value: function getAll() {
-      return this.data;
-    }
-  }]);
-
-  return Attributes;
-}();
-
-exports.Attributes = Attributes;
-},{}],"models/ApiSync.ts":[function(require,module,exports) {
+},{"./lib/axios":"../node_modules/axios/lib/axios.js"}],"models/ApiSync.ts":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -2178,7 +2116,68 @@ function () {
 }();
 
 exports.Model = Model;
-},{}],"models/User.ts":[function(require,module,exports) {
+},{}],"models/Collection.ts":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.Collection = void 0;
+
+var _index = _interopRequireDefault(require("../../node_modules/axios/index"));
+
+var _Events = require("./Events");
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+var Collection =
+/*#__PURE__*/
+function () {
+  function Collection(rootUrl, deserialize) {
+    _classCallCheck(this, Collection);
+
+    this.rootUrl = rootUrl;
+    this.deserialize = deserialize;
+    this.models = [];
+    this.events = new _Events.Events();
+  }
+
+  _createClass(Collection, [{
+    key: "fetch",
+    value: function fetch() {
+      var _this = this;
+
+      _index.default.get(this.rootUrl).then(function (res) {
+        res.data.forEach(function (eachUser) {
+          _this.models.push(_this.deserialize(eachUser));
+        });
+      });
+
+      this.trigger('fetch');
+    }
+  }, {
+    key: "on",
+    get: function get() {
+      return this.events.on;
+    }
+  }, {
+    key: "trigger",
+    get: function get() {
+      return this.events.trigger;
+    }
+  }]);
+
+  return Collection;
+}();
+
+exports.Collection = Collection;
+},{"../../node_modules/axios/index":"../node_modules/axios/index.js","./Events":"models/Events.ts"}],"models/User.ts":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -2252,17 +2251,16 @@ exports.User = User;
 },{"./Attributes":"models/Attributes.ts","./Events":"models/Events.ts","./ApiSync":"models/ApiSync.ts","./Model":"models/Model.ts","./Collection":"models/Collection.ts"}],"index.ts":[function(require,module,exports) {
 "use strict";
 
-var _Collection = require("./models/Collection");
-
 var _User = require("./models/User");
 
-var collection = new _Collection.Collection('http://localhost:3000/users', _User.User.buildUser); // const user = User.buildUser({
+var collection = _User.User.buildUserCollection(); // const user = User.buildUser({
 //     id: 1
 // })
 // //user.save({name: 'Roller', age: 532}))
 // user.on('change', () => {
 //     console.log('updated user', user)
 // })
+
 
 collection.on('fetch', function () {
   console.log('fetched users');
@@ -2280,7 +2278,7 @@ collection.fetch();
 setTimeout(function () {
   console.log(collection.models);
 }, 3000);
-},{"./models/Collection":"models/Collection.ts","./models/User":"models/User.ts"}],"../../../../../../../../../usr/local/lib/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"./models/User":"models/User.ts"}],"../../../../../../../../../usr/local/lib/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;

@@ -1,10 +1,7 @@
 import { Collection } from './models/Collection'
-import { User, UserProps } from './models/User'
+import { User } from './models/User'
 
-const collection = new Collection<User, UserProps>(
-    'http://localhost:3000/users',
-    User.buildUser
-)
+const collection = User.buildUserCollection()
 // const user = User.buildUser({
 //     id: 1
 // })
@@ -13,6 +10,7 @@ const collection = new Collection<User, UserProps>(
 // user.on('change', () => {
 //     console.log('updated user', user)
 // })
+
 
 collection.on('fetch', () => {
     console.log('fetched users')
