@@ -1,5 +1,5 @@
+import axios, { AxiosResponse } from '../../node_modules/axios/index'
 import { Events } from './Events'
-import axios, { AxiosResponse } from 'axios'
 
 export class Collection<T, K> {
     models: T[] = []
