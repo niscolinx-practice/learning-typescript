@@ -58,12 +58,24 @@ export const dataDeserializer = (data: string): string => {
         }
     }
 
-    console.log(storeIndex)
-    console.log(fetchedUids)
     console.log(splitData)
-    console.log(deserializedData)
+    const index = Object.keys(storeIndex)
+    console.log(index)
 
-    return ``
+    for(let i = 0; i <= splitData.length; i++){
+        for(let j = 0; j <= index.length; j++){
+            if(i === +index[j]){
+                console.log(+index[j])
+                splitData[i] = deserializedData[j]
+            }
+        }
+    }
+
+    const reformedString = splitData.join(' ')
+    console.log(reformedString)
+
+
+    return reformedString
 }
 
 //dataDeserializer("{{172edb5e-0434-fb4b-abec-96bedc814599}} mentioned you in a post \n{{173d80bc-a995-c2ba-3d80-61d641b482df}}")

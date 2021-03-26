@@ -184,11 +184,22 @@ var dataDeserializer = function dataDeserializer(data) {
     }
   }
 
-  console.log(storeIndex);
-  console.log(fetchedUids);
   console.log(splitData);
-  console.log(deserializedData);
-  return "";
+  var index = Object.keys(storeIndex);
+  console.log(index);
+
+  for (var _i4 = 0; _i4 <= splitData.length; _i4++) {
+    for (var _j = 0; _j <= index.length; _j++) {
+      if (_i4 === +index[_j]) {
+        console.log(+index[_j]);
+        splitData[_i4] = deserializedData[_j];
+      }
+    }
+  }
+
+  var reformedString = splitData.join(' ');
+  console.log(reformedString);
+  return reformedString;
 }; //dataDeserializer("{{172edb5e-0434-fb4b-abec-96bedc814599}} mentioned you in a post \n{{173d80bc-a995-c2ba-3d80-61d641b482df}}")
 
 
