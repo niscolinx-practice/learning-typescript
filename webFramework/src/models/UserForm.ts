@@ -1,6 +1,5 @@
-
 export class UserForm {
-    constructor(public parent: HTMLElement | null) {} 
+    constructor(public parent: HTMLElement | null) {}
 
     template(): string {
         return `
@@ -12,25 +11,34 @@ export class UserForm {
     `
     }
 
-    eventsData = {
-        'click:btn': this.onHoverBtn(),
-        'mouseOver:btn': this.onMouseOverBtn,
+    eventsData : {
+
+        [key: string] : () => void
+       
     }
 
-    onHoverBtn(): void{
+    //  'click:btn': this.onHoverBtn,
+    //     'mouseOver:btn': this.onMouseOverBtn,
+
+    onHoverBtn(): void {
         console.log('button hover')
     }
 
-    onMouseOverBtn():void{
+    onMouseOverBtn(): void {
         console.log('mouse on button')
     }
 
-    eventToTrigger(eventName: string): void{
-
-        console.log('event to lookup', eventName)
-        for(let events in this.eventsData){
+    eventToTrigger(eventName: string): void {
+        let methodToRun: () => void
+        for (let events in this.eventsData) {
             const [event, selector] = events.split(':')
-            if(eventName === event) return this.eventsData[events]
+
+            console.log(this.eventsData, events)
+            console.log(this.eventsData[])
+            if (eventName === event) {
+                return
+            }
+            break
         }
     }
 
@@ -45,4 +53,3 @@ export class UserForm {
         console.log(this.eventToTrigger('click'))
     }
 }
-

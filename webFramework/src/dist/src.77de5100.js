@@ -151,7 +151,7 @@ function () {
 
     this.parent = parent;
     this.eventsData = {
-      'click:btn': this.onHoverBtn(),
+      'click:btn': this.onHoverBtn,
       'mouseOver:btn': this.onMouseOverBtn
     };
   }
@@ -174,7 +174,7 @@ function () {
   }, {
     key: "eventToTrigger",
     value: function eventToTrigger(eventName) {
-      console.log('event to lookup', eventName);
+      var methodToRun;
 
       for (var events in this.eventsData) {
         var _events$split = events.split(':'),
@@ -182,7 +182,13 @@ function () {
             event = _events$split2[0],
             selector = _events$split2[1];
 
-        if (eventName === event) return this.eventsData[events];
+        console.log(this.eventsData, events);
+
+        if (eventName === event) {
+          return;
+        }
+
+        break;
       }
     }
   }, {
