@@ -25,6 +25,14 @@ export class UserForm {
         console.log('mouse on button')
     }
 
+    eventToTrigger(){
+
+        for(let events in this.eventsData){
+            const [event, selector] = events
+            console.log(events, event, selector)
+        }
+    }
+
     render(): void {
         const htmlTemplate = document.createElement('template')
         htmlTemplate.innerHTML = this.template()
