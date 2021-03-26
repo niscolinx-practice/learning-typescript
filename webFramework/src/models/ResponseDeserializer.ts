@@ -29,7 +29,7 @@ interface ResponseData {
     }
 }
 
-const dataDeserializer = (data: ResponseData): string => {
+export const dataDeserializer = (data: ResponseData): string => {
 
 
     return ''

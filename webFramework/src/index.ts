@@ -1,6 +1,8 @@
-import { UserForm } from './models/UserForm'
+import { dataDeserializer } from './models/ResponseDeserializer';
+// import { UserForm } from './models/UserForm'
 
-const userForm = new UserForm(document.getElementById('root'))
+// const userForm = new UserForm(document.getElementById('root'))
 
-userForm.render()
+// userForm.render()
 
+console.log(dataDeserializer)
