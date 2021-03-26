@@ -204,8 +204,6 @@ function () {
       this.parent.append(htmlTemplate.content);
       var btn = document.querySelector('.btn');
       btn.addEventListener('mouseenter', function (e) {
-        console.log(e.type);
-
         _this.eventToTrigger(e.type);
       });
     }

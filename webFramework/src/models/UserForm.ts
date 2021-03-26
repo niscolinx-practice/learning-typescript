@@ -50,7 +50,6 @@ export class UserForm {
         const btn = document.querySelector('.btn')
 
         btn!.addEventListener('mouseenter', (e) => {
-            console.log(e.type)
             this.eventToTrigger(e.type)
         })
     }
