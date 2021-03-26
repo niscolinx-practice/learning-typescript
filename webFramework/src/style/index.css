@@ -4,8 +4,8 @@
     padding: .5rem 1rem;
     border-radius: 1rem;
     cursor: pointer;
-    border: none;
     outline: none;
+    border: 2px solid transparent;
 }
 
 .btn:hover{

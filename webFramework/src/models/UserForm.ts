@@ -16,5 +16,10 @@ export class UserForm {
         htmlTemplate.innerHTML = this.template()
 
         this.parent!.append(htmlTemplate.content)
+
+        const btn = document.querySelector('.btn')
+        btn?.addEventListener('click', () => {
+            console.log('button has been clicked')
+        })
     }
 }
