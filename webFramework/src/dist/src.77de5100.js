@@ -153,7 +153,7 @@ function () {
       this.parent.append(htmlTemplate.content);
       var btn = document.querySelector('.btn');
       console.log(btn.previousSibling);
-      console.log(btn.addEventListener);
+      console.log(btn.addEventListener(this));
     }
   }]);
 

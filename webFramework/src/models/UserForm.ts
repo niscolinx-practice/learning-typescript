@@ -1,3 +1,5 @@
+import { isThisTypeNode } from "../../../../../../../../node_modules/typescript/lib/typescript"
+
 export class UserForm {
     constructor(public parent: HTMLElement | null) {} 
 
@@ -19,6 +21,6 @@ export class UserForm {
 
         const btn = document.querySelector('.btn')
         console.log(btn!.previousSibling)
-        console.log(btn!.addEventListener)
     }
 }
+
