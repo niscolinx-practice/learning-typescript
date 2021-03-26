@@ -147,7 +147,6 @@ var dataDeserializer = function dataDeserializer(data) {
   var regex = /^\{{[^}]*\}}$/i;
   var entityUids = [];
   var fetchedUids = [];
-  var count = 0;
 
   for (var i = 0; i < splitData.length; i++) {
     if (regex.test(splitData[i])) {

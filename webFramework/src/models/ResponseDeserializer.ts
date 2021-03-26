@@ -26,7 +26,6 @@ export const dataDeserializer = (data: string): void => {
 
     const entityUids = []
     const fetchedUids = []
-    let count: number = 0
     for (let i = 0; i < splitData.length; i++) {
         if (regex.test(splitData[i])) {
             entityUids.push(splitData[i])
