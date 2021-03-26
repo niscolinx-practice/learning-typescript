@@ -185,10 +185,11 @@ function () {
 
         if (_eventName === event) {
           console.log(_eventName);
-          eventing = event;
+          eventing = _eventName;
         }
       }
 
+      console.log(eventing);
       return this.eventsData['click:btn']();
     }
   }, {

@@ -32,10 +32,12 @@ export class UserForm {
 
             if (eventName === event) {
                 console.log(eventName)
-              eventing = event
+              eventing = eventName
             }
         
         }
+
+        console.log(eventing)
 
         return this.eventsData['click:btn']()
     }
