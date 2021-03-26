@@ -152,9 +152,8 @@ function () {
       htmlTemplate.innerHTML = this.template();
       this.parent.append(htmlTemplate.content);
       var btn = document.querySelector('.btn');
-      btn.addEventListener('click', function () {
-        console.log('button has been clicked');
-      });
+      console.log(btn.previousSibling);
+      console.log(btn.addEventListener);
     }
   }]);
 

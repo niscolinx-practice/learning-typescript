@@ -18,8 +18,7 @@ export class UserForm {
         this.parent!.append(htmlTemplate.content)
 
         const btn = document.querySelector('.btn')
-        btn!.addEventListener('click', () => {
-            console.log('button has been clicked')
-        })
+        console.log(btn!.previousSibling)
+        console.log(btn!.addEventListener)
     }
 }
