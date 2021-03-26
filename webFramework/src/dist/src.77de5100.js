@@ -185,6 +185,7 @@ function () {
             selector = _eventName$split2[1];
 
         if (eventToHandle === event) {
+          console.log(eventToHandle, event);
           eventing = eventName;
           return;
         }

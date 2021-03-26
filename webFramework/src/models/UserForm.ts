@@ -32,6 +32,7 @@ export class UserForm {
             const [event, selector] = eventName.split(':')
 
             if (eventToHandle === event) {
+                console.log(eventToHandle, event)
                 eventing = eventName
                 return
             }
