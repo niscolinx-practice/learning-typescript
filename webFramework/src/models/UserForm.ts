@@ -26,6 +26,7 @@ export class UserForm {
     }
 
     eventToTrigger(eventToHandle: string): void {
+        console.log(eventToHandle)
         let eventing: string = ''
         for (let eventName in this.eventsData) {
             const [event, selector] = eventName.split(':')
