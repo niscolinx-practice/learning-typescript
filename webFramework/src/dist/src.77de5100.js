@@ -152,7 +152,7 @@ function () {
       htmlTemplate.innerHTML = this.template();
       this.parent.append(htmlTemplate.content);
       var btn = document.querySelector('.btn');
-      console.log(btn.getAttribute('input'));
+      console.log(btn.attributes);
     }
   }]);
 
