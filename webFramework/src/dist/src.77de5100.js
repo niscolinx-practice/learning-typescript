@@ -150,8 +150,6 @@ var dataDeserializer = function dataDeserializer(data) {
   var count = 0;
 
   for (var i = 0; i < splitData.length; i++) {
-    console.log(splitData[i]);
-
     if (regex.test(splitData[i])) {
       entityUids.push(splitData[i]);
     }
