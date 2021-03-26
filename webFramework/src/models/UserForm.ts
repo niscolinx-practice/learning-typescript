@@ -1,12 +1,12 @@
 export class UserForm {
-    constructor(public parent: HTMLElement | null) {}
+    constructor(public parent: HTMLElement | null) {} 
 
     template(): string {
         return `
         <div>
             <h2>User Form</h2>
             <input></input>
-            <button>click me!</button>
+            <button class='btn'>click me!</button>
         </div>
     `
     }
