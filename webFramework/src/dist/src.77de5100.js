@@ -182,9 +182,7 @@ function () {
             event = _events$split2[0],
             selector = _events$split2[1];
 
-        console.log(event, selector);
-        if (eventName === event) return;
-        console.log(event, '');
+        if (eventName === event) return this.eventsData[events];
       }
     }
   }, {

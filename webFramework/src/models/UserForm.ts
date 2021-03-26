@@ -25,15 +25,12 @@ export class UserForm {
         console.log('mouse on button')
     }
 
-    eventToTrigger(eventName: string){
+    eventToTrigger(eventName: string): void{
 
         console.log('event to lookup', eventName)
         for(let events in this.eventsData){
             const [event, selector] = events.split(':')
-            console.log(event, selector)
-            if(eventName === event) return
-
-            console.log(event, '')
+            if(eventName === event) return this.eventsData[events]
         }
     }
 
