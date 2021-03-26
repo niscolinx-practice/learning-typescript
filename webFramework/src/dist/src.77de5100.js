@@ -194,6 +194,8 @@ function () {
   }, {
     key: "render",
     value: function render() {
+      var _this = this;
+
       var htmlTemplate = document.createElement('template');
       htmlTemplate.innerHTML = this.template();
       this.parent.append(htmlTemplate.content);
@@ -201,6 +203,8 @@ function () {
 
       btn.addEventListener('mouseenter', function (e) {
         console.log(e.type);
+
+        _this.eventToTrigger(e.type);
       });
     }
   }]);
