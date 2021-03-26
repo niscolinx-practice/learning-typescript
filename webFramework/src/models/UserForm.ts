@@ -13,8 +13,8 @@ export class UserForm {
 
     eventsData: { [key: string]: () => void } = {
         'click:btn': this.onHoverBtn,
-        'mouseOver:btn': this.onMouseOverBtn,
-        'mouseEnter:btn': this.onMouseOverBtn,
+        'mouseover:btn': this.onMouseOverBtn,
+        'mouseenter:btn': this.onMouseOverBtn,
     }
 
     onHoverBtn(): void {
@@ -48,8 +48,6 @@ export class UserForm {
         this.parent!.append(htmlTemplate.content)
 
         const btn = document.querySelector('.btn')
-
-        //console.log(this.eventToTrigger('click'))
 
         btn!.addEventListener('mouseenter', (e) => {
             console.log(e.type)

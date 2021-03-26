@@ -152,8 +152,8 @@ function () {
     this.parent = parent;
     this.eventsData = {
       'click:btn': this.onHoverBtn,
-      'mouseOver:btn': this.onMouseOverBtn,
-      'mouseEnter:btn': this.onMouseOverBtn
+      'mouseover:btn': this.onMouseOverBtn,
+      'mouseenter:btn': this.onMouseOverBtn
     };
   }
 
@@ -199,8 +199,7 @@ function () {
       var htmlTemplate = document.createElement('template');
       htmlTemplate.innerHTML = this.template();
       this.parent.append(htmlTemplate.content);
-      var btn = document.querySelector('.btn'); //console.log(this.eventToTrigger('click'))
-
+      var btn = document.querySelector('.btn');
       btn.addEventListener('mouseenter', function (e) {
         console.log(e.type);
 
