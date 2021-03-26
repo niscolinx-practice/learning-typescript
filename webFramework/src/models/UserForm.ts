@@ -51,8 +51,8 @@ export class UserForm {
 
         //console.log(this.eventToTrigger('click'))
 
-        btn!.addEventListener('mouseEnter', (e) => {
-            console.log(e)
+        btn!.addEventListener('mouseenter', (e) => {
+            console.log(e.type)
         })
     }
 }
