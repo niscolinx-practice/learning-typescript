@@ -25,11 +25,15 @@ export class UserForm {
         console.log('mouse on button')
     }
 
-    eventToTrigger(){
+    eventToTrigger(eventName: string){
 
+        console.log('event to lookup', eventName)
         for(let events in this.eventsData){
-            const [event, selector] = events
-            console.log(events, event, selector)
+            const [event, selector] = events.split(':')
+            console.log(event, selector)
+            if(eventName === event) return
+
+            console.log(event)
         }
     }
 
@@ -41,7 +45,7 @@ export class UserForm {
 
         const btn = document.querySelector('.btn')
 
-        console.log(this.eventToTrigger())
+        console.log(this.eventToTrigger('click'))
     }
 }
 

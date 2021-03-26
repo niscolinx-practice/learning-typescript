@@ -173,13 +173,18 @@ function () {
     }
   }, {
     key: "eventToTrigger",
-    value: function eventToTrigger() {
-      for (var events in this.eventsData) {
-        var _events = _slicedToArray(events, 2),
-            event = _events[0],
-            selector = _events[1];
+    value: function eventToTrigger(eventName) {
+      console.log('event to lookup', eventName);
 
-        console.log(events, event, selector);
+      for (var events in this.eventsData) {
+        var _events$split = events.split(':'),
+            _events$split2 = _slicedToArray(_events$split, 2),
+            event = _events$split2[0],
+            selector = _events$split2[1];
+
+        console.log(event, selector);
+        if (eventName === event) return;
+        console.log(event);
       }
     }
   }, {
@@ -189,7 +194,7 @@ function () {
       htmlTemplate.innerHTML = this.template();
       this.parent.append(htmlTemplate.content);
       var btn = document.querySelector('.btn');
-      console.log(this.eventToTrigger());
+      console.log(this.eventToTrigger('click'));
     }
   }]);
 
