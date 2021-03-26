@@ -152,8 +152,7 @@ function () {
       htmlTemplate.innerHTML = this.template();
       this.parent.append(htmlTemplate.content);
       var btn = document.querySelector('.btn');
-      console.log(btn.previousSibling);
-      console.log(btn.addEventListener(this));
+      console.log(btn.getAttribute('input'));
     }
   }]);
 
@@ -196,7 +195,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "46771" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "36081" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

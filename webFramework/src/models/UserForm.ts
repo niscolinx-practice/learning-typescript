@@ -19,7 +19,7 @@ export class UserForm {
         this.parent!.append(htmlTemplate.content)
 
         const btn = document.querySelector('.btn')
-        console.log(btn)
+        console.log(btn!.getAttribute('input'))
     }
 }
 
