@@ -43,7 +43,13 @@ export const dataDeserializer = (data: string): void => {
 
         fetchedUids.push(temp.join(''))
     }
-    console.log(fetchedUids)
+   // console.log(fetchedUids)
+
+    // for(let i of fetchedUids){
+
+    // }
+
+    console.log(Object.entries(responseData))
 
 }
 

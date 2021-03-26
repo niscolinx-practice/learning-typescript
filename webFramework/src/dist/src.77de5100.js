@@ -167,9 +167,12 @@ var dataDeserializer = function dataDeserializer(data) {
 
   for (var _i = 0, _entityUids = entityUids; _i < _entityUids.length; _i++) {
     _loop();
-  }
+  } // console.log(fetchedUids)
+  // for(let i of fetchedUids){
+  // }
 
-  console.log(fetchedUids);
+
+  console.log(Object.entries(responseData));
 }; //dataDeserializer("{{172edb5e-0434-fb4b-abec-96bedc814599}} mentioned you in a post \n{{173d80bc-a995-c2ba-3d80-61d641b482df}}")
 
 
