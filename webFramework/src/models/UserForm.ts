@@ -33,7 +33,7 @@ export class UserForm {
             console.log(event, selector)
             if(eventName === event) return
 
-            console.log(event)
+            console.log(event, '')
         }
     }
 
