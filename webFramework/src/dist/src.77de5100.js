@@ -175,7 +175,6 @@ function () {
   }, {
     key: "eventToTrigger",
     value: function eventToTrigger(eventToHandle) {
-      console.log(eventToHandle);
       var eventing = '';
 
       for (var eventName in this.eventsData) {
@@ -187,13 +186,9 @@ function () {
         if (eventToHandle === event) {
           console.log(eventToHandle, event);
           eventing = eventName;
-          return;
         }
       }
 
-      console.log({
-        eventing: eventing
-      });
       return this.eventsData[eventing]();
     }
   }, {
