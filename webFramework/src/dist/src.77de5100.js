@@ -165,7 +165,7 @@ function () {
   }, {
     key: "onHoverBtn",
     value: function onHoverBtn() {
-      console.log('button hover');
+      console.log('button clicked');
     }
   }, {
     key: "onMouseOverBtn",

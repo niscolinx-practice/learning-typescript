@@ -18,7 +18,7 @@ export class UserForm {
     }
 
     onHoverBtn(): void {
-        console.log('button hover')
+        console.log('button clicked')
     }
 
     onMouseOverBtn(): void {
