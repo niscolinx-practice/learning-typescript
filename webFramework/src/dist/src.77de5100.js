@@ -151,9 +151,9 @@ function () {
 
     this.parent = parent;
     this.eventsData = {
-      'click:btn': this.onHoverBtn(),
-      'mouseOver:btn': this.onMouseOverBtn(),
-      'mouseEnter:btn': this.onMouseOverBtn()
+      'click:btn': this.onHoverBtn,
+      'mouseOver:btn': this.onMouseOverBtn,
+      'mouseEnter:btn': this.onMouseOverBtn
     };
   }
 
@@ -175,7 +175,7 @@ function () {
   }, {
     key: "eventToTrigger",
     value: function eventToTrigger(eventName) {
-      var count = 0;
+      var eventing;
 
       for (var events in this.eventsData) {
         var _events$split = events.split(':'),
@@ -183,15 +183,14 @@ function () {
             event = _events$split2[0],
             selector = _events$split2[1];
 
+        console.log('for loop');
+
         if (eventName === event) {
-          count++;
-          console.log(eventName, event);
-          console.log(this.eventsData[event]);
-          return this.eventsData[event];
+          eventing = event;
         }
       }
 
-      console.log(count);
+      console.log('function body'); // return this.eventsData[eventing]
     }
   }, {
     key: "render",
