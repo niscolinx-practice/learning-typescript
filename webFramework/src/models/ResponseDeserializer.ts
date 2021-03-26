@@ -19,30 +19,23 @@ const responseData = {
     },
 }
 
-interface Entities {
-   entities: {
-
-        [key: string]: {
-            subject: string;
-            type: string;
-        }
-    }
-}
-
-
-export const dataDeserializer = (data: string): void => {
+export const dataDeserializer = (data: string): string => {
     const splitData = data.split('\n').join(' ').split(' ')
 
     let regex = /^\{{[^}]*\}}$/i
 
-    const entityUids = []
-    const fetchedUids = []
+    const storeIndex = {}
+
+    const entityUids: string[] = []
+    const fetchedUids: string[] = []
+    const deserializedData: string[] = []
     for (let i = 0; i < splitData.length; i++) {
+        console.log(splitData[i])
         if (regex.test(splitData[i])) {
             entityUids.push(splitData[i])
+            storeIndex[i] = splitData[i]
         }
     }
-
 
     for (let i of entityUids) {
         let temp: string[] = []
@@ -56,23 +49,21 @@ export const dataDeserializer = (data: string): void => {
     }
 
 
-
-    const findAll = (fetchedUids: string[], entityKeys: string[]) => {
-        return entityKeys.filter((v) => fetchedUids.includes(v))
-    }
-
-
     
-    for(let i in responseData.entities){
-
-        for(let j of fetchedUids){
-            if(i === j){
-                console.log(i)
-                console.log(responseData.entities[j].subject)
+    for (let j of fetchedUids) {
+        for (let i in responseData.entities) {
+            if (i === j) {
+                deserializedData.push(responseData.entities[j].subject)
             }
         }
     }
 
+    console.log(storeIndex)
+    console.log(fetchedUids)
+    console.log(splitData)
+    console.log(deserializedData)
+
+    return ``
 }
 
 //dataDeserializer("{{172edb5e-0434-fb4b-abec-96bedc814599}} mentioned you in a post \n{{173d80bc-a995-c2ba-3d80-61d641b482df}}")

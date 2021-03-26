@@ -145,12 +145,17 @@ var responseData = {
 var dataDeserializer = function dataDeserializer(data) {
   var splitData = data.split('\n').join(' ').split(' ');
   var regex = /^\{{[^}]*\}}$/i;
+  var storeIndex = {};
   var entityUids = [];
   var fetchedUids = [];
+  var deserializedData = [];
 
   for (var i = 0; i < splitData.length; i++) {
+    console.log(splitData[i]);
+
     if (regex.test(splitData[i])) {
       entityUids.push(splitData[i]);
+      storeIndex[i] = splitData[i];
     }
   }
 
@@ -169,22 +174,21 @@ var dataDeserializer = function dataDeserializer(data) {
     _loop();
   }
 
-  var findAll = function findAll(fetchedUids, entityKeys) {
-    return entityKeys.filter(function (v) {
-      return fetchedUids.includes(v);
-    });
-  };
+  for (var _i2 = 0, _fetchedUids = fetchedUids; _i2 < _fetchedUids.length; _i2++) {
+    var j = _fetchedUids[_i2];
 
-  for (var _i2 in responseData.entities) {
-    for (var _i3 = 0, _fetchedUids = fetchedUids; _i3 < _fetchedUids.length; _i3++) {
-      var j = _fetchedUids[_i3];
-
-      if (_i2 === j) {
-        console.log(_i2);
-        console.log(responseData.entities[j].subject);
+    for (var _i3 in responseData.entities) {
+      if (_i3 === j) {
+        deserializedData.push(responseData.entities[j].subject);
       }
     }
   }
+
+  console.log(storeIndex);
+  console.log(fetchedUids);
+  console.log(splitData);
+  console.log(deserializedData);
+  return "";
 }; //dataDeserializer("{{172edb5e-0434-fb4b-abec-96bedc814599}} mentioned you in a post \n{{173d80bc-a995-c2ba-3d80-61d641b482df}}")
 
 
