@@ -32,11 +32,11 @@ export class UserForm {
 
             if (eventToHandle === event) {
                 eventing = eventName
-
+                return
             }
         }
 
-        console.log(eventing)
+        console.log({eventing})
 
         return this.eventsData[eventing]()
     }

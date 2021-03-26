@@ -185,10 +185,13 @@ function () {
 
         if (eventToHandle === event) {
           eventing = eventName;
+          return;
         }
       }
 
-      console.log(eventing);
+      console.log({
+        eventing: eventing
+      });
       return this.eventsData[eventing]();
     }
   }, {
