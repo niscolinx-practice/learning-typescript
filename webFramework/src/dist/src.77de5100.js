@@ -143,23 +143,19 @@ var responseData = {
 };
 
 var dataDeserializer = function dataDeserializer(data) {
-  var splitData = data.split(' ');
-  var regex = /^\{{[^}]*\}}$/i;
-  var entityUids = [];
-
-  for (var i = 0; i < splitData.length; i++) {
-    var count = 0;
-    console.log(splitData[i]);
-
-    if (regex.test(splitData[i])) {
-      console.log(splitData[i]);
-      entityUids.push(splitData[i]);
-    }
-
-    console.log(count++);
-  }
-
-  console.log(entityUids);
+  var splitData = data.split('\n').join(' ');
+  var regex = /^\,{{[^}]*\}}$/i;
+  console.log(splitData); // const entityUids = []
+  // let count: number = 0
+  // for (let i = 0; i < splitData.length; i++) {
+  //     console.log(splitData[i])
+  //     if (regex.test(splitData[i])) {
+  //         console.log(splitData[i])
+  //         entityUids.push(splitData[i])
+  //     }
+  //     console.log(count++)
+  // }
+  // console.log(entityUids)
 }; //dataDeserializer("{{172edb5e-0434-fb4b-abec-96bedc814599}} mentioned you in a post \n{{173d80bc-a995-c2ba-3d80-61d641b482df}}")
 
 
