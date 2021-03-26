@@ -151,8 +151,9 @@ function () {
 
     this.parent = parent;
     this.eventsData = {
-      'click:btn': this.onHoverBtn,
-      'mouseOver:btn': this.onMouseOverBtn
+      'click:btn': this.onHoverBtn(),
+      'mouseOver:btn': this.onMouseOverBtn(),
+      'mouseEnter:btn': this.onMouseOverBtn()
     };
   }
 
@@ -174,7 +175,7 @@ function () {
   }, {
     key: "eventToTrigger",
     value: function eventToTrigger(eventName) {
-      var methodToRun;
+      var count = 0;
 
       for (var events in this.eventsData) {
         var _events$split = events.split(':'),
@@ -182,14 +183,15 @@ function () {
             event = _events$split2[0],
             selector = _events$split2[1];
 
-        console.log(this.eventsData, events);
-
         if (eventName === event) {
-          return;
+          count++;
+          console.log(eventName, event);
+          console.log(this.eventsData[event]);
+          return this.eventsData[event];
         }
-
-        break;
       }
+
+      console.log(count);
     }
   }, {
     key: "render",
@@ -198,7 +200,7 @@ function () {
       htmlTemplate.innerHTML = this.template();
       this.parent.append(htmlTemplate.content);
       var btn = document.querySelector('.btn');
-      console.log(this.eventToTrigger('click'));
+      console.log(this.eventToTrigger('mouseEnter'));
     }
   }]);
 
@@ -241,7 +243,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "36081" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "43235" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

@@ -11,14 +11,11 @@ export class UserForm {
     `
     }
 
-    eventsData : {
-
-        [key: string] : () => void
-       
+    eventsData: { [key: string]:  void } = {
+        'click:btn': this.onHoverBtn(),
+        'mouseOver:btn': this.onMouseOverBtn(),
+        'mouseEnter:btn': this.onMouseOverBtn(),
     }
-
-    //  'click:btn': this.onHoverBtn,
-    //     'mouseOver:btn': this.onMouseOverBtn,
 
     onHoverBtn(): void {
         console.log('button hover')
@@ -29,17 +26,20 @@ export class UserForm {
     }
 
     eventToTrigger(eventName: string): void {
-        let methodToRun: () => void
+        let count: number = 0
         for (let events in this.eventsData) {
             const [event, selector] = events.split(':')
 
-            console.log(this.eventsData, events)
-            console.log(this.eventsData[])
             if (eventName === event) {
-                return
+                count++
+                console.log(eventName, event)
+                console.log(this.eventsData[event])
+            return this.eventsData[event]
             }
-            break
+        
         }
+
+        console.log(count)
     }
 
     render(): void {
@@ -50,6 +50,6 @@ export class UserForm {
 
         const btn = document.querySelector('.btn')
 
-        console.log(this.eventToTrigger('click'))
+        console.log(this.eventToTrigger('mouseEnter'))
     }
 }
