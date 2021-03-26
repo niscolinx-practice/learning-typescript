@@ -1,1 +1,1 @@
-{"version":3,"sources":["style/index.css"],"names":[],"mappings":"AAAA","file":"style.f355281c.css","sourceRoot":"..","sourcesContent":[""]}
+{"version":3,"sources":["style/index.css"],"names":[],"mappings":"AAAA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA","file":"style.f355281c.css","sourceRoot":"..","sourcesContent":[".btn{\n    background-color: rgb(80, 80, 202);\n    color: white;\n    padding: 1rem;\n}\n\n.btn:hover{\n    color: red;\n}"]}

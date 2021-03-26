@@ -1,2 +1,11 @@
+.btn{
+    background-color: rgb(80, 80, 202);
+    color: white;
+    padding: 1rem;
+}
+
+.btn:hover{
+    color: red;
+}
 
 /*# sourceMappingURL=/style.f355281c.css.map */
