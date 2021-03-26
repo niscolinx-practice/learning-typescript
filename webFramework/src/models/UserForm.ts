@@ -49,9 +49,9 @@ export class UserForm {
 
         const btn = document.querySelector('.btn')
 
-        console.log(this.eventToTrigger('click'))
+        //console.log(this.eventToTrigger('click'))
 
-        btn!.addEventListener('mouseEnter', (e) => {
+        btn!.addEventListener('click', (e) => {
             console.log(e)
         })
     }

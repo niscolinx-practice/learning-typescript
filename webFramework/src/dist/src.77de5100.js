@@ -197,9 +197,9 @@ function () {
       var htmlTemplate = document.createElement('template');
       htmlTemplate.innerHTML = this.template();
       this.parent.append(htmlTemplate.content);
-      var btn = document.querySelector('.btn');
-      console.log(this.eventToTrigger('click'));
-      btn.addEventListener('mouseEnter', function (e) {
+      var btn = document.querySelector('.btn'); //console.log(this.eventToTrigger('click'))
+
+      btn.addEventListener('click', function (e) {
         console.log(e);
       });
     }
