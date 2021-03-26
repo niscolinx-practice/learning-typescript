@@ -15,7 +15,7 @@ export class UserForm {
         const htmlTemplate = document.createElement('template')
         htmlTemplate.innerHTML = this.template()
 
-        this.parent!.append(htmlTemplate.content)
+        this.parent?.append(htmlTemplate.content)
 
         const btn = document.querySelector('.btn')
         btn?.addEventListener('click', () => {
