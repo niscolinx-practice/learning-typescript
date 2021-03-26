@@ -1,11 +1,16 @@
 .btn{
-    background-color: rgb(80, 80, 202);
+    background-color: #272783;
     color: white;
-    padding: 1rem;
+    padding: .5rem 1rem;
+    border-radius: 1rem;
+    cursor: pointer;
+    border: none;
+    outline: none;
 }
 
 .btn:hover{
-    color: red;
+    color: #272783;
+background-color: white;
 }
 
 /*# sourceMappingURL=/style.f355281c.css.map */
