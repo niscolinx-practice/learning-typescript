@@ -177,14 +177,14 @@ function () {
     value: function eventToTrigger(eventName) {
       var eventing;
 
-      for (var events in this.eventsData) {
-        var _events$split = events.split(':'),
-            _events$split2 = _slicedToArray(_events$split, 2),
-            event = _events$split2[0],
-            selector = _events$split2[1];
+      for (var _eventName in this.eventsData) {
+        var _eventName$split = _eventName.split(':'),
+            _eventName$split2 = _slicedToArray(_eventName$split, 2),
+            event = _eventName$split2[0],
+            selector = _eventName$split2[1];
 
-        if (eventName === event) {
-          console.log(events);
+        if (_eventName === event) {
+          console.log(_eventName);
           eventing = event;
         }
       }

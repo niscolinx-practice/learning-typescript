@@ -27,11 +27,11 @@ export class UserForm {
 
     eventToTrigger(eventName: string): void {
         let eventing: string
-        for (let events in this.eventsData) {
-            const [event, selector] = events.split(':')
+        for (let eventName in this.eventsData) {
+            const [event, selector] = eventName.split(':')
 
             if (eventName === event) {
-                console.log(events)
+                console.log(eventName)
               eventing = event
             }
         
