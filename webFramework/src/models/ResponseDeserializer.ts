@@ -19,7 +19,7 @@ const responseData = {
     },
 }
 
-interface Response {
+interface ResponseData {
     notifications: string[],
     entities : {
         [key: string] : {
@@ -29,7 +29,7 @@ interface Response {
     }
 }
 
-const dataDeserializer = (response: Response): string => {
+const dataDeserializer = (data: ResponseData): string => {
 
 
     return ''
