@@ -143,11 +143,13 @@ var responseData = {
 };
 
 var dataDeserializer = function dataDeserializer(data) {
-  return '';
-};
+  console.log(data.split(' '));
+  var regex = /^\{[^}]*\}$/i;
+  return regex.test(data);
+}; //dataDeserializer("{{172edb5e-0434-fb4b-abec-96bedc814599}} mentioned you in a post \n{{173d80bc-a995-c2ba-3d80-61d641b482df}}")
+
 
 exports.dataDeserializer = dataDeserializer;
-dataDeserializer(responseData);
 },{}],"index.ts":[function(require,module,exports) {
 "use strict";
 
@@ -156,7 +158,7 @@ var _ResponseDeserializer = require("./models/ResponseDeserializer");
 // import { UserForm } from './models/UserForm'
 // const userForm = new UserForm(document.getElementById('root'))
 // userForm.render()
-console.log(_ResponseDeserializer.dataDeserializer);
+console.log((0, _ResponseDeserializer.dataDeserializer)("{{172edb5e-0434-fb4b-abec-96bedc814599}} mentioned you in a post \n{{173d80bc-a995-c2ba-3d80-61d641b482df}}"));
 },{"./models/ResponseDeserializer":"models/ResponseDeserializer.ts"}],"../../../../../../../../../usr/local/lib/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
