@@ -138,6 +138,10 @@ function () {
     _classCallCheck(this, UserForm);
 
     this.parent = parent;
+    this.eventsData = {
+      'click:btn': this.onHoverBtn(),
+      'mouseOver:btn': this.onMouseOverBtn
+    };
   }
 
   _createClass(UserForm, [{
@@ -146,13 +150,22 @@ function () {
       return "\n        <div>\n            <h2>User Form</h2>\n            <input></input>\n            <button class='btn'>click me!</button>\n        </div>\n    ";
     }
   }, {
+    key: "onHoverBtn",
+    value: function onHoverBtn() {
+      console.log('button hover');
+    }
+  }, {
+    key: "onMouseOverBtn",
+    value: function onMouseOverBtn() {
+      console.log('mouse on button');
+    }
+  }, {
     key: "render",
     value: function render() {
       var htmlTemplate = document.createElement('template');
       htmlTemplate.innerHTML = this.template();
       this.parent.append(htmlTemplate.content);
       var btn = document.querySelector('.btn');
-      console.log(btn.attributes);
     }
   }]);
 
