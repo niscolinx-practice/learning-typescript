@@ -24,10 +24,14 @@ export const dataDeserializer = (data: string): void => {
     let regex = /^\{{[^}]*\}}$/i
 
     const entityUids = []
-    for(let i = 0; i < splitData.length; i++){
+    for (let i = 0; i < splitData.length; i++) {
+        let count: number = 0
         console.log(splitData[i])
-        regex.test(splitData[i]) ? entityUids.push(i) : null
-
+        if (regex.test(splitData[i])) {
+            console.log(splitData[i])
+            entityUids.push(splitData[i])
+        }
+        console.log(count++)
     }
 
     console.log(entityUids)
