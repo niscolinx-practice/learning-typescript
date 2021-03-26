@@ -183,14 +183,13 @@ function () {
             event = _events$split2[0],
             selector = _events$split2[1];
 
-        console.log('for loop');
-
         if (eventName === event) {
+          console.log(events);
           eventing = event;
         }
       }
 
-      console.log('function body'); // return this.eventsData[eventing]
+      return this.eventsData['click:btn']();
     }
   }, {
     key: "render",
