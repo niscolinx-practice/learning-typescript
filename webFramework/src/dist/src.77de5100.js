@@ -167,12 +167,17 @@ var dataDeserializer = function dataDeserializer(data) {
 
   for (var _i = 0, _entityUids = entityUids; _i < _entityUids.length; _i++) {
     _loop();
-  } // console.log(fetchedUids)
-  // for(let i of fetchedUids){
-  // }
+  }
 
+  var entityKeys = Object.keys(responseData.entities);
 
-  console.log(Object.entries(responseData));
+  var findAll = function findAll(fetchedUids, entityKeys) {
+    return entityKeys.some(function (v) {
+      return fetchedUids.includes(v);
+    });
+  };
+
+  console.log(findAll);
 }; //dataDeserializer("{{172edb5e-0434-fb4b-abec-96bedc814599}} mentioned you in a post \n{{173d80bc-a995-c2ba-3d80-61d641b482df}}")
 
 
@@ -214,7 +219,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "36845" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "40535" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

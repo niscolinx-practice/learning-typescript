@@ -43,13 +43,15 @@ export const dataDeserializer = (data: string): void => {
 
         fetchedUids.push(temp.join(''))
     }
-   // console.log(fetchedUids)
 
-    // for(let i of fetchedUids){
 
-    // }
+    const entityKeys = Object.keys(responseData.entities)
 
-    console.log(Object.entries(responseData))
+    const findAll = (fetchedUids: string[], entityKeys: string[]) => {
+        return entityKeys.some((v) => fetchedUids.includes(v))
+    }
+
+    console.log(findAll)
 
 }
 
