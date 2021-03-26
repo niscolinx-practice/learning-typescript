@@ -199,6 +199,7 @@ function () {
       this.parent.append(htmlTemplate.content);
       var btn = document.querySelector('.btn');
       console.log(this.eventToTrigger('click'));
+      btn.addEventListener();
     }
   }]);
 
