@@ -31,7 +31,6 @@ export class UserForm {
             const [event, selector] = eventName.split(':')
 
             if (eventToHandle === event) {
-                console.log(eventToHandle, event)
                 eventing = eventName
                 
             }
@@ -48,7 +47,7 @@ export class UserForm {
 
         const btn = document.querySelector('.btn')
 
-        btn!.addEventListener('mouseenter', (e) => {
+        btn!.addEventListener('click', (e) => {
             this.eventToTrigger(e.type)
         })
     }

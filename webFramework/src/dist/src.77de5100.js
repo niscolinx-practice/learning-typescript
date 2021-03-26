@@ -184,7 +184,6 @@ function () {
             selector = _eventName$split2[1];
 
         if (eventToHandle === event) {
-          console.log(eventToHandle, event);
           eventing = eventName;
         }
       }
@@ -200,7 +199,7 @@ function () {
       htmlTemplate.innerHTML = this.template();
       this.parent.append(htmlTemplate.content);
       var btn = document.querySelector('.btn');
-      btn.addEventListener('mouseenter', function (e) {
+      btn.addEventListener('click', function (e) {
         _this.eventToTrigger(e.type);
       });
     }
