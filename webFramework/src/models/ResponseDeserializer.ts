@@ -19,6 +19,17 @@ const responseData = {
     },
 }
 
+interface Entities {
+   entities: {
+
+        [key: string]: {
+            subject: string;
+            type: string;
+        }
+    }
+}
+
+
 export const dataDeserializer = (data: string): void => {
     const splitData = data.split('\n').join(' ').split(' ')
 
@@ -45,13 +56,22 @@ export const dataDeserializer = (data: string): void => {
     }
 
 
-    const entityKeys = Object.keys(responseData.entities)
 
     const findAll = (fetchedUids: string[], entityKeys: string[]) => {
-        return entityKeys.some((v) => fetchedUids.includes(v))
+        return entityKeys.filter((v) => fetchedUids.includes(v))
     }
 
-    console.log(findAll)
+
+    
+    for(let i in responseData.entities){
+
+        for(let j of fetchedUids){
+            if(i === j){
+                console.log(i)
+                console.log(responseData.entities[j].subject)
+            }
+        }
+    }
 
 }
 

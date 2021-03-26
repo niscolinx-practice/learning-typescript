@@ -169,15 +169,22 @@ var dataDeserializer = function dataDeserializer(data) {
     _loop();
   }
 
-  var entityKeys = Object.keys(responseData.entities);
-
   var findAll = function findAll(fetchedUids, entityKeys) {
-    return entityKeys.some(function (v) {
+    return entityKeys.filter(function (v) {
       return fetchedUids.includes(v);
     });
   };
 
-  console.log(findAll);
+  for (var _i2 in responseData.entities) {
+    for (var _i3 = 0, _fetchedUids = fetchedUids; _i3 < _fetchedUids.length; _i3++) {
+      var j = _fetchedUids[_i3];
+
+      if (_i2 === j) {
+        console.log(_i2);
+        console.log(responseData.entities[j].subject);
+      }
+    }
+  }
 }; //dataDeserializer("{{172edb5e-0434-fb4b-abec-96bedc814599}} mentioned you in a post \n{{173d80bc-a995-c2ba-3d80-61d641b482df}}")
 
 
