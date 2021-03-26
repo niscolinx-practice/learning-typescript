@@ -25,21 +25,20 @@ export class UserForm {
         console.log('mouse on button')
     }
 
-    eventToTrigger(eventName: string): void {
-        let eventing: string
+    eventToTrigger(eventToHandle: string): void {
+        let eventing: string = ''
         for (let eventName in this.eventsData) {
             const [event, selector] = eventName.split(':')
 
-            if (eventName === event) {
-                console.log(eventName)
-              eventing = eventName
+            if (eventToHandle === event) {
+                eventing = eventName
+
             }
-        
         }
 
         console.log(eventing)
 
-        return this.eventsData['click:btn']()
+        return this.eventsData[eventing]()
     }
 
     render(): void {
@@ -50,6 +49,6 @@ export class UserForm {
 
         const btn = document.querySelector('.btn')
 
-        console.log(this.eventToTrigger('mouseEnter'))
+        console.log(this.eventToTrigger('click'))
     }
 }

@@ -174,23 +174,22 @@ function () {
     }
   }, {
     key: "eventToTrigger",
-    value: function eventToTrigger(eventName) {
-      var eventing;
+    value: function eventToTrigger(eventToHandle) {
+      var eventing = '';
 
-      for (var _eventName in this.eventsData) {
-        var _eventName$split = _eventName.split(':'),
+      for (var eventName in this.eventsData) {
+        var _eventName$split = eventName.split(':'),
             _eventName$split2 = _slicedToArray(_eventName$split, 2),
             event = _eventName$split2[0],
             selector = _eventName$split2[1];
 
-        if (_eventName === event) {
-          console.log(_eventName);
-          eventing = _eventName;
+        if (eventToHandle === event) {
+          eventing = eventName;
         }
       }
 
       console.log(eventing);
-      return this.eventsData['click:btn']();
+      return this.eventsData[eventing]();
     }
   }, {
     key: "render",
@@ -199,7 +198,7 @@ function () {
       htmlTemplate.innerHTML = this.template();
       this.parent.append(htmlTemplate.content);
       var btn = document.querySelector('.btn');
-      console.log(this.eventToTrigger('mouseEnter'));
+      console.log(this.eventToTrigger('click'));
     }
   }]);
 
