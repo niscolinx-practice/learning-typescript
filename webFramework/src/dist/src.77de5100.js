@@ -3831,6 +3831,13 @@ function (_Model) {
         age: randomAge
       });
     }
+  }, {
+    key: "setName",
+    value: function setName(name) {
+      this.set({
+        name: name
+      });
+    }
   }], [{
     key: "buildUser",
     value: function buildUser(attrs) {
@@ -3910,7 +3917,9 @@ function () {
     };
 
     this.onSetName = function () {
-      console.log(_this.inputValue.join(''));
+      var name = _this.inputValue.join('');
+
+      _this.model.setName(name);
     };
 
     this.handleEventTrigger();
@@ -3943,7 +3952,9 @@ function () {
 
         var selectedElement = fragment.querySelectorAll(selector);
         selectedElement.forEach(function (Element) {
-          Element.addEventListener(eventName, eventsData[events]);
+          Element.addEventListener(eventName, function (e) {
+            eventsData[events](e);
+          });
         });
       };
 

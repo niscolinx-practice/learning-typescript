@@ -45,7 +45,8 @@ export class UserForm {
     }
 
     onSetName = () => {
-        console.log(this.inputValue.join(''))
+        const name = this.inputValue.join('')
+        this.model.setName(name)
     }
 
     handleEvents(fragment: DocumentFragment): void {
@@ -56,7 +57,9 @@ export class UserForm {
             const selectedElement = fragment.querySelectorAll(selector)
 
             selectedElement.forEach((Element) => {
-                Element.addEventListener(eventName, eventsData[events])
+                Element.addEventListener(eventName, (e) => {
+                    eventsData[events](e as KeyboardEvent)
+                })
             })
         }
     }
