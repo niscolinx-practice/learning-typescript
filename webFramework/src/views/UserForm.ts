@@ -1,9 +1,15 @@
-import { User } from './../models/User';
+import { User } from './../models/User'
 export class UserForm {
     constructor(public parent: HTMLElement | null, public model: User) {
+        this.handleEventTrigger()
     }
 
-    
+    handleEventTrigger(): void {
+        this.model.on('change', () => {
+            this.render()
+        })
+    }
+
     template(): string {
         return `
         <div>
@@ -23,9 +29,9 @@ export class UserForm {
             'click:.set-age': this.onSetAge,
         }
     }
-    onSetAge(): void {
+    onSetAge = (): void => {
         console.log('set random age')
-    
+        this.model.setRandomAge()
     }
 
     onSetName(): void {
@@ -40,6 +46,7 @@ export class UserForm {
             const selectedElement = fragment.querySelectorAll(selector)
 
             selectedElement.forEach((Element) => {
+                console.log(Element)
                 Element.addEventListener(eventName, eventsData[events])
             })
         }
@@ -47,6 +54,7 @@ export class UserForm {
 
     render(): void {
         const htmlTemplate = document.createElement('template')
+        
         htmlTemplate.innerHTML = this.template()
 
         this.handleEvents(htmlTemplate.content)

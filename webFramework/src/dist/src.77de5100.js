@@ -3894,17 +3894,29 @@ function () {
         'click:.set-age': _this.onSetAge
       };
     };
+
+    this.onSetAge = function () {
+      console.log('set random age');
+
+      _this.model.setRandomAge();
+    };
+
+    this.handleEventTrigger();
   }
 
   _createClass(UserForm, [{
+    key: "handleEventTrigger",
+    value: function handleEventTrigger() {
+      var _this2 = this;
+
+      this.model.on('change', function () {
+        _this2.render();
+      });
+    }
+  }, {
     key: "template",
     value: function template() {
       return "\n        <div>\n            <h1>User Form</h1>\n            <h3>Name: ".concat(this.model.get('name'), "</h3>\n            <h3>Age: ").concat(this.model.get('age'), "</h3>\n            <input/>\n            <button class='set-name'>Change Name</button>\n            <button class='set-age'>Random Age</button>\n        </div> \n    ");
-    }
-  }, {
-    key: "onSetAge",
-    value: function onSetAge() {
-      console.log('set random age');
     }
   }, {
     key: "onSetName",
@@ -3924,6 +3936,7 @@ function () {
 
         var selectedElement = fragment.querySelectorAll(selector);
         selectedElement.forEach(function (Element) {
+          console.log(Element);
           Element.addEventListener(eventName, eventsData[events]);
         });
       };
