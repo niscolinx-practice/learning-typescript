@@ -11,10 +11,13 @@ export class UserForm {
     `
     }
 
-    eventsData: { [key: string]: () => void } = {
-        'click:btn': this.onHoverBtn,
-        'mouseover:btn': this.onMouseOverBtn,
-        'mouseenter:btn': this.onMouseOverBtn,
+    eventsData = (): { [key: string]: () => void } => {
+        return {
+            'click:btn': this.onHoverBtn,
+            'mouseover:btn': this.onMouseOverBtn,
+            'mouseenter:btn': this.onMouseOverBtn
+
+        }
     }
 
     onHoverBtn(): void {
@@ -25,18 +28,18 @@ export class UserForm {
         console.log('mouse on button')
     }
 
-    eventToTrigger(eventToHandle: string): void {
-        let eventing: string = ''
-        for (let eventName in this.eventsData) {
-            const [event, selector] = eventName.split(':')
+    eventToTrigger(fragment: DocumentFragment): void {
+        // let eventing: string = ''
+        // for (let eventName in this.eventsData) {
+        //     const [event, selector] = eventName.split(':')
 
-            if (eventToHandle === event) {
-                eventing = eventName
+        //     if (eventToHandle === event) {
+        //         eventing = eventName
                 
-            }
-        }
+        //     }
+        // }
 
-        return this.eventsData[eventing]()
+        console.log({fragment})
     }
 
     render(): void {
@@ -45,10 +48,10 @@ export class UserForm {
 
         this.parent!.append(htmlTemplate.content)
 
-        const btn = document.querySelector('.btn')
+        //const btn = document.querySelector('.btn')
 
-        btn!.addEventListener('click', (e) => {
-            this.eventToTrigger(e.type)
-        })
+        this.eventToTrigger(htmlTemplate.content)
+        // btn!.addEventListener('click', (e) => {
+        // })
     }
 }

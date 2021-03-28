@@ -125,18 +125,6 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.UserForm = void 0;
 
-function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
-
-function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
-
-function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
-
-function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
-
-function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return; var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
-
-function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
-
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
@@ -147,13 +135,18 @@ var UserForm =
 /*#__PURE__*/
 function () {
   function UserForm(parent) {
+    var _this = this;
+
     _classCallCheck(this, UserForm);
 
     this.parent = parent;
-    this.eventsData = {
-      'click:btn': this.onHoverBtn,
-      'mouseover:btn': this.onMouseOverBtn,
-      'mouseenter:btn': this.onMouseOverBtn
+
+    this.eventsData = function () {
+      return {
+        'click:btn': _this.onHoverBtn,
+        'mouseover:btn': _this.onMouseOverBtn,
+        'mouseenter:btn': _this.onMouseOverBtn
+      };
     };
   }
 
@@ -174,34 +167,27 @@ function () {
     }
   }, {
     key: "eventToTrigger",
-    value: function eventToTrigger(eventToHandle) {
-      var eventing = '';
-
-      for (var eventName in this.eventsData) {
-        var _eventName$split = eventName.split(':'),
-            _eventName$split2 = _slicedToArray(_eventName$split, 2),
-            event = _eventName$split2[0],
-            selector = _eventName$split2[1];
-
-        if (eventToHandle === event) {
-          eventing = eventName;
-        }
-      }
-
-      return this.eventsData[eventing]();
+    value: function eventToTrigger(fragment) {
+      // let eventing: string = ''
+      // for (let eventName in this.eventsData) {
+      //     const [event, selector] = eventName.split(':')
+      //     if (eventToHandle === event) {
+      //         eventing = eventName
+      //     }
+      // }
+      console.log({
+        fragment: fragment
+      });
     }
   }, {
     key: "render",
     value: function render() {
-      var _this = this;
-
       var htmlTemplate = document.createElement('template');
       htmlTemplate.innerHTML = this.template();
-      this.parent.append(htmlTemplate.content);
-      var btn = document.querySelector('.btn');
-      btn.addEventListener('click', function (e) {
-        _this.eventToTrigger(e.type);
-      });
+      this.parent.append(htmlTemplate.content); //const btn = document.querySelector('.btn')
+
+      this.eventToTrigger(htmlTemplate.content); // btn!.addEventListener('click', (e) => {
+      // })
     }
   }]);
 
