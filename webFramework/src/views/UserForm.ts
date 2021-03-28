@@ -5,7 +5,8 @@ export class UserForm {
     template(): string {
         return `
         <div>
-            <h2>User Form</h2>
+            <h1>User Form</h1>
+            <h3></h3>
             <input></input>
             <button class='btn'>click me!</button>
         </div> 
