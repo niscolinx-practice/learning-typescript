@@ -32,7 +32,9 @@ export class UserForm {
         // }
 
         const eventsData = this.eventsData()
-        console.log({eventsData})
+        for(let events in eventsData){
+            const [eventName, selector] = eventsData
+        }
         
 
 
