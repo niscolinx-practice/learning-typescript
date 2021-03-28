@@ -1,3 +1,18 @@
+interface StoreIndex {
+    [key: number]: string
+}
+
+interface ResponseData {
+    notifications: string[]
+    entities: {
+        [key: string]: {
+            subject: string
+            type: string
+        }
+    }
+}
+
+
 const responseData = {
     notifications: [
         '{{172edb5e-0434-fb4b-abec-96bedc814599}} mentioned you in a post \n{{173d80bc-a995-c2ba-3d80-61d641b482df}}',
@@ -19,9 +34,7 @@ const responseData = {
     },
 }
 
-interface StoreIndex {
-    [key: number]: string
-}
+
 
 export const dataDeserializer = (data: string): string => {
     const splitData = data.split('\n').join(' ').split(' ')
@@ -58,6 +71,7 @@ export const dataDeserializer = (data: string): string => {
     for (let j of fetchedUids) {
         for (let i in responseData.entities) {
             if (i === j) {
+                console.log(responseData.entities[j])
                 deserializedData.push(responseData.entities[j].subject)
             }
         }

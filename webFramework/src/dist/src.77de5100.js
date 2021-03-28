@@ -177,6 +177,7 @@ var dataDeserializer = function dataDeserializer(data) {
 
     for (var _i3 in responseData.entities) {
       if (_i3 === j) {
+        console.log(responseData.entities[j]);
         deserializedData.push(responseData.entities[j].subject);
       }
     }
