@@ -6,5 +6,6 @@ const userForm = new UserForm(document.getElementById('root'), User.buildUser({
     age: 31
 }))
 
+
 userForm.render()
 
