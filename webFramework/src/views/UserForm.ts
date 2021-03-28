@@ -1,7 +1,9 @@
 import { User } from './../models/User';
 export class UserForm {
-    constructor(public parent: HTMLElement | null, public model: User) {}
+    constructor(public parent: HTMLElement | null, public model: User) {
+    }
 
+    
     template(): string {
         return `
         <div>
