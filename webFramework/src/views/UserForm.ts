@@ -46,7 +46,6 @@ export class UserForm {
             const selectedElement = fragment.querySelectorAll(selector)
 
             selectedElement.forEach((Element) => {
-                console.log(Element)
                 Element.addEventListener(eventName, eventsData[events])
             })
         }
@@ -58,6 +57,7 @@ export class UserForm {
         htmlTemplate.innerHTML = this.template()
 
         this.handleEvents(htmlTemplate.content)
+        console.log(htmlTemplate.content)
         this.parent!.append(htmlTemplate.content)
     }
 }

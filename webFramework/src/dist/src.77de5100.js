@@ -3936,7 +3936,6 @@ function () {
 
         var selectedElement = fragment.querySelectorAll(selector);
         selectedElement.forEach(function (Element) {
-          console.log(Element);
           Element.addEventListener(eventName, eventsData[events]);
         });
       };
@@ -3951,6 +3950,7 @@ function () {
       var htmlTemplate = document.createElement('template');
       htmlTemplate.innerHTML = this.template();
       this.handleEvents(htmlTemplate.content);
+      console.log(htmlTemplate.content);
       this.parent.append(htmlTemplate.content);
     }
   }]);
