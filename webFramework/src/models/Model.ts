@@ -1,4 +1,5 @@
-import { AxiosPromise, AxiosResponse } from 'axios'
+import { AxiosPromise, AxiosResponse } from "../../../node_modules/axios/index"
+
 interface Sync<T> {
     save(data: T): AxiosPromise
 
