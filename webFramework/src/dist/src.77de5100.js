@@ -3827,6 +3827,7 @@ function (_Model) {
     key: "setRandomAge",
     value: function setRandomAge() {
       var randomAge = Math.round(Math.random() * 100);
+      return randomAge;
     }
   }], [{
     key: "buildUser",
