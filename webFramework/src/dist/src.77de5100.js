@@ -117,7 +117,7 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   }
 
   return newRequire;
-})({"models/UserForm.ts":[function(require,module,exports) {
+})({"views/UserForm.ts":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -212,11 +212,11 @@ exports.UserForm = UserForm;
 },{}],"index.ts":[function(require,module,exports) {
 "use strict";
 
-var _UserForm = require("./models/UserForm");
+var _UserForm = require("./views/UserForm");
 
 var userForm = new _UserForm.UserForm(document.getElementById('root'));
 userForm.render();
-},{"./models/UserForm":"models/UserForm.ts"}],"../../../../../../../../../usr/local/lib/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"./views/UserForm":"views/UserForm.ts"}],"../../../../../../../../../usr/local/lib/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
