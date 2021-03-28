@@ -1,5 +1,6 @@
+import { User } from './../models/User';
 export class UserForm {
-    constructor(public parent: HTMLElement | null) {}
+    constructor(public parent: HTMLElement | null, public model: User) {}
 
     template(): string {
         return `
@@ -21,23 +22,16 @@ export class UserForm {
     }
 
     handleEvents(fragment: DocumentFragment): void {
-
         const eventsData = this.eventsData()
-        for(let events in eventsData){
+        for (let events in eventsData) {
             const [eventName, selector] = events.split(':')
 
-            console.log(eventName, selector)
-
             const selectedElement = fragment.querySelectorAll(selector)
-            console.log({selectedElement})
-            selectedElement.forEach(Element => {
+
+            selectedElement.forEach((Element) => {
                 Element.addEventListener(eventName, eventsData[events])
             })
         }
-        
-
-
-
     }
 
     render(): void {
@@ -46,6 +40,5 @@ export class UserForm {
 
         this.handleEvents(htmlTemplate.content)
         this.parent!.append(htmlTemplate.content)
-
     }
 }
