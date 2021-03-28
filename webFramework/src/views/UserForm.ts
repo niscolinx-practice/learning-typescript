@@ -14,11 +14,9 @@ export class UserForm {
     eventsData = (): { [key: string]: () => void } => {
         return {
             'click:.btn': this.onSetAge,
-         
-
         }
     }
-    onSetAge() : void{
+    onSetAge(): void {
         console.log('set random age')
     }
 
@@ -29,11 +27,17 @@ export class UserForm {
 
         //     if (eventToHandle === event) {
         //         eventing = eventName
-                
+
         //     }
         // }
 
-        console.log({fragment})
+        const eventsData = this.eventsData()
+        console.log({eventsData})
+        
+
+
+
+        console.log({ fragment })
     }
 
     render(): void {

@@ -168,6 +168,10 @@ function () {
       //         eventing = eventName
       //     }
       // }
+      var eventsData = this.eventsData();
+      console.log({
+        eventsData: eventsData
+      });
       console.log({
         fragment: fragment
       });
