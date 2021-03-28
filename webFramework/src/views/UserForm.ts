@@ -25,7 +25,7 @@ export class UserForm {
     `
     }
 
-    eventsData = (): { [key: string]: (e?: HTMLInputElement | undefined) => void } => {
+    eventsData = (): { [key: string]: (e?: KeyboardEvent | undefined) => void } => {
         return {
             'input:.input-name': this.onSetInput,
             'click:.set-name': this.onSetName,
@@ -36,8 +36,8 @@ export class UserForm {
         this.model.setRandomAge()
     }
 
-    onSetInput = (e: HTMLInputElement | undefined): void => {
-        this.inputValue.push(e!.target.value)
+    onSetInput = (e: KeyboardEvent | undefined): void => {
+        this.inputValue.push((e!.target as HTMLInputElement).value)
         
         if(this.inputValue.length > 1){
             this.inputValue.shift()
