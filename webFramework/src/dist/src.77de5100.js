@@ -143,9 +143,7 @@ function () {
 
     this.eventsData = function () {
       return {
-        'click:btn': _this.onHoverBtn,
-        'mouseover:btn': _this.onMouseOverBtn,
-        'mouseenter:btn': _this.onMouseOverBtn
+        'click:.btn': _this.onSetAge
       };
     };
   }
@@ -156,14 +154,9 @@ function () {
       return "\n        <div>\n            <h2>User Form</h2>\n            <input></input>\n            <button class='btn'>click me!</button>\n        </div>\n    ";
     }
   }, {
-    key: "onHoverBtn",
-    value: function onHoverBtn() {
-      console.log('button clicked');
-    }
-  }, {
-    key: "onMouseOverBtn",
-    value: function onMouseOverBtn() {
-      console.log('mouse on button');
+    key: "onSetAge",
+    value: function onSetAge() {
+      console.log('set random age');
     }
   }, {
     key: "eventToTrigger",

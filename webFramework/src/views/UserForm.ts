@@ -13,19 +13,13 @@ export class UserForm {
 
     eventsData = (): { [key: string]: () => void } => {
         return {
-            'click:btn': this.onHoverBtn,
-            'mouseover:btn': this.onMouseOverBtn,
-            'mouseenter:btn': this.onMouseOverBtn
+            'click:.btn': this.onSetAge,
+         
 
         }
     }
-
-    onHoverBtn(): void {
-        console.log('button clicked')
-    }
-
-    onMouseOverBtn(): void {
-        console.log('mouse on button')
+    onSetAge() : void{
+        console.log('set random age')
     }
 
     eventToTrigger(fragment: DocumentFragment): void {
