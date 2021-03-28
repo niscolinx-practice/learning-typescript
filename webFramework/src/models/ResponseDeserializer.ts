@@ -71,7 +71,6 @@ export const dataDeserializer = (data: string): string => {
     for (let j of fetchedUids) {
         for (let i in responseData.entities) {
             if (i === j) {
-                console.log(responseData.entities[j])
                 deserializedData.push(responseData.entities[j].subject)
             }
         }
