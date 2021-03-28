@@ -6,7 +6,7 @@ export class UserForm {
         <div>
             <h2>User Form</h2>
             <input></input>
-            <button class='btn' id='btn'>click me!</button>
+            <button class='btn'>click me!</button>
         </div> 
     `
     }
@@ -14,7 +14,6 @@ export class UserForm {
     eventsData = (): { [key: string]: () => void } => {
         return {
             'click:.btn': this.onSetAge,
-            'click:#btn': this.onSetAge,
         }
     }
     onSetAge(): void {
@@ -29,12 +28,11 @@ export class UserForm {
 
             console.log(eventName, selector)
 
-            const selectedElement = fragment.getElementById('btn')
+            const selectedElement = document.querySelectorAll(selector)
             console.log({selectedElement})
-            // selectedElement.forEach(Element => {
-            //     console.log({Element})
-            //     Element.addEventListener(eventName, eventsData[eventName])
-            // })
+            selectedElement.forEach(Element => {
+                Element.addEventListener(eventName, eventsData[events])
+            })
         }
         
 
@@ -46,11 +44,11 @@ export class UserForm {
         const htmlTemplate = document.createElement('template')
         htmlTemplate.innerHTML = this.template()
 
+        this.handleEvents(htmlTemplate.content)
         this.parent!.append(htmlTemplate.content)
 
         //const btn = document.querySelector('.btn')
 
-        this.handleEvents(htmlTemplate.content)
         // btn!.addEventListener('click', (e) => {
         // })
     }

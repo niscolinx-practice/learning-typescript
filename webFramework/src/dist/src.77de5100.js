@@ -155,8 +155,7 @@ function () {
 
     this.eventsData = function () {
       return {
-        'click:.btn': _this.onSetAge,
-        'click:#btn': _this.onSetAge
+        'click:.btn': _this.onSetAge
       };
     };
   }
@@ -164,7 +163,7 @@ function () {
   _createClass(UserForm, [{
     key: "template",
     value: function template() {
-      return "\n        <div>\n            <h2>User Form</h2>\n            <input></input>\n            <button class='btn' id='btn'>click me!</button>\n        </div> \n    ";
+      return "\n        <div>\n            <h2>User Form</h2>\n            <input></input>\n            <button class='btn'>click me!</button>\n        </div> \n    ";
     }
   }, {
     key: "onSetAge",
@@ -176,20 +175,24 @@ function () {
     value: function handleEvents(fragment) {
       var eventsData = this.eventsData();
 
-      for (var events in eventsData) {
+      var _loop = function _loop(events) {
         var _events$split = events.split(':'),
             _events$split2 = _slicedToArray(_events$split, 2),
             eventName = _events$split2[0],
             selector = _events$split2[1];
 
         console.log(eventName, selector);
-        var selectedElement = fragment.getElementById('btn');
+        var selectedElement = document.querySelectorAll(selector);
         console.log({
           selectedElement: selectedElement
-        }); // selectedElement.forEach(Element => {
-        //     console.log({Element})
-        //     Element.addEventListener(eventName, eventsData[eventName])
-        // })
+        });
+        selectedElement.forEach(function (Element) {
+          Element.addEventListener(eventName, eventsData[events]);
+        });
+      };
+
+      for (var events in eventsData) {
+        _loop(events);
       }
     }
   }, {
