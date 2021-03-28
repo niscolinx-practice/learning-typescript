@@ -3900,7 +3900,9 @@ function () {
     }
   }, {
     key: "onSetName",
-    value: function onSetName() {}
+    value: function onSetName() {
+      console.log('the name was changed!');
+    }
   }, {
     key: "handleEvents",
     value: function handleEvents(fragment) {

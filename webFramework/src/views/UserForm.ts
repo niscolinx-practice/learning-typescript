@@ -28,7 +28,7 @@ export class UserForm {
     }
 
     onSetName(): void {
-        
+        console.log('the name was changed!')
     }
 
     handleEvents(fragment: DocumentFragment): void {
