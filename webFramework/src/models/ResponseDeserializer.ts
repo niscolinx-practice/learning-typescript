@@ -19,22 +19,28 @@ const responseData = {
     },
 }
 
+interface StoreIndex {
+    [key: number]: string
+}
+
 export const dataDeserializer = (data: string): string => {
     const splitData = data.split('\n').join(' ').split(' ')
 
     let regex = /^\{{[^}]*\}}$/i
 
-    const storeIndex = {}
+    const storeIndex: StoreIndex = {}
 
     const entityUids: string[] = []
     const fetchedUids: string[] = []
     const deserializedData: string[] = []
+
     for (let i = 0; i < splitData.length; i++) {
         if (regex.test(splitData[i])) {
             entityUids.push(splitData[i])
             storeIndex[i] = splitData[i]
         }
     }
+
 
     for (let i of entityUids) {
         let temp: string[] = []
