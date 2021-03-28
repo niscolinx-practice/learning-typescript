@@ -19,8 +19,8 @@ export class UserForm {
 
     eventsData = (): { [key: string]: () => void } => {
         return {
-            'click:.set-age': this.onSetAge,
             'click:.set-name': this.onSetName,
+            'click:.set-age': this.onSetAge,
         }
     }
     onSetAge(): void {

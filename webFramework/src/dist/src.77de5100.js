@@ -3823,7 +3823,12 @@ function (_Model) {
     return _super.apply(this, arguments);
   }
 
-  _createClass(User, null, [{
+  _createClass(User, [{
+    key: "setRandomAge",
+    value: function setRandomAge() {
+      var randomAge = Math.round(Math.random() * 100);
+    }
+  }], [{
     key: "buildUser",
     value: function buildUser(attrs) {
       return new User(new _Attributes.Attributes(attrs), new _Events.Events(), new _ApiSync.ApiSync(URL));
@@ -3882,8 +3887,8 @@ function () {
 
     this.eventsData = function () {
       return {
-        'click:.set-age': _this.onSetAge,
-        'click:.set-name': _this.onSetName
+        'click:.set-name': _this.onSetName,
+        'click:.set-age': _this.onSetAge
       };
     };
   }
