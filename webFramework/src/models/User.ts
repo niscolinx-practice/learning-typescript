@@ -1,4 +1,3 @@
-import { UserProps } from './User';
 import { Attributes } from './Attributes'
 import { Events } from './Events'
 import { ApiSync } from './ApiSync'

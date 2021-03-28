@@ -1,4 +1,4 @@
-import axios, { AxiosPromise } from "../../node_modules/axios/index"
+import axios, { AxiosPromise } from "axios"
 
 interface HasId {
     id?: number
