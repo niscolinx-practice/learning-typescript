@@ -182,7 +182,7 @@ function () {
             selector = _events$split2[1];
 
         console.log(eventName, selector);
-        var selectedElement = document.querySelectorAll(selector);
+        var selectedElement = fragment.querySelectorAll(selector);
         console.log({
           selectedElement: selectedElement
         });
@@ -200,9 +200,9 @@ function () {
     value: function render() {
       var htmlTemplate = document.createElement('template');
       htmlTemplate.innerHTML = this.template();
+      this.handleEvents(htmlTemplate.content);
       this.parent.append(htmlTemplate.content); //const btn = document.querySelector('.btn')
-
-      this.handleEvents(htmlTemplate.content); // btn!.addEventListener('click', (e) => {
+      // btn!.addEventListener('click', (e) => {
       // })
     }
   }]);
@@ -246,7 +246,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "33523" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "36909" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

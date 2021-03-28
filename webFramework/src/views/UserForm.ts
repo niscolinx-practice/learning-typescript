@@ -28,7 +28,7 @@ export class UserForm {
 
             console.log(eventName, selector)
 
-            const selectedElement = document.querySelectorAll(selector)
+            const selectedElement = fragment.querySelectorAll(selector)
             console.log({selectedElement})
             selectedElement.forEach(Element => {
                 Element.addEventListener(eventName, eventsData[events])
