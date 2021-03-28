@@ -47,9 +47,5 @@ export class UserForm {
         this.handleEvents(htmlTemplate.content)
         this.parent!.append(htmlTemplate.content)
 
-        //const btn = document.querySelector('.btn')
-
-        // btn!.addEventListener('click', (e) => {
-        // })
     }
 }
