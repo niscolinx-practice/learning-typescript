@@ -6,7 +6,8 @@ export class UserForm {
         return `
         <div>
             <h1>User Form</h1>
-            <h3></h3>
+            <h3>Name: ${this.model.get('name')}</h3>
+            <h3>Age: ${this.model.get('age')}</h3>
             <input></input>
             <button class='btn'>click me!</button>
         </div> 

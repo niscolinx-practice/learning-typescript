@@ -3890,7 +3890,7 @@ function () {
   _createClass(UserForm, [{
     key: "template",
     value: function template() {
-      return "\n        <div>\n            <h1>User Form</h1>\n            <h3></h3>\n            <input></input>\n            <button class='btn'>click me!</button>\n        </div> \n    ";
+      return "\n        <div>\n            <h1>User Form</h1>\n            <h3>Name: ".concat(this.model.get('name'), "</h3>\n            <h3>Age: ").concat(this.model.get('age'), "</h3>\n            <input></input>\n            <button class='btn'>click me!</button>\n        </div> \n    ");
     }
   }, {
     key: "onSetAge",
