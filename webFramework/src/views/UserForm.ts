@@ -25,6 +25,7 @@ export class UserForm {
     }
     onSetAge(): void {
         console.log('set random age')
+    
     }
 
     onSetName(): void {

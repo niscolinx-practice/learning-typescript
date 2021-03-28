@@ -28,8 +28,8 @@ export class User extends Model<UserProps> {
         )
     }
 
-    setRandomAge(): number {
+     setRandomAge(): void {
         const randomAge = Math.round(Math.random() * 100)
-        return randomAge
+        this.set({age: randomAge})
     }
 }
