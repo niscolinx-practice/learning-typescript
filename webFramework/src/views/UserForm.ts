@@ -19,11 +19,16 @@ export class UserForm {
 
     eventsData = (): { [key: string]: () => void } => {
         return {
-            'click:.btn': this.onSetAge,
+            'click:.set-age': this.onSetAge,
+            'click:.set-name': this.onSetName,
         }
     }
     onSetAge(): void {
         console.log('set random age')
+    }
+
+    onSetName(): void {
+        
     }
 
     handleEvents(fragment: DocumentFragment): void {

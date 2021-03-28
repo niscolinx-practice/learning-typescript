@@ -3882,7 +3882,8 @@ function () {
 
     this.eventsData = function () {
       return {
-        'click:.btn': _this.onSetAge
+        'click:.set-age': _this.onSetAge,
+        'click:.set-name': _this.onSetName
       };
     };
   }
@@ -3897,6 +3898,9 @@ function () {
     value: function onSetAge() {
       console.log('set random age');
     }
+  }, {
+    key: "onSetName",
+    value: function onSetName() {}
   }, {
     key: "handleEvents",
     value: function handleEvents(fragment) {
