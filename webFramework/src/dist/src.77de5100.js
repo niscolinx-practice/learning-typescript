@@ -159,8 +159,8 @@ function () {
       console.log('set random age');
     }
   }, {
-    key: "eventToTrigger",
-    value: function eventToTrigger(fragment) {
+    key: "handleEvents",
+    value: function handleEvents(fragment) {
       // let eventing: string = ''
       // for (let eventName in this.eventsData) {
       //     const [event, selector] = eventName.split(':')
@@ -179,7 +179,7 @@ function () {
       htmlTemplate.innerHTML = this.template();
       this.parent.append(htmlTemplate.content); //const btn = document.querySelector('.btn')
 
-      this.eventToTrigger(htmlTemplate.content); // btn!.addEventListener('click', (e) => {
+      this.handleEvents(htmlTemplate.content); // btn!.addEventListener('click', (e) => {
       // })
     }
   }]);

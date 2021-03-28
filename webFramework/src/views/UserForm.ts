@@ -22,7 +22,7 @@ export class UserForm {
         console.log('set random age')
     }
 
-    eventToTrigger(fragment: DocumentFragment): void {
+    handleEvents(fragment: DocumentFragment): void {
         // let eventing: string = ''
         // for (let eventName in this.eventsData) {
         //     const [event, selector] = eventName.split(':')
@@ -44,7 +44,7 @@ export class UserForm {
 
         //const btn = document.querySelector('.btn')
 
-        this.eventToTrigger(htmlTemplate.content)
+        this.handleEvents(htmlTemplate.content)
         // btn!.addEventListener('click', (e) => {
         // })
     }
