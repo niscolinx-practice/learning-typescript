@@ -52,12 +52,12 @@ export class UserForm {
     }
 
     render(): void {
+        this.parent!.innerHTML = ''
         const htmlTemplate = document.createElement('template')
         
         htmlTemplate.innerHTML = this.template()
 
         this.handleEvents(htmlTemplate.content)
-        console.log(htmlTemplate.content)
         this.parent!.append(htmlTemplate.content)
     }
 }
