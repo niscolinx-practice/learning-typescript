@@ -3,6 +3,8 @@ export class UserForm {
     constructor(public parent: HTMLElement | null, public model: User) {
         this.handleEventTrigger()
     }
+    
+    inputValue: string[] = []
 
     handleEventTrigger(): void {
         this.model.on('change', () => {
@@ -16,26 +18,34 @@ export class UserForm {
             <h1>User Form</h1>
             <h3>Name: ${this.model.get('name')}</h3>
             <h3>Age: ${this.model.get('age')}</h3>
-            <input/>
+            <input class='input-name'/>
             <button class='set-name'>Change Name</button>
             <button class='set-age'>Random Age</button>
         </div> 
     `
     }
 
-    eventsData = (): { [key: string]: () => void } => {
+    eventsData = (): { [key: string]: (e?: HTMLInputElement | undefined) => void } => {
         return {
+            'input:.input-name': this.onSetInput,
             'click:.set-name': this.onSetName,
             'click:.set-age': this.onSetAge,
         }
     }
     onSetAge = (): void => {
-        console.log('set random age')
         this.model.setRandomAge()
     }
 
-    onSetName(): void {
-        console.log('the name was changed!')
+    onSetInput = (e: HTMLInputElement | undefined): void => {
+        this.inputValue.push(e!.target.value)
+        
+        if(this.inputValue.length > 1){
+            this.inputValue.shift()
+        }
+    }
+
+    onSetName = () => {
+        console.log(this.inputValue.join(''))
     }
 
     handleEvents(fragment: DocumentFragment): void {

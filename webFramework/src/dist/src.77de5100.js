@@ -3887,18 +3887,30 @@ function () {
 
     this.parent = parent;
     this.model = model;
+    this.inputValue = [];
 
     this.eventsData = function () {
       return {
+        'input:.input-name': _this.onSetInput,
         'click:.set-name': _this.onSetName,
         'click:.set-age': _this.onSetAge
       };
     };
 
     this.onSetAge = function () {
-      console.log('set random age');
-
       _this.model.setRandomAge();
+    };
+
+    this.onSetInput = function (e) {
+      _this.inputValue.push(e.target.value);
+
+      if (_this.inputValue.length > 1) {
+        _this.inputValue.shift();
+      }
+    };
+
+    this.onSetName = function () {
+      console.log(_this.inputValue.join(''));
     };
 
     this.handleEventTrigger();
@@ -3916,12 +3928,7 @@ function () {
   }, {
     key: "template",
     value: function template() {
-      return "\n        <div>\n            <h1>User Form</h1>\n            <h3>Name: ".concat(this.model.get('name'), "</h3>\n            <h3>Age: ").concat(this.model.get('age'), "</h3>\n            <input/>\n            <button class='set-name'>Change Name</button>\n            <button class='set-age'>Random Age</button>\n        </div> \n    ");
-    }
-  }, {
-    key: "onSetName",
-    value: function onSetName() {
-      console.log('the name was changed!');
+      return "\n        <div>\n            <h1>User Form</h1>\n            <h3>Name: ".concat(this.model.get('name'), "</h3>\n            <h3>Age: ").concat(this.model.get('age'), "</h3>\n            <input class='input-name'/>\n            <button class='set-name'>Change Name</button>\n            <button class='set-age'>Random Age</button>\n        </div> \n    ");
     }
   }, {
     key: "handleEvents",
