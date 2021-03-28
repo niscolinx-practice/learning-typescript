@@ -117,96 +117,106 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   }
 
   return newRequire;
-})({"models/ResponseDeserializer.ts":[function(require,module,exports) {
+})({"models/UserForm.ts":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.dataDeserializer = void 0;
-var responseData = {
-  notifications: ['{{172edb5e-0434-fb4b-abec-96bedc814599}} mentioned you in a post \n{{173d80bc-a995-c2ba-3d80-61d641b482df}}', '{{173d8098-ea25-dc4c-2c28-d1691ed8ea13}} sent you a friend request.'],
-  entities: {
-    '173d80bc-a995-c2ba-3d80-61d641b482df': {
-      subject: "@backend what's up again?",
-      type: 'POST'
-    },
-    '172edb5e-0434-fb4b-abec-96bedc814599': {
-      subject: 'Power Sunday',
-      type: 'USER'
-    },
-    '173d8098-ea25-dc4c-2c28-d1691ed8ea13': {
-      subject: 'Emmanuel Sunday',
-      type: 'USER'
-    }
+exports.UserForm = void 0;
+
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return; var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+var UserForm =
+/*#__PURE__*/
+function () {
+  function UserForm(parent) {
+    _classCallCheck(this, UserForm);
+
+    this.parent = parent;
+    this.eventsData = {
+      'click:btn': this.onHoverBtn,
+      'mouseover:btn': this.onMouseOverBtn,
+      'mouseenter:btn': this.onMouseOverBtn
+    };
   }
-};
 
-var dataDeserializer = function dataDeserializer(data) {
-  var splitData = data.split('\n').join(' ').split(' ');
-  var regex = /^\{{[^}]*\}}$/i;
-  var storeIndex = {};
-  var entityUids = [];
-  var fetchedUids = [];
-  var deserializedData = [];
-
-  for (var i = 0; i < splitData.length; i++) {
-    if (regex.test(splitData[i])) {
-      entityUids.push(splitData[i]);
-      storeIndex[i] = splitData[i];
+  _createClass(UserForm, [{
+    key: "template",
+    value: function template() {
+      return "\n        <div>\n            <h2>User Form</h2>\n            <input></input>\n            <button class='btn'>click me!</button>\n        </div>\n    ";
     }
-  }
+  }, {
+    key: "onHoverBtn",
+    value: function onHoverBtn() {
+      console.log('button clicked');
+    }
+  }, {
+    key: "onMouseOverBtn",
+    value: function onMouseOverBtn() {
+      console.log('mouse on button');
+    }
+  }, {
+    key: "eventToTrigger",
+    value: function eventToTrigger(eventToHandle) {
+      var eventing = '';
 
-  var _loop = function _loop() {
-    var i = _entityUids[_i];
-    var temp = [];
-    i.split('').map(function (item) {
-      if (item !== '{' && item !== '}') {
-        temp.push(item);
+      for (var eventName in this.eventsData) {
+        var _eventName$split = eventName.split(':'),
+            _eventName$split2 = _slicedToArray(_eventName$split, 2),
+            event = _eventName$split2[0],
+            selector = _eventName$split2[1];
+
+        if (eventToHandle === event) {
+          eventing = eventName;
+        }
       }
-    });
-    fetchedUids.push(temp.join(''));
-  };
 
-  for (var _i = 0, _entityUids = entityUids; _i < _entityUids.length; _i++) {
-    _loop();
-  }
-
-  for (var _i2 = 0, _fetchedUids = fetchedUids; _i2 < _fetchedUids.length; _i2++) {
-    var j = _fetchedUids[_i2];
-
-    for (var _i3 in responseData.entities) {
-      if (_i3 === j) {
-        deserializedData.push(responseData.entities[j].subject);
-      }
+      return this.eventsData[eventing]();
     }
-  }
+  }, {
+    key: "render",
+    value: function render() {
+      var _this = this;
 
-  var index = Object.keys(storeIndex);
-
-  for (var _i4 = 0; _i4 <= splitData.length; _i4++) {
-    for (var _j = 0; _j <= index.length; _j++) {
-      if (_i4 === +index[_j]) {
-        splitData[_i4] = deserializedData[_j];
-      }
+      var htmlTemplate = document.createElement('template');
+      htmlTemplate.innerHTML = this.template();
+      this.parent.append(htmlTemplate.content);
+      var btn = document.querySelector('.btn');
+      btn.addEventListener('click', function (e) {
+        _this.eventToTrigger(e.type);
+      });
     }
-  }
+  }]);
 
-  var reformedString = splitData.join(' ');
-  return reformedString;
-};
+  return UserForm;
+}();
 
-exports.dataDeserializer = dataDeserializer;
+exports.UserForm = UserForm;
 },{}],"index.ts":[function(require,module,exports) {
 "use strict";
 
-var _ResponseDeserializer = require("./models/ResponseDeserializer");
+var _UserForm = require("./models/UserForm");
 
-// import { UserForm } from './models/UserForm'
-// const userForm = new UserForm(document.getElementById('root'))
-// userForm.render()
-console.log((0, _ResponseDeserializer.dataDeserializer)('{{173d8098-ea25-dc4c-2c28-d1691ed8ea13}} sent you a friend request!!.'));
-},{"./models/ResponseDeserializer":"models/ResponseDeserializer.ts"}],"../../../../../../../../../usr/local/lib/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+var userForm = new _UserForm.UserForm(document.getElementById('root'));
+userForm.render();
+},{"./models/UserForm":"models/UserForm.ts"}],"../../../../../../../../../usr/local/lib/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -234,7 +244,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "42675" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "33523" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
