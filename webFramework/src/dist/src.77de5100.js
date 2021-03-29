@@ -2301,6 +2301,11 @@ function () {
 
     this.parent = parent;
     this.model = model;
+
+    this.bindData = function () {
+      return void abstract;
+    };
+
     this.inputValue = [];
     this.handleEventTrigger();
   }

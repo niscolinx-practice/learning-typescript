@@ -5,9 +5,9 @@ export abstract class View<T extends Model<K>, K> {
         this.handleEventTrigger()
     }
 
-    abstract bindData(): {
+    bindData = (): {
         [key: string]: (e: KeyboardEvent) => void
-    }
+    } => ()
 
     abstract template(): string
     inputValue: string[] = []
