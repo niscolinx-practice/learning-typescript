@@ -1,4 +1,4 @@
-import axios, { AxiosResponse } from '../../node_modules/axios/index'
+import axios, { AxiosResponse } from 'axios'
 import { Events } from './Events'
 
 export class Collection<T, K> {
