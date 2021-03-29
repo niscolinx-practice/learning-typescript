@@ -1,7 +1,7 @@
 import { Model } from '../models/Model'
 
 export abstract class View<T extends Model<K>, K> {
-    regions: {[key: string]: Element} = {}
+    abstract regions: {[key: string]: Element} = {}
 
     constructor(public parent: HTMLElement | null, public model: T) {
         this.handleEventTrigger()
@@ -45,6 +45,10 @@ export abstract class View<T extends Model<K>, K> {
 
     bindRegions(fragment: DocumentFragment): void {
         const regionsMap = this.regionsMap()
+
+        for(let region in regionsMap){
+
+        }
     }
 
 
