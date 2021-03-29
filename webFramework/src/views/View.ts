@@ -1,7 +1,7 @@
 import { Model } from '../models/Model'
 
 export abstract class View<T extends Model<K>, K> {
-    abstract regions: {[key: string]: Element} = {}
+    regions: {[key: string]: Element} = {}
 
     constructor(public parent: HTMLElement | null, public model: T) {
         this.handleEventTrigger()
