@@ -25,7 +25,7 @@ export class UserForm {
     `
     }
 
-    eventsData = (): { [key: string]: (e: KeyboardEvent) => void } => {
+    bindData = (): { [key: string]: (e: KeyboardEvent) => void } => {
         return {
             'input:.input-name': this.onSetInput,
             'click:.set-name': this.onSetName,
@@ -49,28 +49,4 @@ export class UserForm {
         this.model.setName(name)
     }
 
-    handleEvents(fragment: DocumentFragment): void {
-        const eventsData = this.eventsData()
-        for (let events in eventsData) {
-            const [eventName, selector] = events.split(':')
-
-            const selectedElement = fragment.querySelectorAll(selector)
-
-            selectedElement.forEach((Element) => {
-                Element.addEventListener(eventName, (e) => {
-                    eventsData[events](e as KeyboardEvent)
-                })
-            })
-        }
-    }
-
-    render(): void {
-        this.parent!.innerHTML = ''
-        const htmlTemplate = document.createElement('template')
-
-        htmlTemplate.innerHTML = this.template()
-
-        this.handleEvents(htmlTemplate.content)
-        this.parent!.append(htmlTemplate.content)
-    }
 }
