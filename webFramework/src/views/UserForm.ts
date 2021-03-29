@@ -3,7 +3,7 @@ export class UserForm {
     constructor(public parent: HTMLElement | null, public model: User) {
         this.handleEventTrigger()
     }
-    
+
     inputValue: string[] = []
 
     handleEventTrigger(): void {
@@ -25,21 +25,21 @@ export class UserForm {
     `
     }
 
-    eventsData = (): { [key: string]: (e?: KeyboardEvent | undefined) => void } => {
+    eventsData = (): { [key: string]: (e: KeyboardEvent) => void } => {
         return {
             'input:.input-name': this.onSetInput,
             'click:.set-name': this.onSetName,
             'click:.set-age': this.onSetAge,
         }
     }
-    onSetAge = (): void => {
+    onSetAge = (e: KeyboardEvent): void => {
         this.model.setRandomAge()
     }
 
-    onSetInput = (e: KeyboardEvent | undefined): void => {
+    onSetInput = (e: KeyboardEvent): void => {
         this.inputValue.push((e!.target as HTMLInputElement).value)
-        
-        if(this.inputValue.length > 1){
+
+        if (this.inputValue.length > 1) {
             this.inputValue.shift()
         }
     }
@@ -67,7 +67,7 @@ export class UserForm {
     render(): void {
         this.parent!.innerHTML = ''
         const htmlTemplate = document.createElement('template')
-        
+
         htmlTemplate.innerHTML = this.template()
 
         this.handleEvents(htmlTemplate.content)

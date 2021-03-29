@@ -2313,7 +2313,7 @@ function () {
       };
     };
 
-    this.onSetAge = function () {
+    this.onSetAge = function (e) {
       _this.model.setRandomAge();
     };
 
