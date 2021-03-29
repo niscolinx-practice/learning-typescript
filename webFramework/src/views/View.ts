@@ -36,12 +36,18 @@ export abstract class View<T extends Model<K>, K> {
             const selectedElement = fragment.querySelectorAll(selector)
 
             selectedElement.forEach((Element) => {
-                Element.addEventListener(eventName, (e) => {
+                Element.addEventListener(eventName, (e) => { 
                     eventsData[events](e as KeyboardEvent)
                 })
             })
         }
     }
+
+    bindRegions(fragment: DocumentFragment): void {
+        const regionsMap = this.regionsMap()
+    }
+
+
 
     render(): void {
         this.parent!.innerHTML = ''
