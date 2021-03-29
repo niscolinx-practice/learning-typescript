@@ -5,8 +5,9 @@ export class UserShoow extends View<User, UserProps> {
     template(): string {
         return `
             <div>
-                <div></div>
-                <div></div>
+            <h1>User Details</h1>
+                <div>User name: ${this.model.get('name')}</div>
+                <div>User Age: ${this.model.get('age')}</div>
             </div>
         `
     }
