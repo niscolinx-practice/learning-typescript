@@ -2,7 +2,9 @@ import {User, UserProps } from './../models/User';
 import { View } from "./View";
 
 export class UserEdit extends View<User, UserProps> {
-
+    regions: { [key: string]: Element } = {
+        'userForm': .user-form
+    }
 
 
     template(): string {
@@ -13,7 +15,4 @@ export class UserEdit extends View<User, UserProps> {
             </div>
         `
     }
-
-    
-    
 }

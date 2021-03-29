@@ -47,7 +47,8 @@ export abstract class View<T extends Model<K>, K> {
         const regionsMap = this.regionsMap()
 
         for(let region in regionsMap){
-
+            const selector = regionsMap[region]
+            const element = fragment.querySelectorAll(selector)
         }
     }
 
