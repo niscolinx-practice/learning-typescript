@@ -10,7 +10,7 @@ export class UserForm extends View<User, UserProps> {
             <input class='input-name' placeholder=${this.model.get('name')}>
             <button class='set-name'>Change Name</button>
             <button class='set-age'>Random Age</button>
-            <button class='save-model'>Save</button>
+            <button class='btn save-model'>Save</button>
         </div> 
     `
     }
