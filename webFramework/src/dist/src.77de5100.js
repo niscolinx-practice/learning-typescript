@@ -2440,7 +2440,7 @@ function (_View) {
   _createClass(UserForm, [{
     key: "template",
     value: function template() {
-      return "\n        <div>\n           \n            <input class='input-name' placeholder=".concat(this.model.get('name'), "/>\n            <button class='set-name'>Change Name</button>\n            <button class='set-age'>Random Age</button>\n            <button class='save-model'>Save</button>\n        </div> \n    ");
+      return "\n        <div>\n           \n            <input class='input-name' placeholder=".concat(this.model.get('name'), ">\n            <button class='set-name'>Change Name</button>\n            <button class='set-age'>Random Age</button>\n            <button class='save-model'>Save</button>\n        </div> \n    ");
     }
   }]);
 
