@@ -2284,14 +2284,10 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 var UserForm =
 /*#__PURE__*/
 function () {
-  function UserForm(parent, model) {
+  function UserForm() {
     var _this = this;
 
     _classCallCheck(this, UserForm);
-
-    this.parent = parent;
-    this.model = model;
-    this.inputValue = [];
 
     this.bindData = function () {
       return {
@@ -2318,20 +2314,9 @@ function () {
 
       _this.model.setName(name);
     };
-
-    this.handleEventTrigger();
   }
 
   _createClass(UserForm, [{
-    key: "handleEventTrigger",
-    value: function handleEventTrigger() {
-      var _this2 = this;
-
-      this.model.on('change', function () {
-        _this2.render();
-      });
-    }
-  }, {
     key: "template",
     value: function template() {
       return "\n        <div>\n            <h1>User Form</h1>\n            <h3>Name: ".concat(this.model.get('name'), "</h3>\n            <h3>Age: ").concat(this.model.get('age'), "</h3>\n            <input class='input-name'/>\n            <button class='set-name'>Change Name</button>\n            <button class='set-age'>Random Age</button>\n        </div> \n    ");

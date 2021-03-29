@@ -1,6 +1,6 @@
 
 
-export class UserEdit {
+export abstract class View {
     constructor(public parent: HTMLElement | null, public model: User) {
         this.handleEventTrigger()
     }
@@ -13,7 +13,6 @@ export class UserEdit {
         })
     }
 
-    
     bindEvents(fragment: DocumentFragment): void {
         const eventsData = this.bindData()
         for (let events in eventsData) {

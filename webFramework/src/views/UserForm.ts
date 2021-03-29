@@ -1,16 +1,6 @@
 import { User } from './../models/User'
 export class UserForm {
-    constructor(public parent: HTMLElement | null, public model: User) {
-        this.handleEventTrigger()
-    }
-
-    inputValue: string[] = []
-
-    handleEventTrigger(): void {
-        this.model.on('change', () => {
-            this.render()
-        })
-    }
+  
 
     template(): string {
         return `
