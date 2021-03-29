@@ -13,6 +13,12 @@ export abstract class View<T extends Model<K>, K> {
         return {}
     }
 
+    regionsMap = (): {
+        [key: string] : string
+    } => {
+        return {}
+    }
+
     abstract template(): string
     inputValue: string[] = []
 

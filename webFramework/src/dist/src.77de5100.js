@@ -2307,6 +2307,10 @@ function () {
       return {};
     };
 
+    this.regionsMap = function () {
+      return {};
+    };
+
     this.inputValue = [];
     this.handleEventTrigger();
   }
