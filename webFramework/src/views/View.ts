@@ -1,5 +1,4 @@
 
-
 export abstract class View {
     constructor(public parent: HTMLElement | null, public model: User) {
         this.handleEventTrigger()
