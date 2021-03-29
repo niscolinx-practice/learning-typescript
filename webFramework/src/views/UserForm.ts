@@ -23,7 +23,7 @@ export class UserForm extends View<User, UserProps> {
             'click:.save-model': this.onSaveModel,
         }
     }
-    onSetAge = (e: KeyboardEvent): void => {
+    onSetAge = (): void => {
         this.model.setRandomAge()
     }
 
