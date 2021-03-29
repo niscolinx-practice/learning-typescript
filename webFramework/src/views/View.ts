@@ -1,9 +1,15 @@
+import { Model } from "../models/Model"
 
-export abstract class View {
-    constructor(public parent: HTMLElement | null, public model: User) {
+export abstract class View<T extends Model<K>, K> {
+    constructor(public parent: HTMLElement | null, public model: T) {
         this.handleEventTrigger()
     }
 
+    abstract bindData(): {
+        [key: string]: (e: KeyboardEvent) => void
+    }
+
+    abstract template(): string
     inputValue: string[] = []
 
     handleEventTrigger(): void {
