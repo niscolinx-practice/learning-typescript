@@ -2303,7 +2303,7 @@ function () {
     this.model = model;
 
     this.bindData = function () {
-      return void abstract;
+      return {};
     };
 
     this.inputValue = [];
@@ -2407,12 +2407,17 @@ function (_View) {
       return {
         'input:.input-name': _this.onSetInput,
         'click:.set-name': _this.onSetName,
-        'click:.set-age': _this.onSetAge
+        'click:.set-age': _this.onSetAge,
+        'click:.save-model': _this.onSaveModel
       };
     };
 
-    _this.onSetAge = function (e) {
+    _this.onSetAge = function () {
       _this.model.setRandomAge();
+    };
+
+    _this.onSaveModel = function () {
+      _this.model.save();
     };
 
     _this.onSetInput = function (e) {
@@ -2435,7 +2440,7 @@ function (_View) {
   _createClass(UserForm, [{
     key: "template",
     value: function template() {
-      return "\n        <div>\n            <h1>User Form</h1>\n            <h3>Name: ".concat(this.model.get('name'), "</h3>\n            <h3>Age: ").concat(this.model.get('age'), "</h3>\n            <input class='input-name'/>\n            <button class='set-name'>Change Name</button>\n            <button class='set-age'>Random Age</button>\n        </div> \n    ");
+      return "\n        <div>\n           \n            <input class='input-name' placeholder=".concat(this.model.get('name'), "/>\n            <button class='set-name'>Change Name</button>\n            <button class='set-age'>Random Age</button>\n            <button class='save-model'>Save</button>\n        </div> \n    ");
     }
   }]);
 

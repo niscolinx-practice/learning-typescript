@@ -1,4 +1,4 @@
-import { Model } from "../models/Model"
+import { Model } from '../models/Model'
 
 export abstract class View<T extends Model<K>, K> {
     constructor(public parent: HTMLElement | null, public model: T) {
@@ -7,7 +7,9 @@ export abstract class View<T extends Model<K>, K> {
 
     bindData = (): {
         [key: string]: (e: KeyboardEvent) => void
-    } => ()
+    } => {
+        return {}
+    }
 
     abstract template(): string
     inputValue: string[] = []
