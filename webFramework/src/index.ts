@@ -17,14 +17,15 @@ import { Collection } from './models/Collection';
     const users = new Collection('http://localhost:3000/users', (json: UserProps) => {
         return User.buildUser(json)
     })
-    
+    console.log({users})
+    const root = document.getElementById('root')
+    if(root){
+        console.log({root})
+        new UserList(root, users).render()
+    }
     users.on('change', () => {
         console.log({users})
-        const root = document.getElementById('root')
 
-        if(root){
-            new UserList(root, users).render()
-        }
     })
     
 users.fetch()
