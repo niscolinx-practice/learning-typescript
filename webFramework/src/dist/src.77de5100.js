@@ -206,7 +206,7 @@ function () {
         var selector = regionsMap[region];
         var element = fragment.querySelector(selector);
 
-        if (element) {
+        if (element instanceof HTMLElement) {
           this.regions[region] = element;
         }
       }

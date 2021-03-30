@@ -1,9 +1,9 @@
 import { Model } from '../models/Model'
 
 export abstract class View<T extends Model<K>, K> {
-    regions: { [key: string]: Element } = {}
+    regions: { [key: string]: HTMLElement } = {}
 
-    constructor(public parent: Element | null, public model: T) {
+    constructor(public parent: HTMLElement | null, public model: T) {
         this.handleEventTrigger()
     }
 
@@ -49,7 +49,7 @@ export abstract class View<T extends Model<K>, K> {
         for (let region in regionsMap) {
             const selector = regionsMap[region]
             const element = fragment.querySelector(selector)
-            if (element) {
+            if (element instanceof HTMLElement) {
                 this.regions[region] = element
             }
         }
