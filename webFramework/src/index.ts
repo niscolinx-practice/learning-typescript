@@ -1,5 +1,5 @@
 import { UserEdit } from './views/UserEdit';
-import { User } from './models/User';
+import { User, UserProps } from './models/User';
 import { UserForm } from './views/UserForm'
 
 const root = document.getElementById('root')

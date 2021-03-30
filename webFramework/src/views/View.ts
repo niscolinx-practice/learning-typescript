@@ -13,7 +13,7 @@ export abstract class View<T extends Model<K>, K> {
         return {}
     }
 
-    regionsMap = (): {
+    regionsMap =(): {
         [key: string]: string
     } => {
         return {}
@@ -62,6 +62,8 @@ export abstract class View<T extends Model<K>, K> {
         htmlTemplate.innerHTML = this.template()
 
         this.bindEvents(htmlTemplate.content)
+        this.mapRegions(htmlTemplate.content)
+
         this.parent!.append(htmlTemplate.content)
     }
 }
