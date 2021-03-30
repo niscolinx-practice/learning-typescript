@@ -1,18 +1,33 @@
+import { UserList } from './views/UserList';
+import { Collection } from './models/Collection';
 // import { UserEdit } from './views/UserEdit';
-// import { User, UserProps } from './models/User';
+ import { User, UserProps } from './models/User';
 // import { UserForm } from './views/UserForm'
 
-// const root = document.getElementById('root')
 // const user = User.buildUser({
-//     name: 'Collins',
-//     age: 31,
-// })
-// const userEdit = new UserEdit(root, user)
+    //     name: 'Collins',
+    //     age: 31,
+    // })
+    // const userEdit = new UserEdit(root, user)
+    
+    // console.log({userEdit})
+    
+    // userEdit.render()
+    
+    const users = new Collection('http://localhost:3000/users', (json: UserProps) => {
+        return User.buildUser(json)
+    })
+    
+    users.on('change', () => {
+        console.log(users)
+        
+        const root = document.getElementById('root')
 
-// console.log({userEdit})
+        if(root){
+            new UserList(root, users).render()
+        }
+})
 
-// userEdit.render()
-
-
+users.fetch()
 
  
