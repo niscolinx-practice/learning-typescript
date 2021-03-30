@@ -322,6 +322,7 @@ function () {
     value: function render() {
       this.parent.innerHTML = '';
       var templateElement = document.createElement('template');
+      console.log(this.collection);
 
       var _iterator = _createForOfIteratorHelper(this.collection.models),
           _step;
@@ -2622,7 +2623,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "34493" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "42615" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

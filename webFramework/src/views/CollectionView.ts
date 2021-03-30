@@ -2,12 +2,12 @@ import { Model } from '../models/Model';
 import { Collection } from './../models/Collection'
 export abstract class CollectionView<T, K> {
     constructor(
-        public parent: HTMLElement,
+        public parent: Element,
         public collection: Collection<T, K>
     ) {}
 
 
-    abstract renderItem(model: T, itemParent: HTMLElement): void
+    abstract renderItem(model: T, itemParent: Element): void
 
 
     render(): void {
@@ -15,7 +15,7 @@ export abstract class CollectionView<T, K> {
 
         const templateElement = document.createElement('template')
 
-        
+        console.log(this.collection)
         for(let model of this.collection.models){
             console.log('hellow')
             const itemParent = document.createElement('div')
