@@ -13,10 +13,12 @@ export abstract class CollectionView<T, K> {
 
 
     render(): void {
+        console.log('render of collectionview')
         this.parent!.innerHTML = ''
 
         const templateElement = document.createElement('template')
 
+        
         console.log(this.collection)
         for(let model of this.collection.models){
             console.log('hellow')

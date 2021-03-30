@@ -325,6 +325,7 @@ function () {
   }, {
     key: "render",
     value: function render() {
+      console.log('render of collectionview');
       this.parent.innerHTML = '';
       var templateElement = document.createElement('template');
       console.log(this.collection);
