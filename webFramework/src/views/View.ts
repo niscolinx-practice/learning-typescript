@@ -40,10 +40,10 @@ export abstract class View<T extends Model<K>, K> {
                     eventsData[events](e as KeyboardEvent)
                 })
             })
-        }
+        } 
     }
 
-    bindRegions(fragment: DocumentFragment): void {
+    mapRegions(fragment: DocumentFragment): void {
         const regionsMap = this.regionsMap()
 
         for (let region in regionsMap) {
