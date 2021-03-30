@@ -2594,7 +2594,7 @@ users.on('change', function () {
     console.log({
       root: root
     });
-    new _UserList.UserList(root, users).render();
+    new _UserList.UserList(root, users);
   }
 });
 users.fetch();

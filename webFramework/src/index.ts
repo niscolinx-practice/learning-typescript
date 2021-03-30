@@ -22,7 +22,7 @@ import { UserForm } from './views/UserForm'
         console.log({users})
         if(root){
             console.log({root})
-            new UserList(root, users).render()
+            new UserList(root, users)
         }
 
     })
