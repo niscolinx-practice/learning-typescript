@@ -7,7 +7,6 @@ const user = User.buildUser({
     name: 'Collins',
     age: 31,
 })
-console.log(user)
 const userEdit = new UserEdit(root, user)
 
 console.log({userEdit})

@@ -58,7 +58,6 @@ export abstract class View<T extends Model<K>, K> {
     onRender(): void {}
 
     render(): void {
-        console.log(this.parent)
         this.parent!.innerHTML = ''
         const htmlTemplate = document.createElement('template')
 

@@ -217,7 +217,6 @@ function () {
   }, {
     key: "render",
     value: function render() {
-      console.log(this.parent);
       this.parent.innerHTML = '';
       var htmlTemplate = document.createElement('template');
       htmlTemplate.innerHTML = this.template();
@@ -2620,7 +2619,6 @@ var user = _User.User.buildUser({
   age: 31
 });
 
-console.log(user);
 var userEdit = new _UserEdit.UserEdit(root, user);
 console.log({
   userEdit: userEdit
