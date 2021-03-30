@@ -2584,9 +2584,6 @@ var _User = require("./models/User");
 var users = new _Collection.Collection('http://localhost:3000/users', function (json) {
   return _User.User.buildUser(json);
 });
-console.log({
-  users: users
-});
 var root = document.getElementById('root');
 users.on('change', function () {
   console.log({

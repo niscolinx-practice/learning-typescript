@@ -17,7 +17,6 @@ import { UserForm } from './views/UserForm'
     const users = new Collection('http://localhost:3000/users', (json: UserProps) => {
         return User.buildUser(json)
     })
-    console.log({users})
     const root = document.getElementById('root')
     users.on('change', () => {
         console.log({users})
