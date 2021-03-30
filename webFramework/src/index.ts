@@ -16,7 +16,7 @@ import { Collection } from './models/Collection';
     
     const users = new Collection('http://localhost:3000/users', (json: UserProps) => {
         console.log({json})
-        return User.buildUser({})
+        return User.buildUser({name: 'Collins'})
     })
     
     users.on('change', () => {

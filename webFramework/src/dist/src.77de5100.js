@@ -2587,7 +2587,9 @@ var users = new _Collection.Collection('http://localhost:3000/users', function (
   console.log({
     json: json
   });
-  return _User.User.buildUser({});
+  return _User.User.buildUser({
+    name: 'Collins'
+  });
 });
 users.on('change', function () {
   var root = document.getElementById('root');
