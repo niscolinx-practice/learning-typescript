@@ -13,7 +13,6 @@ export class Collection<T, K> {
             res.data.forEach((eachUser: K) => {
                 this.models.push(this.deserialize(eachUser))
 
-                console.log(this.models)
             })
             this.trigger('fetch')
         })

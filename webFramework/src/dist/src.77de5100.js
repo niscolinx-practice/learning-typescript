@@ -321,10 +321,8 @@ function () {
   _createClass(CollectionView, [{
     key: "render",
     value: function render() {
-      console.log('render of collection view', this.collection);
       this.parent.innerHTML = '';
       var templateElement = document.createElement('template');
-      console.log(this.collection);
 
       var _iterator = _createForOfIteratorHelper(this.collection.models),
           _step;
@@ -332,9 +330,7 @@ function () {
       try {
         for (_iterator.s(); !(_step = _iterator.n()).done;) {
           var model = _step.value;
-          console.log('hellow');
           var itemParent = document.createElement('div');
-          console.log(itemParent, model);
           this.renderItem(model, itemParent);
           templateElement.content.append(itemParent);
         }
@@ -2287,8 +2283,6 @@ function () {
       _index.default.get(this.rootUrl).then(function (res) {
         res.data.forEach(function (eachUser) {
           _this.models.push(_this.deserialize(eachUser));
-
-          console.log(_this.models);
         });
 
         _this.trigger('fetch');
