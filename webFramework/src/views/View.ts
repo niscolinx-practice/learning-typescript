@@ -13,7 +13,7 @@ export abstract class View<T extends Model<K>, K> {
         return {}
     }
 
-    regionsMap =(): {
+    regionsMap = (): {
         [key: string]: string
     } => {
         return {}
@@ -40,7 +40,7 @@ export abstract class View<T extends Model<K>, K> {
                     eventsData[events](e as KeyboardEvent)
                 })
             })
-        } 
+        }
     }
 
     mapRegions(fragment: DocumentFragment): void {
@@ -55,11 +55,10 @@ export abstract class View<T extends Model<K>, K> {
         }
     }
 
-    onRender(): void {
-
-    }
+    onRender(): void {}
 
     render(): void {
+        console.log(this.parent)
         this.parent!.innerHTML = ''
         const htmlTemplate = document.createElement('template')
 
