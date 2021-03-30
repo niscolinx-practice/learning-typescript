@@ -15,11 +15,11 @@ import { Collection } from './models/Collection';
     // userEdit.render()
     
     const users = new Collection('http://localhost:3000/users', (json: UserProps) => {
-        return User.buildUser(json)
+        console.log({json})
+        return User.buildUser({})
     })
     
     users.on('change', () => {
-        console.log(users)
         
         const root = document.getElementById('root')
 

@@ -15,9 +15,12 @@ export abstract class CollectionView<T, K> {
 
         const templateElement = document.createElement('template')
 
+        
         for(let model of this.collection.models){
+            console.log('hellow')
             const itemParent = document.createElement('div')
-
+            
+            console.log(itemParent, model)
             this.renderItem(model, itemParent)
             templateElement.content.append(itemParent)
         }

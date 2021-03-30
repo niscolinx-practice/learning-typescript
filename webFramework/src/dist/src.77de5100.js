@@ -329,7 +329,9 @@ function () {
       try {
         for (_iterator.s(); !(_step = _iterator.n()).done;) {
           var model = _step.value;
+          console.log('hellow');
           var itemParent = document.createElement('div');
+          console.log(itemParent, model);
           this.renderItem(model, itemParent);
           templateElement.content.append(itemParent);
         }
@@ -397,6 +399,9 @@ function (_CollectionView) {
   _createClass(UserList, [{
     key: "renderItem",
     value: function renderItem(model, itemParent) {
+      console.log({
+        model: model
+      });
       new _UserShow.UserShow(itemParent, model).render();
     }
   }]);
@@ -2279,13 +2284,18 @@ function () {
     value: function fetch() {
       var _this = this;
 
+      console.log(this.models);
+
       _index.default.get(this.rootUrl).then(function (res) {
+        console.log(res.data);
         res.data.forEach(function (eachUser) {
+          console.log(eachUser);
+
           _this.models.push(_this.deserialize(eachUser));
         });
       });
 
-      this.trigger('fetch');
+      this.trigger('change');
     }
   }, {
     key: "on",
@@ -2574,10 +2584,12 @@ var _User = require("./models/User");
 // console.log({userEdit})
 // userEdit.render()
 var users = new _Collection.Collection('http://localhost:3000/users', function (json) {
-  return _User.User.buildUser(json);
+  console.log({
+    json: json
+  });
+  return _User.User.buildUser({});
 });
 users.on('change', function () {
-  console.log(users);
   var root = document.getElementById('root');
 
   if (root) {
@@ -2613,7 +2625,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "37547" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "34493" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
