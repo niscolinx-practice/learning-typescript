@@ -1,3 +1,4 @@
+import { UserEdit } from './views/UserEdit';
 import { User } from './models/User';
 import { UserForm } from './views/UserForm'
 
@@ -6,8 +7,12 @@ const user = User.buildUser({
     name: 'Collins',
     age: 31,
 })
-const userForm = new UserForm(root, user)
+const userEdit = new UserEdit(root, user)
 
-userForm.render()
+console.log({userEdit})
+
+userEdit.render()
+
+
 
  
