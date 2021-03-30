@@ -2284,14 +2284,15 @@ function () {
     value: function fetch() {
       var _this = this;
 
-      console.log(this.models);
-
       _index.default.get(this.rootUrl).then(function (res) {
         console.log(res.data);
         res.data.forEach(function (eachUser) {
           console.log(eachUser);
 
           _this.models.push(_this.deserialize(eachUser));
+
+          console.log(_this.deserialize(eachUser));
+          console.log(_this.models);
         });
       });
 
@@ -2548,6 +2549,9 @@ function (_Model) {
   }], [{
     key: "buildUser",
     value: function buildUser(attrs) {
+      console.log({
+        attrs: attrs
+      });
       return new User(new _Attributes.Attributes(attrs), new _Events.Events(), new _ApiSync.ApiSync(URL));
     }
   }, {
@@ -2587,9 +2591,7 @@ var users = new _Collection.Collection('http://localhost:3000/users', function (
   console.log({
     json: json
   });
-  return _User.User.buildUser({
-    name: 'Collins'
-  });
+  return _User.User.buildUser(json);
 });
 users.on('change', function () {
   var root = document.getElementById('root');
