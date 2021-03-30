@@ -19,10 +19,10 @@ import { UserForm } from './views/UserForm'
     })
     
     const root = document.getElementById('root')
-    users.on('change', () => {
+    users.on('fetch', () => {
         if(root){
             console.log({users})
-            new UserList(root, users).rend(users)
+            new UserList(root, users).render()
         }
         
     })

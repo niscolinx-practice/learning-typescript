@@ -15,9 +15,9 @@ export class Collection<T, K> {
 
                 console.log(this.models)
             })
+            this.trigger('fetch')
         })
         
-        this.trigger('change')
     }
 
     get on() {

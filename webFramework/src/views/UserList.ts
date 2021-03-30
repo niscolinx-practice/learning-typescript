@@ -4,11 +4,8 @@ import { CollectionView } from "./CollectionView";
 
 export class UserList extends CollectionView<User, UserProps> {
 
-    rend(model: any): void {
-        console.log(model)
-    }
+ 
     renderItem(model: User, itemParent: HTMLElement){
-        console.log({model})
         new UserShow(itemParent, model).render()
     }
 }

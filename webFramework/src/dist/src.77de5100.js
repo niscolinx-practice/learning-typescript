@@ -400,16 +400,8 @@ function (_CollectionView) {
   }
 
   _createClass(UserList, [{
-    key: "rend",
-    value: function rend(model) {
-      console.log(model);
-    }
-  }, {
     key: "renderItem",
     value: function renderItem(model, itemParent) {
-      console.log({
-        model: model
-      });
       new _UserShow.UserShow(itemParent, model).render();
     }
   }]);
@@ -2298,9 +2290,9 @@ function () {
 
           console.log(_this.models);
         });
-      });
 
-      this.trigger('change');
+        _this.trigger('fetch');
+      });
     }
   }, {
     key: "on",
@@ -2590,12 +2582,12 @@ var users = new _Collection.Collection('http://localhost:3000/users', function (
   return _User.User.buildUser(json);
 });
 var root = document.getElementById('root');
-users.on('change', function () {
+users.on('fetch', function () {
   if (root) {
     console.log({
       users: users
     });
-    new _UserList.UserList(root, users).rend(users);
+    new _UserList.UserList(root, users).render();
   }
 });
 users.fetch();
