@@ -11,6 +11,12 @@ export abstract class CollectionView<T, K> {
 
 
     render(): void {
-        
+        this.parent!.innerHTML = ''
+
+        const templateElement = document.createElement('template')
+
+        for(let model of this.collection.models){
+            
+        }
     }
 }
