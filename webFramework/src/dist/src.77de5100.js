@@ -321,6 +321,7 @@ function () {
   _createClass(CollectionView, [{
     key: "render",
     value: function render() {
+      console.log('render of collection view', this.collection);
       this.parent.innerHTML = '';
       var templateElement = document.createElement('template');
       console.log(this.collection);
@@ -2573,15 +2574,13 @@ var _Collection = require("./models/Collection");
 
 var _User = require("./models/User");
 
-// import { UserEdit } from './views/UserEdit';
-// import { UserForm } from './views/UserForm'
 // const user = User.buildUser({
-//     name: 'Collins',
-//     age: 31,
-// })
-// const userEdit = new UserEdit(root, user)
-// console.log({userEdit})
-// userEdit.render()
+//         name: 'Collins',
+//         age: 31,
+//     })
+//     const userEdit = new UserEdit(document.getElementById('root'), user)
+//     console.log({userEdit})
+//     userEdit.render()
 var users = new _Collection.Collection('http://localhost:3000/users', function (json) {
   return _User.User.buildUser(json);
 });
@@ -2589,18 +2588,17 @@ console.log({
   users: users
 });
 var root = document.getElementById('root');
-
-if (root) {
-  console.log({
-    root: root
-  });
-  new _UserList.UserList(root, users).render();
-}
-
 users.on('change', function () {
   console.log({
     users: users
   });
+
+  if (root) {
+    console.log({
+      root: root
+    });
+    new _UserList.UserList(root, users).render();
+  }
 });
 users.fetch();
 },{"./views/UserList":"views/UserList.ts","./models/Collection":"models/Collection.ts","./models/User":"models/User.ts"}],"../../../../../../../../../usr/local/lib/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {

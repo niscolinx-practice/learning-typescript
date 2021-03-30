@@ -10,6 +10,7 @@ export abstract class CollectionView<T, K> {
 
 
     render(): void {
+        console.log('render of collection view', this.collection)
         this.parent!.innerHTML = ''
 
         const templateElement = document.createElement('template')
