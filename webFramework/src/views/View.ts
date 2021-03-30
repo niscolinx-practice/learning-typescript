@@ -1,7 +1,7 @@
 import { Model } from '../models/Model'
 
 export abstract class View<T extends Model<K>, K> {
-    regions: {[key: string]: Element} = {}
+    regions: { [key: string]: Element } = {}
 
     constructor(public parent: HTMLElement | null, public model: T) {
         this.handleEventTrigger()
@@ -14,7 +14,7 @@ export abstract class View<T extends Model<K>, K> {
     }
 
     regionsMap = (): {
-        [key: string] : string
+        [key: string]: string
     } => {
         return {}
     }
@@ -36,7 +36,7 @@ export abstract class View<T extends Model<K>, K> {
             const selectedElement = fragment.querySelectorAll(selector)
 
             selectedElement.forEach((Element) => {
-                Element.addEventListener(eventName, (e) => { 
+                Element.addEventListener(eventName, (e) => {
                     eventsData[events](e as KeyboardEvent)
                 })
             })
@@ -46,13 +46,14 @@ export abstract class View<T extends Model<K>, K> {
     bindRegions(fragment: DocumentFragment): void {
         const regionsMap = this.regionsMap()
 
-        for(let region in regionsMap){
+        for (let region in regionsMap) {
             const selector = regionsMap[region]
-            const element = fragment.querySelectorAll(selector)
+            const element = fragment.querySelector(selector)
+            if (element) {
+                this.regions[region] = element
+            }
         }
     }
-
-
 
     render(): void {
         this.parent!.innerHTML = ''
