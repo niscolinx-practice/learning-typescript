@@ -5,7 +5,7 @@ export class UserShow extends View<User, UserProps> {
     
     template(): string {
 
-        
+        console.log('usershow')
         
         return `
             <div>

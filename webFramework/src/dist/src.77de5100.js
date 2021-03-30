@@ -279,6 +279,7 @@ function (_View) {
   _createClass(UserShow, [{
     key: "template",
     value: function template() {
+      console.log('usershow');
       return "\n            <div>\n            <h1>User Details</h1>\n                <div>User name: ".concat(this.model.get('name'), "</div>\n                <div>User Age: ").concat(this.model.get('age'), "</div>\n            </div>\n        ");
     }
   }]);
