@@ -8,4 +8,9 @@ export abstract class CollectionView<T, K> {
 
 
     abstract renderItem(model: T, itemParent: HTMLElement): void
+
+
+    render(): void {
+        
+    }
 }
