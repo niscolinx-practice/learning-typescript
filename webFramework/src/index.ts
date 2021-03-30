@@ -17,15 +17,16 @@ import { UserForm } from './views/UserForm'
     const users = new Collection('http://localhost:3000/users', (json: UserProps) => {
         return User.buildUser(json)
     })
+    
     const root = document.getElementById('root')
     users.on('change', () => {
         if(root){
             console.log({users})
             new UserList(root, users).rend(users)
         }
-
+        
     })
     
-users.fetch()
+    users.fetch()
 
  
