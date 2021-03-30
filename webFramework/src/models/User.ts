@@ -14,7 +14,6 @@ const URL = 'http://localhost:3000/users'
 
 export class User extends Model<UserProps> {
     static buildUser(attrs: UserProps): User {
-        console.log({attrs})
         return new User(
             new Attributes<UserProps>(attrs),
             new Events(),

@@ -2285,13 +2285,9 @@ function () {
       var _this = this;
 
       _index.default.get(this.rootUrl).then(function (res) {
-        console.log(res.data);
         res.data.forEach(function (eachUser) {
-          console.log(eachUser);
-
           _this.models.push(_this.deserialize(eachUser));
 
-          console.log(_this.deserialize(eachUser));
           console.log(_this.models);
         });
       });
@@ -2549,9 +2545,6 @@ function (_Model) {
   }], [{
     key: "buildUser",
     value: function buildUser(attrs) {
-      console.log({
-        attrs: attrs
-      });
       return new User(new _Attributes.Attributes(attrs), new _Events.Events(), new _ApiSync.ApiSync(URL));
     }
   }, {
@@ -2588,12 +2581,12 @@ var _User = require("./models/User");
 // console.log({userEdit})
 // userEdit.render()
 var users = new _Collection.Collection('http://localhost:3000/users', function (json) {
-  console.log({
-    json: json
-  });
   return _User.User.buildUser(json);
 });
 users.on('change', function () {
+  console.log({
+    users: users
+  });
   var root = document.getElementById('root');
 
   if (root) {

@@ -10,12 +10,9 @@ export class Collection<T, K> {
 
     fetch(): void {
         axios.get(this.rootUrl).then((res: AxiosResponse) => {
-            console.log(res.data)
             res.data.forEach((eachUser: K) => {
-                console.log(eachUser)
                 this.models.push(this.deserialize(eachUser))
 
-                console.log(this.deserialize(eachUser))
                 console.log(this.models)
             })
         })
