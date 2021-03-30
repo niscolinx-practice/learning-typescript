@@ -6,7 +6,7 @@ export class Collection<T, K> {
     events: Events = new Events()
 
 
-    constructor(private rootUrl: string, private deserialize: (json: K) => T) {}
+    constructor(public rootUrl: string, public deserialize: (json: K) => T) {}
 
     fetch(): void {
         axios.get(this.rootUrl).then((res: AxiosResponse) => {

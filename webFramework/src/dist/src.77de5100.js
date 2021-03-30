@@ -400,6 +400,11 @@ function (_CollectionView) {
   }
 
   _createClass(UserList, [{
+    key: "rend",
+    value: function rend(model) {
+      console.log(model);
+    }
+  }, {
     key: "renderItem",
     value: function renderItem(model, itemParent) {
       console.log({
@@ -2586,15 +2591,11 @@ var users = new _Collection.Collection('http://localhost:3000/users', function (
 });
 var root = document.getElementById('root');
 users.on('change', function () {
-  console.log({
-    users: users
-  });
-
   if (root) {
     console.log({
-      root: root
+      users: users
     });
-    new _UserList.UserList(root, users);
+    new _UserList.UserList(root, users).rend(users);
   }
 });
 users.fetch();

@@ -19,10 +19,9 @@ import { UserForm } from './views/UserForm'
     })
     const root = document.getElementById('root')
     users.on('change', () => {
-        console.log({users})
         if(root){
-            console.log({root})
-            new UserList(root, users)
+            console.log({users})
+            new UserList(root, users).rend(users)
         }
 
     })
