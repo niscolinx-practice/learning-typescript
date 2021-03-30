@@ -1,4 +1,3 @@
-import { Model } from '../models/Model';
 import { Collection } from './../models/Collection'
 export abstract class CollectionView<T, K> {
     constructor(
