@@ -212,6 +212,9 @@ function () {
       }
     }
   }, {
+    key: "onRender",
+    value: function onRender() {}
+  }, {
     key: "render",
     value: function render() {
       this.parent.innerHTML = '';
@@ -219,6 +222,7 @@ function () {
       htmlTemplate.innerHTML = this.template();
       this.bindEvents(htmlTemplate.content);
       this.mapRegions(htmlTemplate.content);
+      this.onRender();
       this.parent.append(htmlTemplate.content);
     }
   }]);

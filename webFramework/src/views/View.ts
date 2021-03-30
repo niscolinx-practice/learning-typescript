@@ -55,6 +55,10 @@ export abstract class View<T extends Model<K>, K> {
         }
     }
 
+    onRender(): void {
+        
+    }
+
     render(): void {
         this.parent!.innerHTML = ''
         const htmlTemplate = document.createElement('template')
@@ -63,6 +67,8 @@ export abstract class View<T extends Model<K>, K> {
 
         this.bindEvents(htmlTemplate.content)
         this.mapRegions(htmlTemplate.content)
+
+        this.onRender()
 
         this.parent!.append(htmlTemplate.content)
     }
