@@ -27,6 +27,6 @@ import { UserForm } from './views/UserForm'
         
     })
     
-    users.fetch()
+    //users.fetch()
 
  
