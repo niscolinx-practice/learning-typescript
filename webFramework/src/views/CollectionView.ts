@@ -7,7 +7,9 @@ export abstract class CollectionView<T, K> {
     ) {}
 
 
-    abstract renderItem(model: T, itemParent: Element): void
+     renderItem(model: T, itemParent: Element): void {
+        console.log(model)
+    }
 
 
     render(): void {
@@ -26,7 +28,7 @@ export abstract class CollectionView<T, K> {
         }
 
 
-        this.parent.append(templateElement.content)
+        this.parent!.append(templateElement.content)
 
     }
 }

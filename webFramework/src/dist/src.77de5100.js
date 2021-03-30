@@ -318,6 +318,11 @@ function () {
   }
 
   _createClass(CollectionView, [{
+    key: "renderItem",
+    value: function renderItem(model, itemParent) {
+      console.log(model);
+    }
+  }, {
     key: "render",
     value: function render() {
       this.parent.innerHTML = '';
@@ -2584,16 +2589,17 @@ var _User = require("./models/User");
 var users = new _Collection.Collection('http://localhost:3000/users', function (json) {
   return _User.User.buildUser(json);
 });
+var root = document.getElementById('root');
 users.on('change', function () {
   console.log({
     users: users
   });
-  var root = document.getElementById('root');
-
-  if (root) {
-    new _UserList.UserList(root, users).render();
-  }
 });
+
+if (root) {
+  new _UserList.UserList(root, users).render();
+}
+
 users.fetch();
 },{"./views/UserList":"views/UserList.ts","./models/Collection":"models/Collection.ts","./models/User":"models/User.ts"}],"../../../../../../../../../usr/local/lib/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];

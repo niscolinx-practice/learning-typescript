@@ -18,15 +18,15 @@ import { Collection } from './models/Collection';
         return User.buildUser(json)
     })
     
+    const root = document.getElementById('root')
     users.on('change', () => {
         console.log({users})
-        const root = document.getElementById('root')
 
-        if(root){
-            new UserList(root, users).render()
-        }
-})
-
+    })
+    
+    if(root){
+        new UserList(root, users).render()
+    }
 users.fetch()
 
  
