@@ -3,7 +3,7 @@ import { Model } from '../models/Model'
 export abstract class View<T extends Model<K>, K> {
     regions: { [key: string]: Element } = {}
 
-    constructor(public parent: HTMLElement | null, public model: T) {
+    constructor(public parent: Element | null, public model: T) {
         this.handleEventTrigger()
     }
 
@@ -56,7 +56,7 @@ export abstract class View<T extends Model<K>, K> {
     }
 
     onRender(): void {
-        
+
     }
 
     render(): void {
