@@ -7,18 +7,14 @@ export abstract class CollectionView<T, K> {
     ) {}
 
 
-     renderItem(model: T, itemParent: Element): void {
-        console.log(model)
-    }
+    abstract renderItem(model: T, itemParent: Element): void
 
 
     render(): void {
-        console.log('render of collectionview')
         this.parent!.innerHTML = ''
 
         const templateElement = document.createElement('template')
 
-        
         console.log(this.collection)
         for(let model of this.collection.models){
             console.log('hellow')
@@ -30,7 +26,7 @@ export abstract class CollectionView<T, K> {
         }
 
 
-        this.parent!.append(templateElement.content)
+        this.parent.append(templateElement.content)
 
     }
 }

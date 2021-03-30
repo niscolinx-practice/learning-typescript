@@ -318,14 +318,8 @@ function () {
   }
 
   _createClass(CollectionView, [{
-    key: "renderItem",
-    value: function renderItem(model, itemParent) {
-      console.log(model);
-    }
-  }, {
     key: "render",
     value: function render() {
-      console.log('render of collectionview');
       this.parent.innerHTML = '';
       var templateElement = document.createElement('template');
       console.log(this.collection);
