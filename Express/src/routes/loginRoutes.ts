@@ -11,8 +11,21 @@ router.get('/', (req: Request, res: Response) => {
     )
 })
 
-// router.get('/login', (req, res) => {
-//     res.send('Login ')
-// })
+router.get('/login', (req, res) => {
+    res.send(`
+        <form method="POST"> 
+        <div>
+        <label>Email</label>
+        <input name="email"/>
+        </div>
+        <div>
+        <label>Passoword</label>
+        <input type="password" name="password"/>
+        </div>
+
+        <button>Submit</button>
+        </form
+    `)
+})
 
 export { router }
