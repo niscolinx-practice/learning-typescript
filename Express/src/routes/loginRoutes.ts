@@ -11,8 +11,8 @@ router.get('/', (req: Request, res: Response) => {
     )
 })
 
-router.get('/login', (req, res) => {
-    res.send('Login ')
-})
+// router.get('/login', (req, res) => {
+//     res.send('Login ')
+// })
 
-export default router
+export { router }
