@@ -5,6 +5,11 @@ interface RequestWithBody extends Request {
         [key: string]: string | undefined
     }
 }
+
+function requireAuth(req, res, next)  {
+
+}
+
 const router = Router()
 
 router.get('/', (req: Request, res: Response) => {
@@ -39,14 +44,14 @@ router.get('/auth', (req: Request, res: Response) => {
 
 router.get('/login', (req, res) => {
     res.send(`
-        <form method="POST" style="text-align: center; font-size: 2rem; margin: 5rem auto; padding: 1rem"> 
+        <form method="POST" style="text-align: center; font-size: 1rem; margin: 5rem auto; padding: 1rem"> 
         <div>
         <label>Email</label>
-        <input name="email" style="font-size: 2rem; margin: 1rem"/>
+        <input name="email" style="font-size: 1rem; margin: 1rem"/>
         </div>
         <div>
         <label>Password</label>
-        <input type="password" name="password" style="font-size: 2rem; margin: 1rem"/>
+        <input type="password" name="password" style="font-size: 1rem; margin: 1rem"/>
         </div>
 
         <button style="font-size: 1rem; padding: 1rem">Submit</button>
