@@ -30,6 +30,8 @@ router.get('/login', (req, res) => {
 
 
 router.post('/login', (req, res) => {
-    console.log(req.body)
+    const {email, password} = req.body
+
+    res.send(email + password)
 })
 export { router }
