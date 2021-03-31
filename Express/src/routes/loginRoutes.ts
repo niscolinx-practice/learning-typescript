@@ -1,4 +1,4 @@
-import { Router, Response, Request, request } from 'express'
+import e, { Router, Response, Request, request } from 'express'
 
 const router = Router()
 
@@ -35,6 +35,9 @@ router.post('/login', (req, res) => {
     if(email){
         res.send(email.toUpperCase())
 
+    }
+    else{
+        res.send(`Please provide a valid form`)
     }
 })
 export { router }
