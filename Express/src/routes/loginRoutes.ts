@@ -31,7 +31,10 @@ router.get('/login', (req, res) => {
 
 router.post('/login', (req, res) => {
     const {email, password} = req.body
+    
+    if(email){
+        res.send(email.toUpperCase())
 
-    res.send(email + password)
+    }
 })
 export { router }
