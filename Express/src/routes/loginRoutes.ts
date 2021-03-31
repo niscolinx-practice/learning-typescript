@@ -38,8 +38,8 @@ router.post('/login', (req: RequestWithBody, res: Response) => {
     const { email, password } = req.body
 
     if(email  && password && email === 'test@test.com' && password === 'test'){
-        
-
+        req.session = { loggedIn: true}
+        res.redirect('/')
     }
     else{
         res.send(`Invalid email or password`)
