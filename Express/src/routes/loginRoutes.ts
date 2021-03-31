@@ -37,9 +37,12 @@ router.get('/login', (req, res) => {
 router.post('/login', (req: RequestWithBody, res: Response) => {
     const { email, password } = req.body
 
-    if(email){
-        res.send(email.toUpperCase())
+    if(email  && password && email === 'test@test.com' && password === 'test'){
 
+
+    }
+    else{
+        res.send(`Invalid email or password`)
     }
 })
 export { router }
