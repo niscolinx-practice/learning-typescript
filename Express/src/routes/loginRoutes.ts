@@ -28,16 +28,9 @@ router.get('/login', (req, res) => {
     `)
 })
 
-
 router.post('/login', (req, res) => {
-    const {email, password} = req.body
-    
-    if(email){
-        res.send(email.toUpperCase())
+    const { email, password } = req.body
 
-    }
-    else{
-        res.send(`Please provide a valid form`)
-    }
+    res.send(email.uppercase())
 })
 export { router }
