@@ -28,17 +28,17 @@ router.get('/auth', (req: Request, res: Response) => {
 
 router.get('/login', (req, res) => {
     res.send(`
-        <form method="POST"> 
+        <form method="POST" style="text-align: center; font-size: 2rem; margin: 5rem auto; padding: 1rem"> 
         <div>
         <label>Email</label>
-        <input name="email"/>
+        <input name="email" style="font-size: 2rem"/>
         </div>
         <div>
-        <label>Passoword</label>
-        <input type="password" name="password"/>
+        <label>Password</label>
+        <input type="password" name="password" style="font-size: 2rem"/>
         </div>
 
-        <button>Submit</button>
+        <button style="font-size: 1rem">Submit</button>
         </form
     `)
 })
