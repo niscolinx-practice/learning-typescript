@@ -1,4 +1,5 @@
 import express, { Request, Response } from 'express'
+import {router} from './routes/loginRoutes'
 
 const app = express()
 
@@ -10,6 +11,8 @@ app.get('/', (req: Request, res: Response) => {
         `
     )
 })
+
+app.use(router)
 
 const PORT = 3000
 
