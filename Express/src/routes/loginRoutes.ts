@@ -1,9 +1,8 @@
 import { Router, Response, Request } from 'express'
 
-
 interface RequestWithBody extends Request {
     body: {
-        [key: string] : string | undefined
+        [key: string]: string | undefined
     }
 }
 const router = Router()
@@ -18,12 +17,22 @@ router.get('/', (req: Request, res: Response) => {
 })
 
 router.get('/auth', (req: Request, res: Response) => {
-    res.send(
-        `<div>
+    if (req.session && req.session.loggedIn) {
+        res.send(
+            `<div>
         <h1>You logged in successfully!!</h1>  
         </div>
         `
-    )
+        )
+    } else {
+        res.send(
+            `<div>
+        <h1>You are not logged in</h1>  
+        <a href='/login'>Login</a>
+        </div>
+        `
+        )
+    }
 })
 
 router.get('/login', (req, res) => {
@@ -31,14 +40,14 @@ router.get('/login', (req, res) => {
         <form method="POST" style="text-align: center; font-size: 2rem; margin: 5rem auto; padding: 1rem"> 
         <div>
         <label>Email</label>
-        <input name="email" style="font-size: 2rem"/>
+        <input name="email" style="font-size: 2rem; margin: 1rem"/>
         </div>
         <div>
         <label>Password</label>
-        <input type="password" name="password" style="font-size: 2rem"/>
+        <input type="password" name="password" style="font-size: 2rem; margin: 1rem"/>
         </div>
 
-        <button style="font-size: 1rem">Submit</button>
+        <button style="font-size: 1rem; padding: 1rem">Submit</button>
         </form
     `)
 })
@@ -46,11 +55,10 @@ router.get('/login', (req, res) => {
 router.post('/login', (req: RequestWithBody, res: Response) => {
     const { email, password } = req.body
 
-    if(email  && password && email === 'test@test.com' && password === 'test'){
-        req.session = { loggedIn: true}
+    if (email && password && email === 'test@test.com' && password === 'test') {
+        req.session = { loggedIn: true }
         res.redirect('/auth')
-    }
-    else{
+    } else {
         res.send(`Invalid email or password`)
     }
 })
