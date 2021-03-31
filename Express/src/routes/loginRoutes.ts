@@ -1,5 +1,11 @@
-import e, { Router, Response, Request, request } from 'express'
+import { Router, Response, Request } from 'express'
 
+
+interface RequestWithBody extends Request {
+    body: {
+        [key: string] : string | undefined
+    }
+}
 const router = Router()
 
 router.get('/', (req: Request, res: Response) => {
@@ -28,7 +34,7 @@ router.get('/login', (req, res) => {
     `)
 })
 
-router.post('/login', (req, res) => {
+router.post('/login', (req: RequestWithBody, res: Response) => {
     const { email, password } = req.body
 
     res.send(email.uppercase())
