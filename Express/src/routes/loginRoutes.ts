@@ -11,6 +11,7 @@ router.get('/', (req: Request, res: Response) => {
     res.send(
         `<div>
         <h1>Hi there!</h1>  
+        <a href='/login'>Login</a>
         </div>
         `
     )
@@ -20,7 +21,8 @@ router.get('/auth', (req: Request, res: Response) => {
     if (req.session && req.session.loggedIn) {
         res.send(
             `<div>
-        <h1>You logged in successfully!!</h1>  
+        <h1>You logged in successfully!!</h1> 
+        <a href='/logout'>Logout</a> 
         </div>
         `
         )
@@ -61,5 +63,11 @@ router.post('/login', (req: RequestWithBody, res: Response) => {
     } else {
         res.send(`Invalid email or password`)
     }
+})
+
+router.get('/logout', (req, res) => {
+
+    req.session = undefined
+    res.redirect('/')
 })
 export { router }
