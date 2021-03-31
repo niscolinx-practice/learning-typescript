@@ -17,6 +17,15 @@ router.get('/', (req: Request, res: Response) => {
     )
 })
 
+router.get('/auth', (req: Request, res: Response) => {
+    res.send(
+        `<div>
+        <h1>You logged in successfully!!</h1>  
+        </div>
+        `
+    )
+})
+
 router.get('/login', (req, res) => {
     res.send(`
         <form method="POST"> 
@@ -39,7 +48,7 @@ router.post('/login', (req: RequestWithBody, res: Response) => {
 
     if(email  && password && email === 'test@test.com' && password === 'test'){
         req.session = { loggedIn: true}
-        res.redirect('/')
+        res.redirect('/auth')
     }
     else{
         res.send(`Invalid email or password`)
