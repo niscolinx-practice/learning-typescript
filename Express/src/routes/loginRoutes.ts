@@ -15,4 +15,4 @@ router.get('/login', (req, res) => {
     res.send('Login ')
 })
 
-export { router }
+export default router
