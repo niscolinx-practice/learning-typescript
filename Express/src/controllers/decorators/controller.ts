@@ -1,10 +1,10 @@
-import express from 'express'
-
-export const controllerRouter = express.Router()
+import { AppRouter } from './../../AppRouter';
 
 export function controller(routePrefix: string) {
     return function (target: Function) {
-    
+        
+        const controllerRouter = AppRouter.getInstance()
+
         for (let key in target.prototype) {
             const routeHandler = target.prototype[key]
 
