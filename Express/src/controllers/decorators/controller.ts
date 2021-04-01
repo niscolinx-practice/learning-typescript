@@ -1,8 +1,13 @@
+import { RequestHandler, NextFunction } from 'express';
 import { MetadataKeys } from './MetadataKeys.js';
 import { Methods } from './Methods.js';
 import { AppRouter } from './../../AppRouter.js';
 
-
+function validateBody(keys: string): RequestHandler {
+    return function(req: Request, res: Response, next: NextFunction){
+        
+    }
+}
 
 
 export function controller(routePrefix: string) {
