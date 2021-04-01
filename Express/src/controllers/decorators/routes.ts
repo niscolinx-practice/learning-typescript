@@ -1,5 +1,5 @@
 export function get(path: string) {
-    return function(){
-        
+    return function(target: any, key: string, desc: PropertyDescriptor){
+
     }
 }
