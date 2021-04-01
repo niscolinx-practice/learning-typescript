@@ -14,7 +14,7 @@ export function controller(routePrefix: string) {
 
             const method: Methods = Reflect.getMetadata(MetadataKeys.method, target.prototype, key)
 
-            const middlewares = Reflect.getMetadata(MetadataKeys.middleware, target, key) || []
+            const middlewares = Reflect.getMetadata(MetadataKeys.middleware, target.prototype, key) || []
 
             if(path){
                 controllerRouter[method](`${routePrefix}${path}`,...middlewares, routeHandler)
