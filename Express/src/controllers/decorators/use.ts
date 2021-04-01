@@ -3,7 +3,7 @@ import { MetadataKeys } from './MetadataKeys.js';
 
 export function use(middleware: RequestHandler){
 
-    return function(){
+    return function(target: any, key: string, desc: PropertyDescriptor){
 
     }
 }
