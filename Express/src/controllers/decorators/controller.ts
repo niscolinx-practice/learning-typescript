@@ -1,4 +1,5 @@
-import { Methods } from './Methods';
+import { MetadataKeys } from './MetadataKeys.js';
+import { Methods } from './Methods.js';
 import { AppRouter } from './../../AppRouter.js';
 
 export function controller(routePrefix: string) {
@@ -9,8 +10,8 @@ export function controller(routePrefix: string) {
         for (let key in target.prototype) {
             const routeHandler = target.prototype[key]
 
-            const path = Reflect.getMetadata('path', target.prototype, key)
-            const method: Methods = Reflect.getMetadata('method', target.prototype, key)
+            const path = Reflect.getMetadata(MetadataKeys.path, target.prototype, key)
+            const method: Methods = Reflect.getMetadata(MetadataKeys.method, target.prototype, key)
 
             if(path){
                 controllerRouter[method](`${routePrefix}${path}`, routeHandler)
