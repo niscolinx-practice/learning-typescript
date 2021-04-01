@@ -8,6 +8,10 @@ export function controller(routePrefix: string) {
             const routeHandler = target.prototype[key]
 
             const path = Reflect.getMetadata('path', target.prototype, key)
+
+            if(path){
+                router.get(`${routePrefix}${path}`, routeHandler)
+            }
         }
     }
 }
