@@ -2,6 +2,9 @@ import { MetadataKeys } from './MetadataKeys.js';
 import { Methods } from './Methods.js';
 import { AppRouter } from './../../AppRouter.js';
 
+
+
+
 export function controller(routePrefix: string) {
     return function (target: Function) {
         
