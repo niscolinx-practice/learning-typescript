@@ -13,6 +13,7 @@ function validateBody(keys: string): RequestHandler {
 
         for(let key of keys){ 
             if(!req.body[key]){
+                console.log(key)
                 res.status(422).send(`Missing property ${key}`)
                 return 
             }
