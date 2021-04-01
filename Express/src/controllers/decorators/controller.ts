@@ -3,14 +3,15 @@ import { MetadataKeys } from './MetadataKeys.js'
 import { Methods } from './Methods.js'
 import { AppRouter } from './../../AppRouter.js'
 
-function validateBody(keys: string): void {
+function validateBody(keys: string): any {
     return function (req: Request, res: Response, next: NextFunction) {
         if (!req.body) {
             res.status(422).send('Invalid request')
+            
             return
         }
 
-        for(let key of Keys){
+        for(let key of keys){
             if(!req.body[key]){
                 res.status(422).send('Invalid request')
                 return 
@@ -45,13 +46,16 @@ export function controller(routePrefix: string) {
                     key
                 ) || []
 
-            const requiredBodyProps = Reflect.getMetadata(MetadataKeys.validator, target.prototype, key)
+            const requiredBodyProps = Reflect.getMetadata(MetadataKeys.validator, target.prototype, key) || []
             
+
+            const validator = validateBody(requiredBodyProps)
 
             if (path) {
                 controllerRouter[method](
                     `${routePrefix}${path}`,
                     ...middlewares,
+                    validator,
                     routeHandler
                 )
             }
