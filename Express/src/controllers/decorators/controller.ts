@@ -1,6 +1,6 @@
 import express from 'express'
 
-export const router = express.Router()
+export const controllerRouter = express.Router()
 
 export function controller(routePrefix: string) {
     return function (target: Function) {
@@ -10,7 +10,7 @@ export function controller(routePrefix: string) {
             const path = Reflect.getMetadata('path', target.prototype, key)
 
             if(path){
-                router.get(`${routePrefix}${path}`, routeHandler)
+                controllerRouter.get(`${routePrefix}${path}`, routeHandler)
             }
         }
     }
