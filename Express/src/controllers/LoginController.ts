@@ -1,7 +1,10 @@
 import {Router, Request, Response, NextFunction} from 'express'
+
+@controller('/')
 class LoginController {
 
-    getLogin((req: Request, res: Response) => {
+    @get('/login')
+    getLogin(req: Request, res: Response): void {
     res.send(`
         <form method="POST" style="text-align: center; font-size: 1rem; margin: 5rem auto; padding: 1rem"> 
         <div>
