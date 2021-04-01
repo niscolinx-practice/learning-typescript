@@ -4,9 +4,8 @@ export const controllerRouter = express.Router()
 
 export function controller(routePrefix: string) {
     return function (target: Function) {
-        console.log('hello there', target, target.prototype)
-        console.log('target', target.prototype)
-        for (let key in target) {
+    
+        for (let key in target.prototype) {
             console.log('prototype', key)
             const routeHandler = target.prototype[key]
 
