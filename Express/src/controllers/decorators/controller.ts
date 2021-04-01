@@ -10,10 +10,10 @@ export function controller(routePrefix: string) {
             const routeHandler = target.prototype[key]
 
             const path = Reflect.getMetadata('path', target.prototype, key)
-            const method = Reflect.getMetadata('method', target.prototype, key)
+            const method: Methods = Reflect.getMetadata('method', target.prototype, key)
 
             if(path){
-                controllerRouter[method as Methods](`${routePrefix}${path}`, routeHandler)
+                controllerRouter[method](`${routePrefix}${path}`, routeHandler)
             }
         }
     }
