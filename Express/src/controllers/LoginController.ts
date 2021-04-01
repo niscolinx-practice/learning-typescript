@@ -2,9 +2,6 @@ import { Router, Request, Response, NextFunction } from 'express'
 import { controller } from './decorators/controller.js'
 import { get } from './decorators/routes.js'
 
-function Logger(req: Request, res: Response, next: NextFunction){
-    
-}
 
 @controller('/auth')
 export class LoginController {
