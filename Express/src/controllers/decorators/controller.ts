@@ -1,22 +1,24 @@
-import { RequestHandler, NextFunction } from 'express'
+import { RequestHandler, NextFunction, Request, Response } from 'express'
 import { MetadataKeys } from './MetadataKeys.js'
 import { Methods } from './Methods.js'
 import { AppRouter } from './../../AppRouter.js'
 
-function validateBody(keys: string): any {
+function validateBody(keys: string): RequestHandler {
     return function (req: Request, res: Response, next: NextFunction) {
         if (!req.body) {
             res.status(422).send('Invalid request')
-            
+             
             return
         }
 
-        for(let key of keys){
+        for(let key of keys){ 
             if(!req.body[key]){
-                res.status(422).send('Invalid request')
+                res.status(422).send(`Missing property ${key}`)
                 return 
             }
         }
+
+        next()
     }
 }
 
