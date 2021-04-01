@@ -1,4 +1,4 @@
-import { AppRouter } from './../../AppRouter';
+import { AppRouter } from './../../AppRouter.js';
 
 export function controller(routePrefix: string) {
     return function (target: Function) {
