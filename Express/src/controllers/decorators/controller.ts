@@ -1,3 +1,4 @@
+import { Methods } from './Methods';
 import { AppRouter } from './../../AppRouter.js';
 
 export function controller(routePrefix: string) {
@@ -12,7 +13,7 @@ export function controller(routePrefix: string) {
             const method = Reflect.getMetadata('method', target.prototype, key)
 
             if(path){
-                controllerRouter[method](`${routePrefix}${path}`, routeHandler)
+                controllerRouter[method as Methods](`${routePrefix}${path}`, routeHandler)
             }
         }
     }
