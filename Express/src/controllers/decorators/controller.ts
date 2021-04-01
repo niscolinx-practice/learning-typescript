@@ -45,6 +45,9 @@ export function controller(routePrefix: string) {
                     key
                 ) || []
 
+            const requiredBodyProps = Reflect.getMetadata(MetadataKeys.validator, target.prototype, key)
+            
+
             if (path) {
                 controllerRouter[method](
                     `${routePrefix}${path}`,
