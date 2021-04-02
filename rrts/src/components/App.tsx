@@ -23,4 +23,4 @@ const mapStateToProps = ({todos}: StoreState): {todos: Todo[]} => {
     }
 }
 
-export default App
+export const App = connect(mapStateToProps, {fetchTodos})(_App)
