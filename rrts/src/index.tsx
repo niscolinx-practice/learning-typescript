@@ -4,6 +4,8 @@ import ReactDom from 'react-dom'
 import {createStore, applyMiddleware} from 'redux'
 import {Provider} from 'react-redux'
 import thunk from 'redux-thunk'
+import { reducers } from './store/reducers/reducer'
+import { App } from './components/App'
 
 const store = createStore(reducers, applyMiddleware(thunk))
 
