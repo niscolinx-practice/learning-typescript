@@ -41,6 +41,7 @@ class _App extends React.Component<AppProps, AppState> {
     }
 
     renderList(): JSX.Element[]{
+        this.setState({fetching: false})
         return this.props.todos.map((todo: Todo) => {
             return <div key={todo.id} onClick={() => this.onDeleteTodo(todo.id)}>{todo.title}</div>
         })
@@ -49,7 +50,7 @@ class _App extends React.Component<AppProps, AppState> {
     render(){
         return (
             <div><button onClick={this.onButtonClick}>Fetch</button>
-            {this.state.fetching && this.renderList().length < 1 ?'LOADING' : null }
+            {this.state.fetching ? 'LOADING' : null }
             {this.renderList()}
             </div>
         )
