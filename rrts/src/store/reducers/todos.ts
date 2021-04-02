@@ -1,6 +1,6 @@
-import { Todo } from './../actions/action';
+import { Todo, FetchTodosAction } from './../actions/action';
 
 
-export const todosReducer = (state: Todo[] = []) => {
+export const todosReducer = (state: Todo[] = [], action: FetchTodosAction) => {
 
 }
