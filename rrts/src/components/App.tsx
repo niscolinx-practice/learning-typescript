@@ -6,8 +6,9 @@ interface AppProps {
     todos: Todo[]
     fetchTodos(): any
 }
-export class App extends React.Component {
+export class App extends React.Component<AppProps> {
     render(){
+        
         return (
             <div>This is the App</div>
         )
