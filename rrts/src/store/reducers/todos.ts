@@ -6,7 +6,8 @@ export const todosReducer = (state: Todo[] = [], action: Action) => {
         case ActionTypes.fetchTodos:
             return action.payload
 
-        case ActionTypes.deleteTodo: 
+        case ActionTypes.deleteTodo:
+            return action.payload
         default:
             return state
     }
