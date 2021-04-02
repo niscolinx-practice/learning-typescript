@@ -8,15 +8,16 @@ interface AppProps {
     fetchTodos(): any
 }
 class _App extends React.Component<AppProps> {
-
-    componentDidMount(){
+    
+    onButtonClick = (): void => {
+        
         this.props.fetchTodos()
     }
 
     render(){
         console.log(this.props.todos)
         return (
-            <div>This is the App</div>
+            <div><button onClick={this.onButtonClick}>Fetch</button></div>
         )
     }
 }
