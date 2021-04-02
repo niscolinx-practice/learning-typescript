@@ -21,11 +21,22 @@ class _App extends React.Component<AppProps, AppState> {
             fetching: false
         }
     }
+
+    componentDidUpdate(prevProps: AppProps): void {
+        if(!prevProps.todos.length && this.props.todos.length){
+            this.setState({
+                fetching: false
+            })
+        }
+    }
     onButtonClick = (): void => {
         this.props.fetchTodos()
+        this.setState({
+            fetching: true
+        })
     }
 
-    onDeleteTodo = (id: number):MouseEventHandler<HTMLDivElement> | undefined => {
+    onDeleteTodo = (id: number): void => {
         this.props.deleteTodo(id)
     }
 
@@ -39,6 +50,7 @@ class _App extends React.Component<AppProps, AppState> {
         console.log(this.props.todos)
         return (
             <div><button onClick={this.onButtonClick}>Fetch</button>
+            {this.state.fetching ? 'LOADING' : null }
             {this.renderList()}
             </div>
         )
