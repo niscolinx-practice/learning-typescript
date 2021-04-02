@@ -6,11 +6,10 @@ interface AppProps {
     color?: string
 }
 
-interface AppState {
-    counter: number
-}
-class App extends React.Component<AppProps, AppState> {
+class App extends React.Component<AppProps> {
 
+    state =  {counter: 0}
+    
     constructor(props: AppProps){
         super(props)
 
