@@ -1,6 +1,6 @@
 import React from 'react'
 import {connect} from 'react-redux'
-import { Todo, fetchTodos } from '../store/actions'
+import { Todo, fetchTodos, deleteTodo } from '../store/actions'
 import { StoreState } from '../store/reducers/reducer'
 
 interface AppProps {
@@ -36,4 +36,4 @@ const mapStateToProps = ({todos}: StoreState): {todos: Todo[]} => {
     }
 }
 
-export const App = connect(mapStateToProps, {fetchTodos})(_App)
+export const App = connect(mapStateToProps, {fetchTodos, deleteTodo})(_App)
