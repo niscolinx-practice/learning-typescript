@@ -47,10 +47,9 @@ class _App extends React.Component<AppProps, AppState> {
     }
 
     render(){
-        console.log(this.props.todos)
         return (
             <div><button onClick={this.onButtonClick}>Fetch</button>
-            {this.state.fetching ? 'LOADING' : null }
+            {this.state.fetching && this.renderList().length < 1 ?'LOADING' : null }
             {this.renderList()}
             </div>
         )
