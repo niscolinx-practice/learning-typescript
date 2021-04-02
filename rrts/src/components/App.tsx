@@ -8,8 +8,19 @@ interface AppProps {
     fetchTodos: Function
     deleteTodo: typeof deleteTodo
 }
-class _App extends React.Component<AppProps> {
+
+interface AppState {
+    fetching: boolean
+}
+class _App extends React.Component<AppProps, AppState> {
     
+    constructor(props: AppProps){
+        super(props)
+
+        this.state = {
+            fetching: false
+        }
+    }
     onButtonClick = (): void => {
         this.props.fetchTodos()
     }
