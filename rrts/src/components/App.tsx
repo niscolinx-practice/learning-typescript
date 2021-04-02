@@ -1,4 +1,4 @@
-import React, { MouseEventHandler } from 'react'
+import React from 'react'
 import {connect} from 'react-redux'
 import { Todo, fetchTodos, deleteTodo } from '../store/actions'
 import { StoreState } from '../store/reducers/reducer'
@@ -42,7 +42,7 @@ class _App extends React.Component<AppProps, AppState> {
 
     renderList(): JSX.Element[]{
         return this.props.todos.map((todo: Todo) => {
-            return <div key={todo.id} onClick={this.onDeleteTodo(todo.id)}>{todo.title}</div>
+            return <div key={todo.id} onClick={() => this.onDeleteTodo(todo.id)}>{todo.title}</div>
         })
     }
 
