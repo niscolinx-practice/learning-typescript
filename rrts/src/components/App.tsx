@@ -23,7 +23,7 @@ class _App extends React.Component<AppProps> {
         console.log(this.props.todos)
         return (
             <div><button onClick={this.onButtonClick}>Fetch</button>
-            {this.renderList}
+            {this.renderList()}
             </div>
         )
     }
