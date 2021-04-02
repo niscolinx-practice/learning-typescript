@@ -4,9 +4,12 @@ import ReactDom from 'react-dom'
 
 interface AppProps {
     color?: string
+}
+
+interface AppState {
     counter: number
 }
-class App extends React.Component<AppProps> {
+class App extends React.Component<AppProps, AppState> {
 
     constructor(props: AppProps){
         super(props)
