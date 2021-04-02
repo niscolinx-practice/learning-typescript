@@ -1,12 +1,13 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import { Todo } from '../store/actions/action'
+import { StoreState } from '../store/reducers/reducer'
 
 interface AppProps {
     todos: Todo[]
     fetchTodos(): any
 }
-export class App extends React.Component<AppProps> {
+class _App extends React.Component<AppProps> {
     render(){
         
         return (
@@ -14,3 +15,12 @@ export class App extends React.Component<AppProps> {
         )
     }
 }
+
+
+const mapStateToProps = ({todos}: StoreState): {todos: Todo[]} => {
+    return {
+        todos
+    }
+}
+
+export default App
